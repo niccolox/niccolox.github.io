@@ -69,7 +69,7 @@ def page(title, description, path, body, canonical=None, post=None):
   <meta name="twitter:card" content="{'summary_large_image' if post else 'summary'}">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="/assets/theme.js?v=1"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=2">
+  <link rel="stylesheet" href="/assets/daisyui.css?v=3">
   <link rel="stylesheet" href="/assets/styles.css?v=5">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
 {feature_css}
