@@ -48,7 +48,7 @@ def page(title, description, path, body, canonical=None, post=None):
         if post.get('date_published'):
             schema['datePublished'] = post['date_published']
             schema['dateModified'] = post['date_published']
-    feature_css = '<link rel="stylesheet" href="/assets/polycrisis.css?v=1">' if post and post.get('layout') == 'feature' else ''
+    feature_css = '<link rel="stylesheet" href="/assets/polycrisis.css?v=2">' if post and post.get('layout') == 'feature' else ''
     image = f'<meta property="og:image" content="{ORIGIN + post["image"]}">' if post else ''
     return f'''<!doctype html>
 <html lang="en" data-theme="nord">
