@@ -48,7 +48,7 @@ npm run check
 
 Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. `npm run build:theme` rebuilds only the theme, and `npm run build:writing` rebuilds only article pages and writing links. The homepage header uses the same theme control as the article template, so header changes should be kept in sync.
 
-The seven imported posts preserve the complete published body text, original images, and external references. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Each article links to its original publication and uses that URL as its canonical address; the sitemap lists the homepage and local writing index. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
+The seven posts were imported with their complete published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Each article links to its original publication and uses that URL as its canonical address; the sitemap lists the homepage and local writing index. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
 
 ## Content sources
 
