@@ -26,7 +26,7 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `site/assets/styles.css`: layout, responsive behavior, color, and print styles.
 - `site/assets/site.js`: mobile navigation, current year, and printing.
 - `site/assets/downloads/`: resume PDF, resume Word document, and source portfolio PDF.
-- `site/assets/images/`: original images extracted from the provided portfolio.
+- `site/assets/images/`: the provided blue-jacket portrait and original images extracted from the portfolio.
 - `scripts/check_site.py`: local asset, anchor, and metadata checks.
 
 The content and navigation remain available without JavaScript. Native details elements provide project and career disclosures. There are no analytics, external fonts, forms, trackers, or backend services.
