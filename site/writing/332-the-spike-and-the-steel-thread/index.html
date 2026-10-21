@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="nord">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eceff4">
+  <title>The Spike and the Steel Thread — Nicholas Roberts</title>
+  <meta name="description" content="A banking integration proof of concept, and what it revealed about scope and dependencies.">
+  <link rel="canonical" href="https://www.niccolox.com/p/332-the-spike-and-the-steel-thread">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Spike and the Steel Thread">
+  <meta property="og:description" content="A banking integration proof of concept, and what it revealed about scope and dependencies.">
+  <meta property="og:url" content="https://niccolox.github.io/writing/332-the-spike-and-the-steel-thread/">
+  <meta property="og:image" content="https://niccolox.github.io/assets/images/writing/332.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
+  <script src="/assets/theme.js?v=1"></script>
+  <link rel="stylesheet" href="/assets/daisyui.css?v=1">
+  <link rel="stylesheet" href="/assets/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/writing.css?v=1">
+  <script src="/assets/site.js?v=2" defer></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "The Spike and the Steel Thread", "description": "A banking integration proof of concept, and what it revealed about scope and dependencies.", "url": "https://niccolox.github.io/writing/332-the-spike-and-the-steel-thread/", "author": {"@type": "Person", "name": "Nicholas Roberts", "url": "https://niccolox.github.io/"}, "isBasedOn": "https://www.niccolox.com/p/332-the-spike-and-the-steel-thread", "image": "https://niccolox.github.io/assets/images/writing/332.jpg", "wordCount": 643}</script>
+</head>
+<body id="top">
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner wrap">
+  <a href="/" class="wordmark" aria-label="Nicholas Roberts home"><span class="monogram">n<span>r</span>.</span><span>NICHOLAS<br>ROBERTS</span></a>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">+</span></button>
+  <nav id="navigation" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#experience">Experience</a><a href="/writing/" aria-current="location">Writing</a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+  <label class="theme-switch" title="Switch between Nord and Night">
+  <span class="theme-label-nord">Nord</span><span class="theme-label-night">Night</span>
+  <input type="checkbox" class="toggle theme-controller" value="night" aria-label="Night theme (off uses Nord)">
+</label>
+</div></header>
+<main id="main" class="article-main">
+<article>
+  <header class="article-header wrap">
+    <a class="article-back" href="/writing/">← All writing</a>
+    <p class="eyebrow">MODERNIZATION</p>
+    <h1>The Spike and the Steel Thread</h1>
+    <p class="article-subtitle">The cross-functional team constructs a proof-of-concept by first tackling a system&#x27;s most complex and critical data workflow</p>
+    <div class="article-meta"><span>Nicholas (Niccolo) Roberts</span><span>3 min read</span><a href="https://www.niccolox.com/p/332-the-spike-and-the-steel-thread">Originally on niccolox.com ↗</a></div>
+  </header>
+  <figure class="article-image wrap"><img src="/assets/images/writing/332.jpg" alt="Metal bobbin wound with steel thread" width="1100" height="500" fetchpriority="high"></figure>
+  <div class="article-reading">
+    
+    <div class="article-prose"><p>
+As a client-facing technical project and product manager, I've often employed the 'Spiked Solution' design pattern when modernizing legacy applications. This deliberate approach, akin to the 'Steel Thread' in its overarching direction, instills confidence in the project's trajectory. </p>
+<blockquote>
+<p>
+A Spiked Solution or Steel Thread compels a cross-functional team to construct a proof-of-concept by first tackling a system's most complex and critical data workflow.  </p>
+</blockquote>
+<p>
+For instance, on a recent banking project, the client wanted my research and development engineering team to investigate the possibility of integrating a legacy loan origination system into the modern data activation platform. With its complex and expensive desktop app, the banking legacy system was thoroughly investigated to meet the business request of integrating the legacy system API deep into the modern data-driven platform our team was building. </p>
+<p>
+The business request: Can we replace the legacy desktop app with the modern web application we are building? Can we save money on desktop app licenses? Can we create operational efficiency by using one less tool? </p>
+<p>
+The 'Spiked Solution' was pivotal in addressing the business request. It answered crucial questions: Can we leverage the legacy API in our modern tool? How much can we integrate and replace today? What steps will become apparent for future integrations and replacements? This progress reassures the audience of the project's well-managed trajectory.</p>
+<p>
+We used the legacy app as the specification for the modernization, not the user manuals, API docs, or our desires. During a deep-dive demo of the legacy desktop app, it was obvious that there were at least five, possibly more, third-party enrichment/integrations in the legacy app that did not exist in user docs or developer API. </p>
+<p>
+Working with the consulting engineers on our team, we reviewed the legacy API docs. We saw none of the third-party enrichment APIs. I emailed the legacy vendor professional services contact, who confirmed these enrichments did not exist in the client-facing API and that we needed to develop relationships directly with the third-party API vendors.  </p>
+<p>
+With a healthy budget and a competent engineering team, I instructed my engineers to Spike / Steel Thread the Loan Origination API and prove we had no return options for third-party enrichments. Within a week, my engineers built a modern web application that constructed API requests to the legacy app API endpoint, captured responses for debugging, and saved the data into a modern database. We could now compare the modern Spiked Solution / Steel Thread data workflow with the same workflow in the desktop legacy app. </p>
+<p>
+The Spike / Steel Thread was sparse, with no third-party enrichment, and reset expectations around what was achievable in modernization at what stage. Our cross-functional team could celebrate a qualified success. We originated a data flow, but third-party enrichment and completion of the workflow would require further vendor management, commercial arrangements, and research and development. </p>
+<p>
+The Spike or the Steel Thread highlighted these indisputable facts, put boundaries around our modernization product feature implementations, shaped our roadmap, and filled in future project budgets. </p>
+<p>
+Using the discovery from the Spiked Solution or The Steel Thread, we adjusted expectations based on ground-truth reality, added boundaries around the Spike proof-of-concept, and now had a roadmap for future third-party enrichment API integrations.</p>
+<p>
+I've used the Spiked Solution or Steel Thread in many projects, where research and development lead to discovery and feedback on product definition. This form of lean product development aligns client requests with continuous delivery of business value and avoids big bang/success-fail project surprises. </p>
+<p>
+The "Spiked Solution" was one of the first software patterns I learned from the Cunningham Wiki C2 Wiki (before Wikipedia), and its cousin, the "Steel Thread", is a worthy inheritor of this legacy. Legacy application modernization projects require careful and continuous delivery of business value, unlocking business data workflows from legacy apps and bringing those data workflows into modern platforms for future agile development. </p>
+<p>
+More research:-</p>
+<ul>
+<li>
+<a href="https://wiki.c2.com/?SpikeSolution">https://wiki.c2.com/?SpikeSolution</a> </li>
+</ul>
+</div>
+    <div class="article-source"><p>Written by Nicholas Roberts. <a href="https://www.niccolox.com/p/332-the-spike-and-the-steel-thread">Read the original on niccolox.com ↗</a></p></div>
+  </div>
+</article>
+<aside class="article-next wrap" aria-label="More writing"><div><p class="eyebrow">KEEP READING</p><a href="/writing/334-acquiring-growth-with-counter-cyclical-customer-success/">Acquiring Growth With Counter-Cyclical Customer Success <span aria-hidden="true">→</span></a></div><a class="text-link" href="/writing/">Browse all articles →</a></aside>
+</main>
+<footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>
+</body>
+</html>

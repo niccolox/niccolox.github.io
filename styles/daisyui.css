@@ -1,0 +1,8 @@
+@import "tailwindcss/theme.css";
+@import "tailwindcss/utilities.css";
+@source "../site";
+@plugin "daisyui" {
+  themes: nord --default, night;
+  include: toggle;
+  logs: false;
+}

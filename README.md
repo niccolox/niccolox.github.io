@@ -1,6 +1,6 @@
 # Nicholas Roberts resume site
 
-A responsive, dependency-free resume and portfolio site for `niccolox/niccolox.github.io`.
+A responsive, static resume, portfolio, and writing site for `niccolox/niccolox.github.io`.
 
 ## Preview
 
@@ -11,6 +11,8 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory site
 ```
 
 Open `http://127.0.0.1:4173`. No package installation or build is needed.
+
+The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. Nord is the default; the theme-controller toggle selects Night and remembers the choice in local storage. Both themes work without JavaScript, but persistence requires it. Styles, scripts, and article images are served locally.
 
 ## Publish on GitHub Pages
 
@@ -25,11 +27,28 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `site/index.html`: copy, projects, experience, links, and Person structured data.
 - `site/assets/styles.css`: layout, responsive behavior, color, and print styles.
 - `site/assets/site.js`: mobile navigation, current year, and printing.
+- `site/assets/theme.js`: saved Nord/Night preference and theme-controller state.
+- `site/assets/writing.css`: responsive article and writing-index typography.
+- `styles/daisyui.css`: Tailwind entry and official DaisyUI Nord/Night configuration.
+- `content/writing/`: seven reviewed article bodies and source metadata.
+- `scripts/build_writing.py`: generates article pages, the writing index, and homepage writing links.
 - `site/assets/downloads/`: resume PDF, resume Word document, and source portfolio PDF.
 - `site/assets/images/`: the provided blue-jacket portrait and original images extracted from the portfolio.
 - `scripts/check_site.py`: local asset, anchor, and metadata checks.
 
-The content and navigation remain available without JavaScript. Native details elements provide project and career disclosures. There are no analytics, external fonts, forms, trackers, or backend services.
+The content and navigation remain available without JavaScript. Native details elements provide project disclosures and article contents. There are no analytics, external fonts, submission forms, trackers, or backend services.
+
+## Rebuild styles and writing
+
+```sh
+npm ci
+npm run build
+npm run check
+```
+
+Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. `npm run build:theme` rebuilds only the theme, and `npm run build:writing` rebuilds only article pages and writing links. The homepage header uses the same theme control as the article template, so header changes should be kept in sync.
+
+The seven imported posts preserve the complete published body text, original images, and external references. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Each article links to its original publication and uses that URL as its canonical address; the sitemap lists the homepage and local writing index. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
 
 ## Content sources
 

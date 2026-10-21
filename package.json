@@ -1,0 +1,15 @@
+{
+  "name": "nicholas-roberts-resume-site",
+  "private": true,
+  "scripts": {
+    "build:theme": "tailwindcss -i styles/daisyui.css -o site/assets/daisyui.css --minify",
+    "build:writing": "python3 scripts/build_writing.py",
+    "build": "npm run build:writing && npm run build:theme",
+    "check": "python3 scripts/check_site.py"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.0",
+    "daisyui": "5.7.50",
+    "tailwindcss": "4.3.0"
+  }
+}

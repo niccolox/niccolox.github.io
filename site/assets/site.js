@@ -33,4 +33,4 @@ document.addEventListener('click', (event) => {
 
 window.matchMedia('(min-width: 541px)').addEventListener('change', closeMenu);
 document.querySelector('#year').textContent = String(new Date().getFullYear());
-document.querySelector('#print-resume').addEventListener('click', () => window.print());
+document.querySelector('#print-resume')?.addEventListener('click', () => window.print());
