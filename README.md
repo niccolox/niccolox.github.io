@@ -70,3 +70,5 @@ Before publishing substantive changes, also check desktop and mobile layout, men
 ## Original feature articles
 
 The cybersecurity polycrisis article is an original, dated research briefing. Its reviewed source is `content/writing/the-cybersecurity-polycrisis.html`; the feature layout uses `site/assets/polycrisis.css`. The source trail distinguishes original notices, research, editorial analysis, and access limitations. Feature posts are self-canonical, dated in structured data, included in the sitemap, and covered by the same text-integrity check as imported posts. Recheck live advisories before updating time-sensitive claims.
+
+`content/writing/cyberpolycrisis-network-map.html` extends that briefing with the 16-topic network analysis. It uses the feature layout plus `site/assets/network-map.css`, an accessible SVG graph on larger screens, and an equivalent large-text list on mobile. The article links to the six-page issue register and the full analytical model in `site/assets/downloads/`. The two PHP topics are merged, and the partly verified iPhone chain remains outside the 14-theme baseline. Its association counts are not severity or victim counts.

@@ -1,0 +1,667 @@
+{
+  "snapshot_date": "2026-10-21",
+  "method": "Unweighted, analyst-coded bipartite issue-to-exposure-domain graph. Edge means a primary mechanism or response domain in the source; not a causal, exploit, organizational or victim-overlap link.",
+  "limitations": [
+    "16 source topics become 15 themes after merging PHP items 01 and 12.",
+    "iPhone claims stay on the watchlist; baseline has 14 themes, including policy, guidance and research.",
+    "No common actor, coordinated campaign or cross-vendor exploit chain is inferred.",
+    "Connectivity is model-dependent and is not a measure of likelihood, severity, affected users or loss.",
+    "Actual organizational coupling requires asset, credential, supplier, trust-store and recovery-dependency inventories."
+  ],
+  "hubs": {
+    "identity": "Credentials and authorization",
+    "software": "Software execution and delivery",
+    "ai": "AI tools and model dependency",
+    "trust": "Network and certificate trust",
+    "data": "Data exposure and isolation",
+    "continuity": "Service continuity"
+  },
+  "risks": [
+    {
+      "id": "r01",
+      "source_items": [
+        1,
+        12
+      ],
+      "label": "PHP and legacy PHP",
+      "domains": [
+        "software"
+      ],
+      "watch_only": false,
+      "evidence": "Confirmed; patches released",
+      "scope_note": "Merge source items 01 and 12; patchability is the common mechanism.",
+      "sources": [
+        [
+          "PHP release advisory",
+          "https://www.php.net/archive/2026.php"
+        ],
+        [
+          "CERT-EU 2026-018",
+          "https://cert.europa.eu/publications/security-advisories/2026-018"
+        ]
+      ]
+    },
+    {
+      "id": "r02",
+      "source_items": [
+        2
+      ],
+      "label": "GCP London",
+      "domains": [
+        "continuity"
+      ],
+      "watch_only": false,
+      "evidence": "Confirmed power outage",
+      "scope_note": "Power-related cloud unavailability; no cyberattack attribution.",
+      "sources": [
+        [
+          "Google incident report",
+          "https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj"
+        ],
+        [
+          "UK Treasury Committee",
+          "https://committees.parliament.uk/committee/158/treasury-committee/news/218364/google-cloud-outage-bank-of-england-and-fca-letter-published/"
+        ]
+      ]
+    },
+    {
+      "id": "r03",
+      "source_items": [
+        3
+      ],
+      "label": "Cairn",
+      "domains": [
+        "software",
+        "ai",
+        "data"
+      ],
+      "watch_only": false,
+      "evidence": "Researcher observations",
+      "scope_note": "Research documents agents exploiting applications and targeting payment/data theft; no specific exploit tie to the new PHP or Node CVEs.",
+      "sources": [
+        [
+          "NorForge investigation",
+          "https://norforge.com/blog/inside_cairn"
+        ]
+      ]
+    },
+    {
+      "id": "r04",
+      "source_items": [
+        4
+      ],
+      "label": "DeepSeek federal policy",
+      "domains": [
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Official government order",
+      "scope_note": "Covered organizations must identify and replace restricted model dependencies; applicability is conditional.",
+      "sources": [
+        [
+          "Federal Register order notice",
+          "https://www.govinfo.gov/content/pkg/FR-2026-10-20/html/2026-21447.htm"
+        ]
+      ]
+    },
+    {
+      "id": "r05",
+      "source_items": [
+        5
+      ],
+      "label": "AI agent governance",
+      "domains": [
+        "identity",
+        "ai",
+        "data"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor guidance",
+      "scope_note": "Guidance concerns delegated permissions, tools and sensitive information; not a single breach.",
+      "sources": [
+        [
+          "Microsoft: Securing the agentic insider",
+          "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/"
+        ]
+      ]
+    },
+    {
+      "id": "r06",
+      "source_items": [
+        6
+      ],
+      "label": "eMudhra",
+      "domains": [
+        "trust"
+      ],
+      "watch_only": false,
+      "evidence": "Confirmed trust incident",
+      "scope_note": "Affected certificate validation paths require trust-store updates.",
+      "sources": [
+        [
+          "Cloudflare response",
+          "https://blog.cloudflare.com/emudhra-certificate-compromise/"
+        ],
+        [
+          "Thread supplement",
+          "https://x.com/niccolox/status/2112947873109401691"
+        ]
+      ]
+    },
+    {
+      "id": "r07",
+      "source_items": [
+        7
+      ],
+      "label": "OpenCode Console",
+      "domains": [
+        "identity",
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed breach",
+      "scope_note": "Exposure concerns a subset of linked AI-provider credentials, not every local installation.",
+      "sources": [
+        [
+          "OpenCode incident statement",
+          "https://x.com/opencode/status/2111519637049319818"
+        ]
+      ]
+    },
+    {
+      "id": "r08",
+      "source_items": [
+        8
+      ],
+      "label": "Lightning AI",
+      "domains": [
+        "identity",
+        "ai",
+        "continuity"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed incident",
+      "scope_note": "Platform credential exposure and platform shutdown; not all Lightning services.",
+      "sources": [
+        [
+          "Lightning incident notice",
+          "https://lightning.ai/blog/oct-2026-incident/"
+        ]
+      ]
+    },
+    {
+      "id": "r09",
+      "source_items": [
+        9
+      ],
+      "label": "PingCAP / TiDB Cloud",
+      "domains": [
+        "identity",
+        "data"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed exposure",
+      "scope_note": "Stolen service-account credentials and customer-record exposure; no established compromise of data stored in TiDB.",
+      "sources": [
+        [
+          "PingCAP incident report",
+          "https://www.pingcap.com/trust-hub/security/security-update-october-2026/"
+        ],
+        [
+          "Customer actions",
+          "https://www.pingcap.com/ko/trust-hub/security/customer-actions-october-2026/"
+        ],
+        [
+          "Thread item 9",
+          "https://x.com/niccolox/status/2112815663693877441"
+        ]
+      ]
+    },
+    {
+      "id": "r10",
+      "source_items": [
+        10
+      ],
+      "label": "LiteLLM 1.107.0",
+      "domains": [
+        "identity",
+        "software",
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Research-confirmed malware",
+      "scope_note": "Malicious distributed artifacts collect provider, developer and cloud credentials.",
+      "sources": [
+        [
+          "JFrog investigation",
+          "https://research.jfrog.com/post/litellm-hijacked-again/"
+        ],
+        [
+          "Thread item 10",
+          "https://x.com/niccolox/status/2112945813542637969"
+        ]
+      ]
+    },
+    {
+      "id": "r11",
+      "source_items": [
+        11
+      ],
+      "label": "iPhone attack claims",
+      "domains": [
+        "software",
+        "trust"
+      ],
+      "watch_only": true,
+      "evidence": "Claim; partly corroborated",
+      "scope_note": "Proposed Bluetooth chain and Cellebrite attribution remain partly unverified; exclude from baseline connectivity.",
+      "sources": [
+        [
+          "Underlying research",
+          "https://justin.sh/blog/2026/10/cellebrite-advanced-unlocks/"
+        ],
+        [
+          "Apple security bulletin",
+          "https://support.apple.com/en-us/149041"
+        ],
+        [
+          "Thread item 11",
+          "https://x.com/niccolox/status/2112949467997708683"
+        ]
+      ]
+    },
+    {
+      "id": "r13",
+      "source_items": [
+        13
+      ],
+      "label": "LLMjacking",
+      "domains": [
+        "identity",
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Honeypot observations",
+      "scope_note": "Research on abuse of model endpoints and inference access; not a confirmed universal victim count.",
+      "sources": [
+        [
+          "Symantec/Broadcom research",
+          "https://www.security.com/threat-intelligence/ai-llmjacking-skynet"
+        ],
+        [
+          "Thread item 13",
+          "https://x.com/niccolox/status/2112953688990085334"
+        ]
+      ]
+    },
+    {
+      "id": "r14",
+      "source_items": [
+        14
+      ],
+      "label": "AI-generated code",
+      "domains": [
+        "identity",
+        "software",
+        "ai",
+        "data"
+      ],
+      "watch_only": false,
+      "evidence": "Expert warning / case example",
+      "scope_note": "Engineering-risk example centers on authorization and cross-user document isolation.",
+      "sources": [
+        [
+          "Original commentary",
+          "https://x.com/oegerikus/status/2112812380505751680"
+        ],
+        [
+          "Thread item \u201c14\u201d",
+          "https://x.com/niccolox/status/2112955132384251949"
+        ]
+      ]
+    },
+    {
+      "id": "r15",
+      "source_items": [
+        15
+      ],
+      "label": "Node.js",
+      "domains": [
+        "software",
+        "trust"
+      ],
+      "watch_only": false,
+      "evidence": "Confirmed; patches released",
+      "scope_note": "Runtime security fixes include eMudhra certificate-trust changes.",
+      "sources": [
+        [
+          "Node.js security release",
+          "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+        ],
+        [
+          "Thread item \u201c14 nodejs\u201d",
+          "https://x.com/niccolox/status/2112955625340801508"
+        ]
+      ]
+    },
+    {
+      "id": "r16",
+      "source_items": [
+        16
+      ],
+      "label": "Cisco Smart Install",
+      "domains": [
+        "identity",
+        "trust"
+      ],
+      "watch_only": false,
+      "evidence": "Established configuration risk",
+      "scope_note": "Legacy unauthenticated network-provisioning exposure; not a new October 2026 incident.",
+      "sources": [
+        [
+          "NSA advisory",
+          "https://www.nsa.gov/portals/75/documents/what-we-do/cybersecurity/professional-resources/csa-cisco-smart-install-protocol-misuse.pdf?v=1"
+        ],
+        [
+          "Cisco guidance",
+          "https://www.cisco.com/c/en/us/support/docs/csa/cisco-sa-20180409-smi.html"
+        ],
+        [
+          "Thread item 16",
+          "https://x.com/niccolox/status/2112957991284826273"
+        ]
+      ]
+    }
+  ],
+  "baseline": {
+    "themes": 14,
+    "domains": 6,
+    "edges": 30,
+    "components": 1,
+    "hub_degree": {
+      "identity": 8,
+      "software": 5,
+      "ai": 8,
+      "trust": 3,
+      "data": 4,
+      "continuity": 2
+    },
+    "hub_overlap": [
+      {
+        "a": "identity",
+        "b": "software",
+        "shared_issues": 2,
+        "issues": [
+          "LiteLLM 1.107.0",
+          "AI-generated code"
+        ]
+      },
+      {
+        "a": "identity",
+        "b": "ai",
+        "shared_issues": 6,
+        "issues": [
+          "AI agent governance",
+          "OpenCode Console",
+          "Lightning AI",
+          "LiteLLM 1.107.0",
+          "LLMjacking",
+          "AI-generated code"
+        ]
+      },
+      {
+        "a": "identity",
+        "b": "trust",
+        "shared_issues": 1,
+        "issues": [
+          "Cisco Smart Install"
+        ]
+      },
+      {
+        "a": "identity",
+        "b": "data",
+        "shared_issues": 3,
+        "issues": [
+          "AI agent governance",
+          "PingCAP / TiDB Cloud",
+          "AI-generated code"
+        ]
+      },
+      {
+        "a": "identity",
+        "b": "continuity",
+        "shared_issues": 1,
+        "issues": [
+          "Lightning AI"
+        ]
+      },
+      {
+        "a": "software",
+        "b": "ai",
+        "shared_issues": 3,
+        "issues": [
+          "Cairn",
+          "LiteLLM 1.107.0",
+          "AI-generated code"
+        ]
+      },
+      {
+        "a": "software",
+        "b": "trust",
+        "shared_issues": 1,
+        "issues": [
+          "Node.js"
+        ]
+      },
+      {
+        "a": "software",
+        "b": "data",
+        "shared_issues": 2,
+        "issues": [
+          "Cairn",
+          "AI-generated code"
+        ]
+      },
+      {
+        "a": "ai",
+        "b": "data",
+        "shared_issues": 3,
+        "issues": [
+          "Cairn",
+          "AI agent governance",
+          "AI-generated code"
+        ]
+      },
+      {
+        "a": "ai",
+        "b": "continuity",
+        "shared_issues": 1,
+        "issues": [
+          "Lightning AI"
+        ]
+      }
+    ],
+    "normalized_betweenness": {
+      "r01": 0.0,
+      "r02": 0.0,
+      "r03": 0.06241,
+      "r04": 0.0,
+      "r05": 0.03248,
+      "r06": 0.0,
+      "r07": 0.00882,
+      "r08": 0.20765,
+      "r09": 0.01286,
+      "r10": 0.07786,
+      "r13": 0.00882,
+      "r14": 0.11986,
+      "r15": 0.06365,
+      "r16": 0.1366,
+      "identity": 0.38911,
+      "software": 0.22509,
+      "ai": 0.29329,
+      "trust": 0.12422,
+      "data": 0.03846,
+      "continuity": 0.10526
+    },
+    "articulation_nodes": [
+      {
+        "id": "r08",
+        "components_after_removal": [
+          [
+            "ai",
+            "data",
+            "identity",
+            "r01",
+            "r03",
+            "r04",
+            "r05",
+            "r06",
+            "r07",
+            "r09",
+            "r10",
+            "r13",
+            "r14",
+            "r15",
+            "r16",
+            "software",
+            "trust"
+          ],
+          [
+            "continuity",
+            "r02"
+          ]
+        ]
+      },
+      {
+        "id": "software",
+        "components_after_removal": [
+          [
+            "ai",
+            "continuity",
+            "data",
+            "identity",
+            "r02",
+            "r03",
+            "r04",
+            "r05",
+            "r06",
+            "r07",
+            "r08",
+            "r09",
+            "r10",
+            "r13",
+            "r14",
+            "r15",
+            "r16",
+            "trust"
+          ],
+          [
+            "r01"
+          ]
+        ]
+      },
+      {
+        "id": "ai",
+        "components_after_removal": [
+          [
+            "continuity",
+            "data",
+            "identity",
+            "r01",
+            "r02",
+            "r03",
+            "r05",
+            "r06",
+            "r07",
+            "r08",
+            "r09",
+            "r10",
+            "r13",
+            "r14",
+            "r15",
+            "r16",
+            "software",
+            "trust"
+          ],
+          [
+            "r04"
+          ]
+        ]
+      },
+      {
+        "id": "trust",
+        "components_after_removal": [
+          [
+            "ai",
+            "continuity",
+            "data",
+            "identity",
+            "r01",
+            "r02",
+            "r03",
+            "r04",
+            "r05",
+            "r07",
+            "r08",
+            "r09",
+            "r10",
+            "r13",
+            "r14",
+            "r15",
+            "r16",
+            "software"
+          ],
+          [
+            "r06"
+          ]
+        ]
+      },
+      {
+        "id": "continuity",
+        "components_after_removal": [
+          [
+            "ai",
+            "data",
+            "identity",
+            "r01",
+            "r03",
+            "r04",
+            "r05",
+            "r06",
+            "r07",
+            "r08",
+            "r09",
+            "r10",
+            "r13",
+            "r14",
+            "r15",
+            "r16",
+            "software",
+            "trust"
+          ],
+          [
+            "r02"
+          ]
+        ]
+      }
+    ]
+  },
+  "sensitivity": {
+    "include_iphone_claim": {
+      "identity": 8,
+      "software": 6,
+      "ai": 8,
+      "trust": 4,
+      "data": 4,
+      "continuity": 2
+    }
+  },
+  "documented_cross_issue_links": [
+    {
+      "a": "r06",
+      "b": "r15",
+      "relation": "Node.js security releases include eMudhra certificate-trust updates.",
+      "source": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+    }
+  ]
+}

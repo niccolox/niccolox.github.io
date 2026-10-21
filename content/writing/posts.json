@@ -1,5 +1,24 @@
 [
   {
+    "slug": "cyberpolycrisis-network-map",
+    "title": "Cyberpolycrisis network map",
+    "subtitle": "Where separate risks meet shared systems.",
+    "category": "CYBERSECURITY & SYSTEMS",
+    "description": "A network analysis of 16 cybersecurity topics: shared credentials, AI tools, software delivery and recovery, with evidence and practical response priorities.",
+    "source": "https://niccolox.github.io/writing/cyberpolycrisis-network-map/",
+    "layout": "feature",
+    "stylesheet": "/assets/network-map.css?v=1",
+    "date_published": "2026-10-21T11:21:42-07:00",
+    "image": "/assets/images/writing/cyberpolycrisis-network-map.png",
+    "image_source": "Original diagram of the strongest overlap in the article network model",
+    "image_alt": "Credentials and AI tools share six themes in the Cyberpolycrisis network map.",
+    "image_width": 1200,
+    "image_height": 630,
+    "caption": "",
+    "word_count": 2167,
+    "body_text_sha256": "ccf4d303897bd3e17c40b584ba13c0b2616df7f09fb5b34067f3f0bd73eded21"
+  },
+  {
     "slug": "the-cybersecurity-polycrisis",
     "title": "The Cybersecurity Polycrisis",
     "subtitle": "Eight events. Shared dependencies. A growing business caught in the middle.",

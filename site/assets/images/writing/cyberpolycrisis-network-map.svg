@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Cyberpolycrisis network map</title>
+  <desc id="desc">Credentials and AI tools share six themes in a network model with fourteen core themes and six exposure areas.</desc>
+  <rect width="1200" height="630" fill="#eceff4"/>
+  <path d="M625 64V566" stroke="#c6d0df" stroke-width="1"/>
+  <g fill="#2e3440" font-family="Liberation Sans, Arial, sans-serif">
+    <text x="58" y="72" font-size="15" letter-spacing="2">CYBERSECURITY / SYSTEMS THINKING</text>
+    <g font-family="Noto Serif, Georgia, serif" font-size="61"><text x="55" y="191">Cyberpolycrisis</text><text x="55" y="269" fill="#5e81ac">network map</text></g>
+    <text x="58" y="354" font-size="29">Where separate risks</text><text x="58" y="394" font-size="29">meet shared systems.</text>
+    <text x="58" y="514" font-size="23">14 themes · 6 exposure areas</text>
+    <text x="58" y="569" font-size="15" letter-spacing="1">NICHOLAS ROBERTS / NICCOLOX.GITHUB.IO</text>
+    <text x="910" y="95" text-anchor="middle" font-size="15" letter-spacing="2">THE STRONGEST OVERLAP</text>
+  </g>
+  <path d="M910 230V418" stroke="#5e81ac" stroke-width="8"/>
+  <rect x="707" y="136" width="406" height="112" rx="12" fill="#e5e9f0" stroke="#b4c0d3"/>
+  <rect x="707" y="402" width="406" height="112" rx="12" fill="#e5e9f0" stroke="#b4c0d3"/>
+  <circle cx="910" cy="325" r="45" fill="#5e81ac"/>
+  <g font-family="Liberation Sans, Arial, sans-serif" text-anchor="middle"><text x="910" y="183" fill="#2e3440" font-size="32">Credentials</text><text x="910" y="222" fill="#2e3440" font-size="27">and permissions</text><text x="910" y="452" fill="#2e3440" font-size="32">AI tools</text><text x="910" y="488" fill="#2e3440" font-size="25">and model dependencies</text><text x="910" y="341" fill="#eceff4" font-size="47">6</text><text x="910" y="563" fill="#4c566a" font-size="20">Shared themes, not a shared attacker.</text></g>
+</svg>
