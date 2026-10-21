@@ -36,10 +36,10 @@ class Page(HTMLParser):
         if tag == 'script' and a.get('type') == 'application/ld+json':
             self.capture_json = True
             self.json_blocks.append('')
-        if tag == 'div' and (self.body_depth or 'article-prose' in a.get('class', '').split()):
+        if tag == 'div' and (self.body_depth or {'article-prose', 'feature-content'}.intersection(a.get('class', '').split())):
             self.body_depth += 1
         if self.body_depth and (tag in {'script','iframe','form','object','embed'} or any(k.startswith('on') for k in a)):
-            self.errors.append('Active content in imported article')
+            self.errors.append('Active content in reviewed article')
 
     def handle_data(self, data):
         if self.capture_json:

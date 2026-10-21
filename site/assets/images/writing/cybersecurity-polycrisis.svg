@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">The cybersecurity polycrisis</title>
+  <desc id="desc">Eight events converge on shared identity, data, runtime, and supplier dependencies, with implications for customer access and business continuity.</desc>
+  <rect width="1200" height="630" fill="#eceff4"/>
+  <g fill="none" stroke="#b6c2cf" stroke-width="2"><path d="M710 190H1050V440H710Z"/><path d="M880 190V440M710 315H1050"/><path d="M710 250H640V320M1050 250H1120V320M710 380H640V320M1050 380H1120V320"/></g>
+  <g font-family="Arial,sans-serif" fill="#2e3440">
+    <text x="70" y="105" font-size="16" letter-spacing="3">NICHOLAS ROBERTS / FIELD NOTES</text>
+    <text x="70" y="235" font-family="Georgia,serif" font-size="65">The cybersecurity</text>
+    <text x="70" y="312" font-family="Georgia,serif" font-size="78" font-style="italic" fill="#4c6d83">polycrisis.</text>
+    <text x="70" y="380" font-size="23">Eight events. Shared dependencies.</text>
+    <text x="70" y="417" font-size="23">One operating environment.</text>
+    <text x="70" y="555" font-size="15" letter-spacing="2">OCTOBER 2026 · TECHNOLOGY LEADERSHIP</text>
+  </g>
+  <g fill="#e5e9f0" stroke="#8b9daf"><rect x="690" y="155" width="150" height="70" rx="8"/><rect x="920" y="155" width="150" height="70" rx="8"/><rect x="690" y="405" width="150" height="70" rx="8"/><rect x="920" y="405" width="150" height="70" rx="8"/></g>
+  <g font-family="Arial,sans-serif" font-size="17" fill="#2e3440" text-anchor="middle"><text x="765" y="197">IDENTITY</text><text x="995" y="197">DATA</text><text x="765" y="447">RUNTIME</text><text x="995" y="447">SUPPLIERS</text></g>
+  <rect x="740" y="275" width="280" height="80" rx="10" fill="#2e3440"/>
+  <text x="880" y="322" text-anchor="middle" font-family="Arial,sans-serif" font-size="19" fill="#eceff4">BUSINESS CONTINUITY</text>
+</svg>

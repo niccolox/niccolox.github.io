@@ -30,7 +30,7 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `site/assets/theme.js`: saved Nord/Night preference and theme-controller state.
 - `site/assets/writing.css`: responsive article and writing-index typography.
 - `styles/daisyui.css`: Tailwind entry and official DaisyUI Nord/Night configuration.
-- `content/writing/`: seven reviewed article bodies and source metadata.
+- `content/writing/`: reviewed article bodies and source metadata.
 - `scripts/build_writing.py`: generates article pages, the writing index, and homepage writing links.
 - `site/assets/downloads/`: resume PDF, resume Word document, and source portfolio PDF.
 - `site/assets/images/`: the provided blue-jacket portrait and original images extracted from the portfolio.
@@ -48,7 +48,7 @@ npm run check
 
 Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. `npm run build:theme` rebuilds only the theme, and `npm run build:writing` rebuilds only article pages and writing links. The homepage header uses the same theme control as the article template, so header changes should be kept in sync.
 
-The seven posts were imported with their complete published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Each article links to its original publication and uses that URL as its canonical address; the sitemap lists the homepage and local writing index. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
+The seven posts were imported with their complete published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Each article links to its original publication and uses that URL as its canonical address; the sitemap lists the homepage, local writing index, and original feature articles. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
 
 ## Content sources
 
@@ -66,3 +66,7 @@ python3 scripts/check_site.py
 ```
 
 Before publishing substantive changes, also check desktop and mobile layout, menu keyboard behavior, project disclosures, downloads, and browser console errors.
+
+## Original feature articles
+
+The cybersecurity polycrisis article is an original, dated research briefing. Its reviewed source is `content/writing/the-cybersecurity-polycrisis.html`; the feature layout uses `site/assets/polycrisis.css`. The source trail distinguishes original notices, research, editorial analysis, and access limitations. Feature posts are self-canonical, dated in structured data, included in the sitemap, and covered by the same text-integrity check as imported posts. Recheck live advisories before updating time-sensitive claims.

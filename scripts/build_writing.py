@@ -1,4 +1,4 @@
-"""Build the imported articles from reviewed local content; no network access."""
+"""Build articles from reviewed local content; no network access."""
 from pathlib import Path
 from html import escape
 import json
@@ -42,7 +42,13 @@ def page(title, description, path, body, canonical=None, post=None):
         'author': {'@type': 'Person', 'name': 'Nicholas Roberts', 'url': ORIGIN + '/'},
     }
     if post:
-        schema.update({'isBasedOn': post['source'], 'image': ORIGIN + post['image'], 'wordCount': post['word_count']})
+        schema.update({'image': ORIGIN + post['image'], 'wordCount': post['word_count']})
+        if post.get('layout') != 'feature':
+            schema['isBasedOn'] = post['source']
+        if post.get('date_published'):
+            schema['datePublished'] = post['date_published']
+            schema['dateModified'] = post['date_published']
+    feature_css = '<link rel="stylesheet" href="/assets/polycrisis.css?v=1">' if post and post.get('layout') == 'feature' else ''
     image = f'<meta property="og:image" content="{ORIGIN + post["image"]}">' if post else ''
     return f'''<!doctype html>
 <html lang="en" data-theme="nord">
@@ -61,9 +67,10 @@ def page(title, description, path, body, canonical=None, post=None):
   <meta name="twitter:card" content="{'summary_large_image' if post else 'summary'}">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="/assets/theme.js?v=1"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=1">
+  <link rel="stylesheet" href="/assets/daisyui.css?v=2">
   <link rel="stylesheet" href="/assets/styles.css?v=5">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
+{feature_css}
   <script src="/assets/site.js?v=2" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
@@ -78,6 +85,9 @@ def page(title, description, path, body, canonical=None, post=None):
 
 def article(post, position):
     content = (CONTENT / (post['slug'] + '.html')).read_text()
+    if post.get('layout') == 'feature':
+        body = '<main id="main" class="polycrisis"><article><div class="feature-content">' + content + '</div></article></main>'
+        return page(post['title'], post['description'], route(post), body, post=post)
     # Keep links between imported articles inside this site.
     for other in POSTS:
         content = content.replace('href="' + other['source'] + '"', 'href="' + route(other) + '"')
@@ -131,6 +141,9 @@ def build():
     extra = '''      <a class="writing-row" href="https://www.niccolox.com/p/352-cursor-codegpt-and-deepseek-r1-ollama-gpu-in-docker-on-ubuntu-24"><span class="writing-category">ENGINEERING</span><div><h3>A local AI development workflow</h3><p>Connecting Cursor, CodeGPT, Ollama, and GPU-enabled Docker containers. On niccolox.com.</p></div><span class="writing-arrow" aria-hidden="true">↗</span></a>'''
     section = '''    <section class="writing-section section-pad" id="writing" aria-labelledby="writing-heading"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / NOTES FROM THE WORK</p><h2 id="writing-heading">Thinking in public.</h2></div><a class="text-link" href="/writing/">All writing <span aria-hidden="true">→</span></a></div><div class="writing-list">\n''' + '\n'.join(homepage_row(post) for post in POSTS) + '\n' + extra + '\n    </div></div></section>'
     homepage.write_text(html[:start] + section + html[end:])
+    sitemap_urls = [ORIGIN + '/', ORIGIN + '/writing/']
+    sitemap_urls += [ORIGIN + route(post) for post in POSTS if post.get('layout') == 'feature']
+    (SITE / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join('<url><loc>' + escape(url) + '</loc></url>' for url in sitemap_urls) + '</urlset>\n')
     print(f'Built {len(POSTS)} complete articles, writing index, and homepage links.')
 
 

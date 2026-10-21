@@ -3,6 +3,6 @@
 @source "../site";
 @plugin "daisyui" {
   themes: nord --default, night;
-  include: toggle;
+  include: toggle, badge, card, table, collapse;
   logs: false;
 }
