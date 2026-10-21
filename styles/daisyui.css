@@ -2,7 +2,7 @@
 @import "tailwindcss/utilities.css";
 @source "../site";
 @plugin "daisyui" {
-  themes: nord --default, night;
+  themes: nord --default, night, synthwave;
   include: toggle, badge, card, table, collapse;
   logs: false;
 }

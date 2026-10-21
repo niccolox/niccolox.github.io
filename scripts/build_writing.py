@@ -33,6 +33,14 @@ def route(post):
 
 def page(title, description, path, body, canonical=None, post=None):
     url = ORIGIN + path
+    theme = 'synthwave' if post and post.get('theme') == 'synthwave' else 'nord'
+    theme_attributes = ' data-default-theme="synthwave"' if theme == 'synthwave' else ''
+    theme_color = '#09002f' if theme == 'synthwave' else '#eceff4'
+    header = HEADER.replace('PAGE_CURRENT', 'location' if post else 'page')
+    if theme == 'synthwave':
+        control = THEME_CONTROL.replace('Night', 'Synthwave').replace('value="night"', 'value="synthwave"')
+        control = control.replace('type="checkbox"', 'type="checkbox" checked')
+        header = header.replace(THEME_CONTROL, control)
     schema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting' if post else 'CollectionPage',
@@ -53,11 +61,11 @@ def page(title, description, path, body, canonical=None, post=None):
         feature_css += '\n  <link rel="stylesheet" href="' + escape(post['stylesheet'], quote=True) + '">'
     image = f'<meta property="og:image" content="{ORIGIN + post["image"]}">' if post else ''
     return f'''<!doctype html>
-<html lang="en" data-theme="nord">
+<html lang="en" data-theme="{theme}"{theme_attributes}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eceff4">
+  <meta name="theme-color" content="{theme_color}">
   <title>{escape(title)} — Nicholas Roberts</title>
   <meta name="description" content="{escape(description, quote=True)}">
   <link rel="canonical" href="{escape(canonical or url, quote=True)}">
@@ -68,8 +76,8 @@ def page(title, description, path, body, canonical=None, post=None):
   {image}
   <meta name="twitter:card" content="{'summary_large_image' if post else 'summary'}">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
-  <script src="/assets/theme.js?v=1"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=3">
+  <script src="/assets/theme.js?v=2"></script>
+  <link rel="stylesheet" href="/assets/daisyui.css?v=4">
   <link rel="stylesheet" href="/assets/styles.css?v=5">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
 {feature_css}
@@ -77,7 +85,7 @@ def page(title, description, path, body, canonical=None, post=None):
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
 <body id="top">
-{HEADER.replace('PAGE_CURRENT', 'location' if post else 'page')}
+{header}
 {body}
 {FOOTER}
 </body>
