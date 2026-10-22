@@ -1,5 +1,25 @@
 [
   {
+    "slug": "the-digital-younger-dryas",
+    "theme": "synthwave",
+    "title": "The Digital Younger Dryas",
+    "subtitle": "When the operating environment changes faster than the organization.",
+    "category": "TECHNOLOGY & RESILIENCE",
+    "description": "A woolly mammoth, a changing digital environment, and six practical adaptations for businesses navigating shared technology risks.",
+    "source": "https://niccolox.github.io/writing/the-digital-younger-dryas/",
+    "layout": "feature",
+    "stylesheet": "/assets/network-map.css?v=2",
+    "date_published": "2026-10-21T17:46:32-07:00",
+    "image": "/assets/images/writing/digital-younger-dryas-mammoth-infographic.png",
+    "image_source": "Original infographic created with built-in image generation",
+    "image_alt": "A woolly mammoth crosses an icy circuit landscape above six technology risks and practical responses.",
+    "image_width": 1024,
+    "image_height": 1536,
+    "caption": "",
+    "word_count": 1707,
+    "body_text_sha256": "41f591f661a917423f8056abb0652341ead88726273328eaadfffbd7eca95611"
+  },
+  {
     "slug": "cyberpolycrisis-network-map",
     "theme": "synthwave",
     "title": "Cyberpolycrisis network map",
