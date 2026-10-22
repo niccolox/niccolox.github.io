@@ -1,9 +1,9 @@
 {
-  "snapshot_date": "2026-10-21",
+  "snapshot_date": "2026-10-22",
   "method": "Unweighted, analyst-coded bipartite issue-to-exposure-domain graph. Edge means a primary mechanism or response domain in the source; not a causal, exploit, organizational or victim-overlap link.",
   "limitations": [
-    "16 source topics become 15 themes after merging PHP items 01 and 12.",
-    "iPhone claims stay on the watchlist; baseline has 14 themes, including policy, guidance and research.",
+    "26 source topics become 24 themes after merging PHP 01/12 and eMudhra/Tailscale 06/26.",
+    "The partly verified iPhone watch item is excluded: baseline has 23 themes, including policy, guidance and research.",
     "No common actor, coordinated campaign or cross-vendor exploit chain is inferred.",
     "Connectivity is model-dependent and is not a measure of likelihood, severity, affected users or loss.",
     "Actual organizational coupling requires asset, credential, supplier, trust-store and recovery-dependency inventories."
@@ -128,15 +128,17 @@
     {
       "id": "r06",
       "source_items": [
-        6
+        6,
+        26
       ],
-      "label": "eMudhra",
+      "label": "eMudhra / Tailscale remediation",
       "domains": [
+        "software",
         "trust"
       ],
       "watch_only": false,
       "evidence": "Confirmed trust incident",
-      "scope_note": "Affected certificate validation paths require trust-store updates.",
+      "scope_note": "One certificate incident and its Tailscale software response; not a separate Tailscale breach. Standard WireGuard mesh traffic is unaffected.",
       "sources": [
         [
           "Cloudflare response",
@@ -145,6 +147,10 @@
         [
           "Thread supplement",
           "https://x.com/niccolox/status/2112947873109401691"
+        ],
+        [
+          "Tailscale security bulletin TS 2026 013",
+          "https://tailscale.com/security-bulletins"
         ]
       ]
     },
@@ -315,7 +321,7 @@
           "https://x.com/oegerikus/status/2112812380505751680"
         ],
         [
-          "Thread item \u201c14\u201d",
+          "Thread item “14”",
           "https://x.com/niccolox/status/2112955132384251949"
         ]
       ]
@@ -339,7 +345,7 @@
           "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
         ],
         [
-          "Thread item \u201c14 nodejs\u201d",
+          "Thread item “14 nodejs”",
           "https://x.com/niccolox/status/2112955625340801508"
         ]
       ]
@@ -371,42 +377,246 @@
           "https://x.com/niccolox/status/2112957991284826273"
         ]
       ]
+    },
+    {
+      "id": "r17",
+      "source_items": [
+        17
+      ],
+      "label": "Railway environment secrets",
+      "domains": [
+        "identity",
+        "ai",
+        "continuity"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor notice; scope under review",
+      "scope_note": "Possible exposure of customer environment secrets; rotate all stored credentials and review downstream use. Initial notice paused deployments.",
+      "sources": [
+        [
+          "Railway disclosure",
+          "https://blog.railway.com/p/security-disclosure-wednesday-october-21st"
+        ]
+      ]
+    },
+    {
+      "id": "r18",
+      "source_items": [
+        18
+      ],
+      "label": "Zeabur infrastructure breach",
+      "domains": [
+        "identity",
+        "data"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed intrusion",
+      "scope_note": "Internal credentials opened shared infrastructure and customer secrets. Rotate stored passwords and keys; investigate affected workloads and databases.",
+      "sources": [
+        [
+          "Zeabur preliminary report",
+          "https://zeabur.com/blogs/october-2026-security-incident"
+        ]
+      ]
+    },
+    {
+      "id": "r19",
+      "source_items": [
+        19
+      ],
+      "label": "OVHcloud CLI release assets",
+      "domains": [
+        "identity",
+        "software",
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed artifact replacement",
+      "scope_note": "Official release binaries were replaced during a short download window. Check artifact hashes and accessible secrets; source-code review alone cannot establish safety.",
+      "sources": [
+        [
+          "OVHcloud advisory",
+          "https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw"
+        ]
+      ]
+    },
+    {
+      "id": "r20",
+      "source_items": [
+        20
+      ],
+      "label": "Rank Math PRO plugin malware",
+      "domains": [
+        "identity",
+        "software"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed package compromise",
+      "scope_note": "Malware reached a subset of PRO 3.0.123 downloads. Activated copies require full site recovery and credential replacement, beyond a plugin update.",
+      "sources": [
+        [
+          "Rank Math recovery guidance",
+          "https://rankmath.com/kb/pro-3-0-123-security-incident/"
+        ],
+        [
+          "Wordfence analysis",
+          "https://www.wordfence.com/blog/2026/10/rank-math-seo-pro-3-0-123-malware/"
+        ]
+      ]
+    },
+    {
+      "id": "r21",
+      "source_items": [
+        21
+      ],
+      "label": "TeamUpdraft data and site access",
+      "domains": [
+        "identity",
+        "software",
+        "data"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor notice; connected-site abuse",
+      "scope_note": "Customer records and connection keys were exposed; the vendor also reports connected-site abuse. Reset access and inspect sites, including Premium installations.",
+      "sources": [
+        [
+          "TeamUpdraft incident and customer actions",
+          "https://teamupdraft.com/blog/security-incident-october-2026/"
+        ]
+      ]
+    },
+    {
+      "id": "r22",
+      "source_items": [
+        22
+      ],
+      "label": "ConnectWise backup identities",
+      "domains": [
+        "identity",
+        "data",
+        "continuity"
+      ],
+      "watch_only": false,
+      "evidence": "Vendor-confirmed identity incident",
+      "scope_note": "Backup application credentials were compromised. Review each Microsoft 365 tenant and keep affected connections disabled pending service-specific restoration instructions.",
+      "sources": [
+        [
+          "ConnectWise Trust Center and remediation guide",
+          "https://www.connectwise.com/company/trust/advisories"
+        ]
+      ]
+    },
+    {
+      "id": "r23",
+      "source_items": [
+        23
+      ],
+      "label": "Tensorlake npm compromise",
+      "domains": [
+        "identity",
+        "software",
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Maintainer-confirmed malware",
+      "scope_note": "Malicious npm 0.5.144 could steal credentials. Isolate hosts and remove the destructive token-monitor service before GitHub-token revocation, following the advisory.",
+      "sources": [
+        [
+          "Tensorlake advisory and recovery sequence",
+          "https://github.com/tensorlakeai/tensorlake/security/advisories/GHSA-8g63-53c9-65j2"
+        ]
+      ]
+    },
+    {
+      "id": "r24",
+      "source_items": [
+        24
+      ],
+      "label": "SubQuery npm backdoor",
+      "domains": [
+        "identity",
+        "software"
+      ],
+      "watch_only": false,
+      "evidence": "Independent technical analysis",
+      "scope_note": "@subql/common 5.8.3 contained a credential stealer and backdoor. Check transitive dependencies; both installation and import can trigger it.",
+      "sources": [
+        [
+          "StepSecurity investigation",
+          "https://www.stepsecurity.io/blog/subql-ecosystem-compromised"
+        ],
+        [
+          "GMO Flatt Security analysis",
+          "https://flatt.tech/research/posts/subql-common-npm-supply-chain-attack/"
+        ]
+      ]
+    },
+    {
+      "id": "r25",
+      "source_items": [
+        25
+      ],
+      "label": "GhostAction workflow injection",
+      "domains": [
+        "identity",
+        "software",
+        "ai"
+      ],
+      "watch_only": false,
+      "evidence": "Research-observed ongoing campaign",
+      "scope_note": "Compromised accounts injected secret-stealing workflows. Remove implants and revoke both the entry credential and exposed CI secrets.",
+      "sources": [
+        [
+          "GitGuardian campaign tracking",
+          "https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/"
+        ]
+      ]
     }
   ],
   "baseline": {
-    "themes": 14,
+    "themes": 23,
     "domains": 6,
-    "edges": 30,
+    "edges": 55,
     "components": 1,
     "hub_degree": {
-      "identity": 8,
-      "software": 5,
-      "ai": 8,
+      "identity": 17,
+      "software": 12,
+      "ai": 12,
       "trust": 3,
-      "data": 4,
-      "continuity": 2
+      "data": 7,
+      "continuity": 4
     },
     "hub_overlap": [
       {
         "a": "identity",
         "b": "software",
-        "shared_issues": 2,
+        "shared_issues": 8,
         "issues": [
           "LiteLLM 1.107.0",
-          "AI-generated code"
+          "AI-generated code",
+          "OVHcloud CLI release assets",
+          "Rank Math PRO plugin malware",
+          "TeamUpdraft data and site access",
+          "Tensorlake npm compromise",
+          "SubQuery npm backdoor",
+          "GhostAction workflow injection"
         ]
       },
       {
         "a": "identity",
         "b": "ai",
-        "shared_issues": 6,
+        "shared_issues": 10,
         "issues": [
           "AI agent governance",
           "OpenCode Console",
           "Lightning AI",
           "LiteLLM 1.107.0",
           "LLMjacking",
-          "AI-generated code"
+          "AI-generated code",
+          "Railway environment secrets",
+          "OVHcloud CLI release assets",
+          "Tensorlake npm compromise",
+          "GhostAction workflow injection"
         ]
       },
       {
@@ -420,46 +630,56 @@
       {
         "a": "identity",
         "b": "data",
-        "shared_issues": 3,
+        "shared_issues": 6,
         "issues": [
           "AI agent governance",
           "PingCAP / TiDB Cloud",
-          "AI-generated code"
+          "AI-generated code",
+          "Zeabur infrastructure breach",
+          "TeamUpdraft data and site access",
+          "ConnectWise backup identities"
         ]
       },
       {
         "a": "identity",
         "b": "continuity",
-        "shared_issues": 1,
+        "shared_issues": 3,
         "issues": [
-          "Lightning AI"
+          "Lightning AI",
+          "Railway environment secrets",
+          "ConnectWise backup identities"
         ]
       },
       {
         "a": "software",
         "b": "ai",
-        "shared_issues": 3,
+        "shared_issues": 6,
         "issues": [
           "Cairn",
           "LiteLLM 1.107.0",
-          "AI-generated code"
+          "AI-generated code",
+          "OVHcloud CLI release assets",
+          "Tensorlake npm compromise",
+          "GhostAction workflow injection"
         ]
       },
       {
         "a": "software",
         "b": "trust",
-        "shared_issues": 1,
+        "shared_issues": 2,
         "issues": [
+          "eMudhra / Tailscale remediation",
           "Node.js"
         ]
       },
       {
         "a": "software",
         "b": "data",
-        "shared_issues": 2,
+        "shared_issues": 3,
         "issues": [
           "Cairn",
-          "AI-generated code"
+          "AI-generated code",
+          "TeamUpdraft data and site access"
         ]
       },
       {
@@ -475,63 +695,53 @@
       {
         "a": "ai",
         "b": "continuity",
+        "shared_issues": 2,
+        "issues": [
+          "Lightning AI",
+          "Railway environment secrets"
+        ]
+      },
+      {
+        "a": "data",
+        "b": "continuity",
         "shared_issues": 1,
         "issues": [
-          "Lightning AI"
+          "ConnectWise backup identities"
         ]
       }
     ],
     "normalized_betweenness": {
+      "identity": 0.45812,
+      "software": 0.26796,
+      "ai": 0.19905,
+      "trust": 0.01225,
+      "data": 0.05521,
+      "continuity": 0.07619,
       "r01": 0.0,
       "r02": 0.0,
-      "r03": 0.06241,
+      "r03": 0.02406,
       "r04": 0.0,
-      "r05": 0.03248,
-      "r06": 0.0,
-      "r07": 0.00882,
-      "r08": 0.20765,
-      "r09": 0.01286,
-      "r10": 0.07786,
-      "r13": 0.00882,
-      "r14": 0.11986,
-      "r15": 0.06365,
-      "r16": 0.1366,
-      "identity": 0.38911,
-      "software": 0.22509,
-      "ai": 0.29329,
-      "trust": 0.12422,
-      "data": 0.03846,
-      "continuity": 0.10526
+      "r05": 0.01273,
+      "r06": 0.01376,
+      "r07": 0.00362,
+      "r08": 0.04761,
+      "r09": 0.0039,
+      "r10": 0.02299,
+      "r13": 0.00362,
+      "r14": 0.04143,
+      "r15": 0.01376,
+      "r16": 0.04425,
+      "r17": 0.04761,
+      "r18": 0.0039,
+      "r19": 0.02299,
+      "r20": 0.00985,
+      "r21": 0.02309,
+      "r22": 0.04412,
+      "r23": 0.02299,
+      "r24": 0.00985,
+      "r25": 0.02299
     },
     "articulation_nodes": [
-      {
-        "id": "r08",
-        "components_after_removal": [
-          [
-            "ai",
-            "data",
-            "identity",
-            "r01",
-            "r03",
-            "r04",
-            "r05",
-            "r06",
-            "r07",
-            "r09",
-            "r10",
-            "r13",
-            "r14",
-            "r15",
-            "r16",
-            "software",
-            "trust"
-          ],
-          [
-            "continuity",
-            "r02"
-          ]
-        ]
-      },
       {
         "id": "software",
         "components_after_removal": [
@@ -553,6 +763,15 @@
             "r14",
             "r15",
             "r16",
+            "r17",
+            "r18",
+            "r19",
+            "r20",
+            "r21",
+            "r22",
+            "r23",
+            "r24",
+            "r25",
             "trust"
           ],
           [
@@ -580,39 +799,20 @@
             "r14",
             "r15",
             "r16",
+            "r17",
+            "r18",
+            "r19",
+            "r20",
+            "r21",
+            "r22",
+            "r23",
+            "r24",
+            "r25",
             "software",
             "trust"
           ],
           [
             "r04"
-          ]
-        ]
-      },
-      {
-        "id": "trust",
-        "components_after_removal": [
-          [
-            "ai",
-            "continuity",
-            "data",
-            "identity",
-            "r01",
-            "r02",
-            "r03",
-            "r04",
-            "r05",
-            "r07",
-            "r08",
-            "r09",
-            "r10",
-            "r13",
-            "r14",
-            "r15",
-            "r16",
-            "software"
-          ],
-          [
-            "r06"
           ]
         ]
       },
@@ -636,6 +836,15 @@
             "r14",
             "r15",
             "r16",
+            "r17",
+            "r18",
+            "r19",
+            "r20",
+            "r21",
+            "r22",
+            "r23",
+            "r24",
+            "r25",
             "software",
             "trust"
           ],
@@ -648,12 +857,12 @@
   },
   "sensitivity": {
     "include_iphone_claim": {
-      "identity": 8,
-      "software": 6,
-      "ai": 8,
+      "identity": 17,
+      "software": 13,
+      "ai": 12,
       "trust": 4,
-      "data": 4,
-      "continuity": 2
+      "data": 7,
+      "continuity": 4
     }
   },
   "documented_cross_issue_links": [
@@ -662,6 +871,13 @@
       "b": "r15",
       "relation": "Node.js security releases include eMudhra certificate-trust updates.",
       "source": "https://nodejs.org/en/blog/vulnerability/october-2026-security-releases"
+    },
+    {
+      "a": "source_item_06",
+      "b": "source_item_26",
+      "relation": "Tailscale TS-2026-013 is remediation for the same eMudhra certificate incident; merged into r06.",
+      "source": "https://tailscale.com/security-bulletins"
     }
-  ]
+  ],
+  "source_topic_count": 26
 }
