@@ -152,6 +152,7 @@ def build():
     section = '''    <section class="writing-section section-pad" id="writing" aria-labelledby="writing-heading"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / NOTES FROM THE WORK</p><h2 id="writing-heading">Thinking in public.</h2></div><a class="text-link" href="/writing/">All writing <span aria-hidden="true">→</span></a></div><div class="writing-list">\n''' + '\n'.join(homepage_row(post) for post in POSTS) + '\n' + extra + '\n    </div></div></section>'
     homepage.write_text(html[:start] + section + html[end:])
     sitemap_urls = [ORIGIN + '/', ORIGIN + '/writing/']
+    sitemap_urls += [ORIGIN + '/' + str(path.parent.relative_to(SITE)) + '/' for path in sorted((SITE / 'services').rglob('index.html'))]
     sitemap_urls += [ORIGIN + route(post) for post in POSTS if post.get('layout') == 'feature']
     (SITE / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join('<url><loc>' + escape(url) + '</loc></url>' for url in sitemap_urls) + '</urlset>\n')
     print(f'Built {len(POSTS)} complete articles, writing index, and homepage links.')

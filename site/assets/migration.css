@@ -1,0 +1,22 @@
+/* The service page reuses the portfolio's type, colors, and navigation. */
+.migration-page{font-size:18px}
+.migration-page p{line-height:1.7}
+.migration-kicker{font:11px/1.6 var(--mono);letter-spacing:.08em}
+.migration-title{font:clamp(43px,5.2vw,72px)/1.07 var(--serif);letter-spacing:-.045em}
+.migration-title em{color:var(--accent);font-weight:400}
+.migration-heading{font:clamp(33px,3.7vw,49px)/1.12 var(--serif);letter-spacing:-.035em}
+.migration-lede{font-size:21px;max-width:590px}
+.migration-page .button{font-size:16px;min-height:50px;line-height:1.4}
+.migration-page .text-link{font-size:16px;line-height:1.5}
+.migration-flow{height:40px;display:grid;place-items:center;font-size:24px;color:var(--accent)}
+.migration-metric{display:block;font:clamp(44px,5vw,68px)/1.1 var(--serif);letter-spacing:-.04em;margin-bottom:8px}
+.migration-scope{display:flex;flex-direction:column;gap:14px;padding:29px 0;border-top:1px solid var(--line)}
+.migration-scope h3{font:27px/1.2 var(--serif);letter-spacing:-.02em}
+.migration-scope p{color:var(--muted)}
+.migration-deliverable{font-size:16px;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
+.migration-page .collapse-title{display:block;font-size:18px;line-height:1.5;padding-block:23px;padding-left:0}
+.migration-page .collapse-content{padding-left:0;font-size:17px}
+.migration-page .collapse-content a{text-decoration:underline;text-underline-offset:3px}
+.migration-page .collapse-content a:hover{color:var(--accent)}
+@media(max-width:540px){.migration-lede{font-size:19px}.migration-title{font-size:clamp(37px,10.6vw,53px)}.migration-page .button{gap:15px}.migration-scope h3{font-size:25px}.migration-kicker{font-size:10px}}
+@media print{.migration-page{font-size:11pt}.migration-page .button{display:none}.migration-title{font-size:34pt}.migration-heading{font-size:25pt}.migration-page section{padding-block:20px}.migration-page .card{break-inside:avoid}}

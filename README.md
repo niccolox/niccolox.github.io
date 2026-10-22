@@ -25,6 +25,8 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 ## Edit
 
 - `site/index.html`: copy, projects, experience, links, and Person structured data.
+- `site/services/magento-to-shopify/index.html`: migration services landing page, scope, case study, FAQs, and email enquiry.
+- `site/assets/migration.css`: service-page typography and component refinements.
 - `site/assets/styles.css`: layout, responsive behavior, color, and print styles.
 - `site/assets/site.js`: mobile navigation, current year, and printing.
 - `site/assets/theme.js`: saved Nord/Night preference and theme-controller state.
@@ -37,6 +39,8 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `scripts/check_site.py`: local asset, anchor, and metadata checks.
 
 The content and navigation remain available without JavaScript. Native details elements provide project disclosures and article contents. There are no analytics, external fonts, submission forms, trackers, or backend services.
+
+The migration service enquiry opens a draft in the visitor's email application; it does not submit a form or store leads. Its case study identifies Offset Figure as the historical source platform. The service page uses existing portfolio evidence and links to Shopify's migration and redirect guidance. Service pages are included in the generated sitemap.
 
 ## Rebuild styles and writing
 
