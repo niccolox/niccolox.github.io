@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="/assets/theme.js?v=3"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=6">
+  <link rel="stylesheet" href="/assets/daisyui.css?v=7">
   <link rel="stylesheet" href="/assets/styles.css?v=5">
   <link rel="stylesheet" href="/assets/migration.css?v=1">
   <script src="/assets/site.js?v=2" defer></script>
@@ -65,6 +65,41 @@
       </div>
     </section>
 
+    <section id="why-migrate" class="border-t border-base-300 py-14 lg:py-20" aria-labelledby="risk-heading">
+      <div class="wrap flex flex-col gap-10">
+        <div class="grid gap-7 lg:grid-cols-2 lg:gap-16">
+          <div class="flex flex-col gap-5"><p class="migration-kicker">WHY MIGRATE / CUSTOMER TRUST &amp; BUSINESS RISK</p><h2 id="risk-heading" class="migration-heading">A missed patch can become<br>a customer trust problem.</h2></div>
+          <div class="flex flex-col gap-4"><p>An ageing Magento and PHP stack can turn maintenance into a recurring business constraint. If a vulnerability is exploited, the impact can reach customer records, daily sales, and the team responsible for recovery.</p><p class="text-base! text-base-content/80">Exposure depends on your versions, patch history, extensions, and configuration. On a self-managed store, your team and providers must keep those layers current.</p></div>
+        </div>
+        <div class="grid gap-5 lg:grid-cols-3" aria-label="Potential business impact of a store compromise">
+          <article class="card rounded-none border border-base-300 bg-base-200 p-6 gap-4"><p class="migration-kicker">CUSTOMER CONFIDENCE</p><h3 class="font-[family-name:var(--serif)] text-3xl">The difficult customer conversation.</h3><p>Exposure of names, addresses, or order history can lead to worried calls and customers hesitating to buy again. Reassurance takes work long after a technical fix.</p></article>
+          <article class="card rounded-none border border-base-300 bg-base-200 p-6 gap-4"><p class="migration-kicker">TRADING CONTINUITY</p><h3 class="font-[family-name:var(--serif)] text-3xl">Campaigns pause. Orders still need attention.</h3><p>Containment can mean disabling checkout or taking parts of the store offline. Paid traffic, fulfillment commitments, and customer support need decisions while the incident is investigated.</p></article>
+          <article class="card rounded-none border border-base-300 bg-base-200 p-6 gap-4"><p class="migration-kicker">BUDGET &amp; FOCUS</p><h3 class="font-[family-name:var(--serif)] text-3xl">Recovery takes over the roadmap.</h3><p>Emergency specialists, data checks, and customer communications can consume the budget and time intended for merchandising, conversion improvements, and new sales channels.</p></article>
+        </div>
+        <div class="border-l-2 border-primary pl-5 flex flex-col gap-3">
+          <p class="text-base!">PHP’s end-of-life branches stop receiving upstream security fixes. <a class="underline underline-offset-4" href="https://www.php.net/supported-versions.php">PHP support policy</a></p>
+          <p class="text-base!">Adobe’s September 8, 2026 Commerce and Magento Open Source update addressed flaws including security bypass and privilege escalation. Adobe reported no known exploitation of those issues when it published the bulletin. <a class="underline underline-offset-4" href="https://www.adobe.com/trust/security/products/commerce/apsb26-138.html">Adobe security bulletin</a></p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-2" aria-label="What changes when the store moves to Shopify">
+          <article class="card rounded-none bg-neutral text-neutral-content p-6 sm:p-8 gap-5">
+            <p class="migration-kicker">THE ADVANTAGE OF A HOSTED PLATFORM</p>
+            <h3 class="font-[family-name:var(--serif)] text-3xl">Move core maintenance off your team’s backlog.</h3>
+            <p>A Shopify-hosted storefront replaces the customer-facing Magento/PHP application with a platform operated by Shopify. Your team no longer runs that Magento application and its PHP runtime for the storefront.</p>
+            <p>Shopify plans include commerce hosting and TLS/SSL certificates. Its Level 1 PCI DSS compliance covers the Shopify store, checkout, and hosting. <a class="underline underline-offset-4" href="https://www.shopify.com/pricing">Hosting details</a> · <a class="underline underline-offset-4" href="https://www.shopify.com/security/pci-compliant">PCI scope</a></p>
+            <p>That shift can free capacity for product launches, merchandising, and customer experience. The business case compares those priorities with the full cost of plans, apps, transactions, and integrations.</p>
+          </article>
+          <article class="card rounded-none border border-base-300 bg-base-200 p-6 sm:p-8 gap-5">
+            <p class="migration-kicker">THE RESPONSIBILITIES YOU KEEP</p>
+            <h3 class="font-[family-name:var(--serif)] text-3xl">Keep control of access and connected systems.</h3>
+            <p>Your team still owns staff access, app permissions, API credentials, customer-data handling, and the custom systems connected to the store. Any retained PHP services still need support and patching.</p>
+            <p>Shopify recommends individual staff accounts and permissions, plus passkeys or two-step authentication. Apps and custom code need review too. <a class="underline underline-offset-4" href="https://help.shopify.com/en/manual/privacy-and-security/account-security">Shopify account security</a> · <a class="underline underline-offset-4" href="https://help.shopify.com/en/manual/promoting-marketing/pixels/custom-pixels/code">Custom pixel security</a></p>
+            <p>The migration plan includes access review, integration ownership, and the retirement of the old store after reconciliation and retention requirements are agreed.</p>
+          </article>
+        </div>
+        <div class="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between"><p class="max-w-2xl">Start with your actual PHP version, Magento patch level, and extension inventory. Keep urgent remediation moving while the migration is planned.</p><a class="button primary shrink-0" href="#contact">Review my migration options <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
     <section id="experience" class="border-y border-base-300 bg-base-200 py-14 lg:py-20" aria-labelledby="experience-heading">
       <div class="wrap grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
         <div class="flex flex-col items-start gap-6">
@@ -104,7 +139,7 @@
         <p class="self-end text-base-content/80">For established retailers with a working Magento store, valuable customer history, and systems that need to keep exchanging orders, stock, and financial data.</p>
       </div>
       <div class="grid gap-x-14 md:grid-cols-2">
-        <article class="migration-scope"><span class="migration-kicker">01 / ASSESSMENT</span><h3>Know what needs to move.</h3><p>Review your Magento edition, extensions, catalog, and custom workflows. Get a migration blueprint with dependencies, platform decisions, delivery phases, and acceptance criteria.</p></article>
+        <article class="migration-scope"><span class="migration-kicker">01 / ASSESSMENT</span><h3>Know what needs to move.</h3><p>Review your Magento and PHP versions, patch status, extensions, catalog, and custom workflows. Get a migration blueprint with dependencies, platform decisions, delivery phases, and acceptance criteria.</p></article>
         <article class="migration-scope"><span class="migration-kicker">02 / DATA</span><h3>Keep the history useful.</h3><p>Map products, attributes, customer records, and historical orders. Validate relationships, reconcile counts and values, and resolve exceptions before the final import.</p></article>
         <article class="migration-scope"><span class="migration-kicker">03 / STOREFRONT</span><h3>Make buying work on day one.</h3><p>Deliver the agreed Shopify storefront, collections, search, and merchandising journeys. Test mobile shopping, checkout, discounts, and customer communications against real business scenarios.</p></article>
         <article class="migration-scope"><span class="migration-kicker">04 / INTEGRATIONS</span><h3>Connect the teams behind every order.</h3><p>Plan and implement warehouse, ERP, finance, shipping, and marketing connections. Trace test orders through fulfillment, cancellation, and refund workflows with the people who operate them.</p></article>
