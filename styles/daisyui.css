@@ -3,6 +3,6 @@
 @source "../site";
 @plugin "daisyui" {
   themes: nord --default, night, synthwave;
-  include: toggle, badge, card, table, collapse;
+  include: toggle, badge, card, table, collapse, list;
   logs: false;
 }

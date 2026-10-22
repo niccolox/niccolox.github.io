@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#09002f">
   <title>Cyberpolycrisis network map — Nicholas Roberts</title>
-  <meta name="description" content="A network analysis of 26 cybersecurity topics: supplier secrets, malicious packages, cloud backup identities and certificate trust, with evidence and response actions.">
+  <meta name="description" content="A two-column infographic and sourced list of 26 cybersecurity topics, mapping shared credentials, AI tools, software delivery, certificate trust and recovery risks.">
   <link rel="canonical" href="https://niccolox.github.io/writing/cyberpolycrisis-network-map/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Cyberpolycrisis network map">
-  <meta property="og:description" content="A network analysis of 26 cybersecurity topics: supplier secrets, malicious packages, cloud backup identities and certificate trust, with evidence and response actions.">
+  <meta property="og:description" content="A two-column infographic and sourced list of 26 cybersecurity topics, mapping shared credentials, AI tools, software delivery, certificate trust and recovery risks.">
   <meta property="og:url" content="https://niccolox.github.io/writing/cyberpolycrisis-network-map/">
   <meta property="og:image" content="https://niccolox.github.io/assets/images/writing/cyberpolycrisis-network-map-26-topics.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -19,9 +19,9 @@
   <link rel="stylesheet" href="/assets/styles.css?v=5">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
 <link rel="stylesheet" href="/assets/polycrisis.css?v=2">
-  <link rel="stylesheet" href="/assets/network-map.css?v=1">
+  <link rel="stylesheet" href="/assets/network-map.css?v=2">
   <script src="/assets/site.js?v=2" defer></script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Cyberpolycrisis network map", "description": "A network analysis of 26 cybersecurity topics: supplier secrets, malicious packages, cloud backup identities and certificate trust, with evidence and response actions.", "url": "https://niccolox.github.io/writing/cyberpolycrisis-network-map/", "author": {"@type": "Person", "name": "Nicholas Roberts", "url": "https://niccolox.github.io/"}, "image": "https://niccolox.github.io/assets/images/writing/cyberpolycrisis-network-map-26-topics.png", "wordCount": 2792, "datePublished": "2026-10-21T11:21:42-07:00", "dateModified": "2026-10-21T11:21:42-07:00"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Cyberpolycrisis network map", "description": "A two-column infographic and sourced list of 26 cybersecurity topics, mapping shared credentials, AI tools, software delivery, certificate trust and recovery risks.", "url": "https://niccolox.github.io/writing/cyberpolycrisis-network-map/", "author": {"@type": "Person", "name": "Nicholas Roberts", "url": "https://niccolox.github.io/"}, "image": "https://niccolox.github.io/assets/images/writing/cyberpolycrisis-network-map-26-topics.png", "wordCount": 3646, "datePublished": "2026-10-21T11:21:42-07:00", "dateModified": "2026-10-21T11:21:42-07:00"}</script>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -49,30 +49,132 @@
   </div>
 </header>
 
-<nav class="crisis-nav" aria-label="Article sections"><div class="wrap"><a href="#latest-list">Updated issue list</a><a href="#network">Network map</a><a href="#domains">Shared exposure</a><a href="#connections">Four connections</a><a href="#priorities">Response priorities</a><a href="#method">Method &amp; sources</a></div></nav>
+<nav class="crisis-nav" aria-label="Article sections"><div class="wrap"><a href="#infographic">Infographic</a><a href="#latest-list">26-topic list</a><a href="#network">Network map</a><a href="#domains">Shared exposure</a><a href="#connections">Four connections</a><a href="#priorities">Response priorities</a><a href="#method">Method &amp; sources</a></div></nav>
 
-<section class="crisis-section wrap" id="latest-list" aria-labelledby="latest-list-title">
-<div class="section-lead"><p class="eyebrow">LATEST UPDATE / 15 REQUESTED TOPICS</p><h2 id="latest-list-title">The expanded issue list.</h2><p>Ten new entries join the original register; five topics were already covered. These summaries distinguish supplier breaches, malicious releases, patched vulnerabilities and related remediation. Priority applies to organizations with the stated exposure; it is an operational judgment, not a CVSS score.</p></div>
-<div class="network-domain-grid">
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">Railway</h3><p><strong>Critical priority</strong></p><p>Possible exposure of customer environment secrets; rotate all stored credentials and review downstream use. Initial notice paused deployments.</p><p><a href="https://blog.railway.com/p/security-disclosure-wednesday-october-21st">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">LiteLLM</h3><p><strong>Critical priority</strong></p><p>Malicious PyPI wheels and an official Docker image for 1.107.0 targeted credentials. Check installed artifacts and exposed provider keys.</p><p><a href="https://research.jfrog.com/post/litellm-hijacked-again/">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">Zeabur</h3><p><strong>Critical priority</strong></p><p>Internal credentials opened shared infrastructure and customer secrets. Rotate stored passwords and keys; investigate affected workloads and databases.</p><p><a href="https://zeabur.com/blogs/october-2026-security-incident">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">OpenCode</h3><p><strong>Critical priority</strong></p><p>The Console incident concerns linked external-provider API keys, not every local OpenCode installation. Revoke affected keys and review usage.</p><p><a href="https://x.com/opencode/status/2111519637049319818">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">OVHcloud CLI</h3><p><strong>Critical priority</strong></p><p>Official release binaries were replaced during a short download window. Check artifact hashes and accessible secrets; source-code review alone cannot establish safety.</p><p><a href="https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">Rank Math PRO</h3><p><strong>Critical priority</strong></p><p>Malware reached a subset of PRO 3.0.123 downloads. Activated copies require full site recovery and credential replacement, beyond a plugin update.</p><p><a href="https://rankmath.com/kb/pro-3-0-123-security-incident/">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">TeamUpdraft</h3><p><strong>Critical* priority</strong></p><p>Customer records and connection keys were exposed; the vendor also reports connected-site abuse. Reset access and inspect sites, including Premium installations.</p><p><a href="https://teamupdraft.com/blog/security-incident-october-2026/">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">ConnectWise</h3><p><strong>Critical priority</strong></p><p>Backup application credentials were compromised. Review each Microsoft 365 tenant and keep affected connections disabled pending service-specific restoration instructions.</p><p><a href="https://www.connectwise.com/company/trust/advisories">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">Tensorlake</h3><p><strong>Critical priority</strong></p><p>Malicious npm 0.5.144 could steal credentials. Isolate hosts and remove the destructive token-monitor service before GitHub-token revocation, following the advisory.</p><p><a href="https://github.com/tensorlakeai/tensorlake/security/advisories/GHSA-8g63-53c9-65j2">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">SubQuery</h3><p><strong>Critical priority</strong></p><p>@subql/common 5.8.3 contained a credential stealer and backdoor. Check transitive dependencies; both installation and import can trigger it.</p><p><a href="https://www.stepsecurity.io/blog/subql-ecosystem-compromised">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">GhostAction</h3><p><strong>Critical* priority</strong></p><p>Compromised accounts injected secret-stealing workflows. Remove implants and revoke both the entry credential and exposed CI secrets.</p><p><a href="https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">PHP</h3><p><strong>Critical priority</strong></p><p>Critical remote code execution vulnerabilities require supported security releases or verified vendor backports. Confirm running workers and deployment images.</p><p><a href="https://cert.europa.eu/publications/security-advisories/2026-018">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">Node.js</h3><p><strong>High priority</strong></p><p>October security updates address runtime vulnerabilities and eMudhra trust. Deploy a patched supported release and verify rebuilt applications.</p><p><a href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">eMudhra</h3><p><strong>Critical priority</strong></p><p>Compromised intermediate certificate keys require trust-store remediation. Inventory actual TLS verification paths; keep certificate checks enabled.</p><p><a href="https://blog.cloudflare.com/emudhra-certificate-compromise/">Primary source and guidance ↗</a></p></div></section>
-<section class="card network-domain"><div class="card-body"><h3 class="card-title">Tailscale</h3><p><strong>High priority</strong></p><p>Related TLS trust remediation: update to 1.104.2 or later. Standard WireGuard mesh traffic is unaffected; this is not a separate confirmed Tailscale breach.</p><p><a href="https://tailscale.com/security-bulletins">Primary source and guidance ↗</a></p></div></section>
-</div>
-<p style="margin-top:24px">*Critical priority for confirmed exposure. The full register includes impact, affected populations, evidence status and owner-specific actions. Most incidents have no established unique affected-user count.</p>
-<div class="network-resources"><a href="/assets/downloads/Cybersecurity-Polycrisis-Issue-Register-2026-10-22.pdf">Download the updated register (PDF)</a><a href="/assets/downloads/Cybersecurity-Polycrisis-Issue-Register-2026-10-22.docx">Download the editable register (Word)</a></div>
+<section class="crisis-section wrap" id="infographic" aria-labelledby="infographic-title">
+  <div class="section-lead"><p class="eyebrow">VISUAL BRIEFING / ALL 26 TOPICS</p><h2 id="infographic-title">The 26-topic infographic.</h2><p>Two columns bring the complete register into one view. Evidence labels distinguish incidents from research, policy, vulnerabilities and related remediation. The numbered text list below adds context, actions and source links.</p></div>
+  <figure class="network-figure network-infographic" aria-labelledby="infographic-caption">
+    <a href="/assets/images/writing/cyberpolycrisis-26-topics-two-column-infographic.png" aria-label="Open the two-column Cyberpolycrisis infographic at full size"><img class="block w-full h-auto rounded-box border border-base-300" src="/assets/images/writing/cyberpolycrisis-26-topics-two-column-infographic.png" alt="Two-column Cyberpolycrisis infographic listing topics 01–13 on the left and 14–26 on the right. Each topic has an evidence category and short description. The model contains 23 baseline themes, six exposure areas and 55 analytical links. All 26 topics and source links are provided in the text list below." width="1086" height="1448" loading="lazy" decoding="async"></a>
+    <figcaption id="infographic-caption">Twenty-six topics are not 26 independent incidents. PHP and legacy PHP are grouped, as are eMudhra and Tailscale; the iPhone watch item remains outside the baseline. Links describe analytical overlap, not a proven attack chain. Evidence snapshot: 22 October 2026 UTC.</figcaption>
+  </figure>
+  <div class="network-resources"><a href="/assets/images/writing/cyberpolycrisis-26-topics-two-column-infographic.png" download>Download the two-column infographic (PNG)</a><a href="#latest-list">Read the accessible 26-topic list ↓</a></div>
 </section>
+
+<section class="crisis-section crisis-tinted" id="latest-list" aria-labelledby="latest-list-title"><div class="wrap">
+  <div class="section-lead"><p class="eyebrow">COMPLETE REGISTER / 01–26</p><h2 id="latest-list-title">Every topic, with context.</h2><p>The numbers match the infographic and downloadable register. Read each column from top to bottom; the list stacks on mobile. Priority is an operational judgment for organizations with the stated exposure, not a CVSS score. Conditional priorities require the specific exposure to be established.</p></div>
+  <div class="network-topic-columns">
+    <ol class="list network-topic-list rounded-box" start="1" role="list" aria-label="Topics 01 to 13">
+      <li class="list-row network-topic" id="topic-01" value="1">
+        <span class="network-topic-number" aria-hidden="true">01</span>
+        <div><h3>PHP</h3><p class="network-topic-category">Vulnerability</p><p>Critical remote code execution flaws affect PHP deployments; exposure depends on the installed version and configuration.</p><p class="network-topic-action"><strong>Action:</strong> Deploy supported security releases or verified vendor backports, then confirm running workers and images.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://www.php.net/archive/2026.php">PHP release advisory ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-02" value="2">
+        <span class="network-topic-number" aria-hidden="true">02</span>
+        <div><h3>GCP London</h3><p class="network-topic-category">Outage</p><p>A power event disrupted cloud workloads and dependent services, including banking. The incident report does not establish a cyberattack.</p><p class="network-topic-action"><strong>Action:</strong> Verify recovery, reconcile queued transactions and test recovery across zones or regions.</p><p class="network-topic-priority"><strong>Priority:</strong> High</p><a class="network-topic-source" href="https://status.cloud.google.com/incidents/Xs2XTHzAVC9YnafnPyzj">Google incident report ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-03" value="3">
+        <span class="network-topic-number" aria-hidden="true">03</span>
+        <div><h3>Cairn</h3><p class="network-topic-category">Research</p><p>Researchers documented AI-assisted attack operations. Observed attack projects are not confirmed victims, and worker names do not establish Claude model involvement.</p><p class="network-topic-action"><strong>Action:</strong> Prioritize exposed application flaws and investigate unexpected files, sessions and service credentials.</p><p class="network-topic-priority"><strong>Priority:</strong> High</p><a class="network-topic-source" href="https://norforge.com/blog/inside_cairn">NorForge investigation ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-04" value="4">
+        <span class="network-topic-number" aria-hidden="true">04</span>
+        <div><h3>DeepSeek</h3><p class="network-topic-category">Policy</p><p>A US federal civilian exclusion and removal order creates procurement and embedded-model dependencies for covered agencies and suppliers.</p><p class="network-topic-action"><strong>Action:</strong> Inventory model dependencies and check the order’s scope, exceptions and obligations with procurement and legal owners.</p><p class="network-topic-priority"><strong>Priority:</strong> High (conditional)</p><a class="network-topic-source" href="https://www.govinfo.gov/content/pkg/FR-2026-10-20/html/2026-21447.htm">Federal Register order notice ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-05" value="5">
+        <span class="network-topic-number" aria-hidden="true">05</span>
+        <div><h3>AI agents</h3><p class="network-topic-category">Guidance</p><p>Microsoft’s insider-risk guidance concerns excessive agent permissions and consequential actions. It is not disclosure of a single customer breach.</p><p class="network-topic-action"><strong>Action:</strong> Assign owners and separate identities; enforce permission limits, approvals and auditable tool use outside the model.</p><p class="network-topic-priority"><strong>Priority:</strong> High (conditional)</p><a class="network-topic-source" href="https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/">Microsoft: Securing the agentic insider ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-06" value="6">
+        <span class="network-topic-number" aria-hidden="true">06</span>
+        <div><h3>eMudhra</h3><p class="network-topic-category">Trust incident</p><p>Compromised intermediate certificate keys create impersonation risk where affected chains remain trusted. This concerns authentication, not a break in TLS encryption.</p><p class="network-topic-action"><strong>Action:</strong> Update the trust stores applications actually use and replace affected chains; keep certificate verification enabled.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://blog.cloudflare.com/emudhra-certificate-compromise/">Cloudflare response ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-07" value="7">
+        <span class="network-topic-number" aria-hidden="true">07</span>
+        <div><h3>OpenCode Console</h3><p class="network-topic-category">Incident</p><p>The vendor reported exposure of linked AI-provider credentials for a subset of Console users. This scope does not include every local OpenCode installation.</p><p class="network-topic-action"><strong>Action:</strong> Revoke affected provider keys and review inference activity, billing and account limits.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://x.com/opencode/status/2111519637049319818">OpenCode incident statement ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-08" value="8">
+        <span class="network-topic-number" aria-hidden="true">08</span>
+        <div><h3>Lightning AI</h3><p class="network-topic-category">Incident</p><p>Unauthorized credential access led to platform disruption. The vendor’s notice distinguishes affected platform services from GPU rental and managed Kubernetes/SLURM services.</p><p class="network-topic-action"><strong>Action:</strong> Rotate exposed third-party credentials, review connected services and activate continuity arrangements.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://lightning.ai/blog/oct-2026-incident/">Lightning incident notice ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-09" value="9">
+        <span class="network-topic-number" aria-hidden="true">09</span>
+        <div><h3>PingCAP / TiDB Cloud</h3><p class="network-topic-category">Incident</p><p>Stolen service-account access exposed customer records and internal information. The vendor reported no evidence that data stored in TiDB was impacted.</p><p class="network-topic-action"><strong>Action:</strong> Follow management API-key replacement guidance, review logs and verify unusual payment or credential requests.</p><p class="network-topic-priority"><strong>Priority:</strong> High</p><a class="network-topic-source" href="https://www.pingcap.com/trust-hub/security/security-update-october-2026/">PingCAP incident report ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-10" value="10">
+        <span class="network-topic-number" aria-hidden="true">10</span>
+        <div><h3>LiteLLM</h3><p class="network-topic-category">Malicious release</p><p>Malicious PyPI wheels and an official Docker image for 1.107.0 targeted credentials. Artifact exposure matters even where source review finds no payload.</p><p class="network-topic-action"><strong>Action:</strong> Isolate affected execution environments, replace reachable secrets from a clean system and rebuild from verified artifacts.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://research.jfrog.com/post/litellm-hijacked-again/">JFrog investigation ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-11" value="11">
+        <span class="network-topic-number" aria-hidden="true">11</span>
+        <div><h3>iPhone attack claims</h3><p class="network-topic-category">Watch item</p><p>Research proposes a proximity attack chain, but its scope and Cellebrite attribution remain partly unverified. This item is outside the baseline model.</p><p class="network-topic-action"><strong>Action:</strong> Apply supported Apple security updates and escalate suspected targeted compromise to mobile incident responders.</p><p class="network-topic-priority"><strong>Priority:</strong> High (conditional)</p><a class="network-topic-source" href="https://justin.sh/blog/2026/10/cellebrite-advanced-unlocks/">Underlying research ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-12" value="12">
+        <span class="network-topic-number" aria-hidden="true">12</span>
+        <div><h3>Legacy PHP</h3><p class="network-topic-category">Related exposure</p><p>Unsupported runtimes complicate remediation. This overlaps with item 01; it is not an independent attack or evidence of an Internet-wide failure.</p><p class="network-topic-action"><strong>Action:</strong> Locate legacy installations, obtain patch assurance from hosts and migrate to supported versions.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://www.php.net/archive/2026.php">Current PHP guidance ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-13" value="13">
+        <span class="network-topic-number" aria-hidden="true">13</span>
+        <div><h3>LLMjacking</h3><p class="network-topic-category">Research</p><p>Honeypot research shows attempted abuse of model access and agent tooling. Allowed automated steps are not a count of completed attacks.</p><p class="network-topic-action"><strong>Action:</strong> Authenticate endpoints, restrict key scope and agent network access, and monitor unusual inference spending.</p><p class="network-topic-priority"><strong>Priority:</strong> High</p><a class="network-topic-source" href="https://www.security.com/threat-intelligence/ai-llmjacking-skynet">Symantec/Broadcom research ↗</a></div>
+      </li>
+    </ol>
+    <ol class="list network-topic-list rounded-box" start="14" role="list" aria-label="Topics 14 to 26">
+      <li class="list-row network-topic" id="topic-14" value="14">
+        <span class="network-topic-number" aria-hidden="true">14</span>
+        <div><h3>AI-generated code</h3><p class="network-topic-category">Engineering risk</p><p>The cited example concerns cross-user document exposure and authorization failures. It does not establish a universal failure rate for generated applications.</p><p class="network-topic-action"><strong>Action:</strong> Review generated changes and test tenant isolation, authorization and business logic before production use.</p><p class="network-topic-priority"><strong>Priority:</strong> High (conditional)</p><a class="network-topic-source" href="https://x.com/oegerikus/status/2112812380505751680">Original commentary ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-15" value="15">
+        <span class="network-topic-number" aria-hidden="true">15</span>
+        <div><h3>Node.js</h3><p class="network-topic-category">Security update</p><p>October security releases address runtime vulnerabilities and the eMudhra certificate-trust dependency.</p><p class="network-topic-action"><strong>Action:</strong> Deploy a patched supported release and verify rebuilt applications and their active trust stores.</p><p class="network-topic-priority"><strong>Priority:</strong> High</p><a class="network-topic-source" href="https://nodejs.org/en/blog/vulnerability/october-2026-security-releases">Node.js security release ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-16" value="16">
+        <span class="network-topic-number" aria-hidden="true">16</span>
+        <div><h3>Cisco Smart Install</h3><p class="network-topic-category">Legacy advisory</p><p>An older advisory about provisioning and configuration access has resurfaced. This is not a newly disclosed October 2026 breach.</p><p class="network-topic-action"><strong>Action:</strong> Inventory affected equipment, disable unused Smart Install and restrict management access.</p><p class="network-topic-priority"><strong>Priority:</strong> High (conditional)</p><a class="network-topic-source" href="https://www.nsa.gov/portals/75/documents/what-we-do/cybersecurity/professional-resources/csa-cisco-smart-install-protocol-misuse.pdf?v=1">NSA advisory ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-17" value="17">
+        <span class="network-topic-number" aria-hidden="true">17</span>
+        <div><h3>Railway</h3><p class="network-topic-category">Incident</p><p>The vendor disclosed possible exposure of customer environment secrets and initially paused deployments. Customer-specific impact remained under investigation.</p><p class="network-topic-action"><strong>Action:</strong> Rotate stored credentials and inspect downstream use, following the vendor’s containment and recovery guidance.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://blog.railway.com/p/security-disclosure-wednesday-october-21st">Railway disclosure ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-18" value="18">
+        <span class="network-topic-number" aria-hidden="true">18</span>
+        <div><h3>Zeabur</h3><p class="network-topic-category">Incident</p><p>Internal credentials opened shared infrastructure and customer secrets, including stored environment variables and database access.</p><p class="network-topic-action"><strong>Action:</strong> Rotate stored passwords and keys and investigate affected workloads and databases.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://zeabur.com/blogs/october-2026-security-incident">Zeabur preliminary report ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-19" value="19">
+        <span class="network-topic-number" aria-hidden="true">19</span>
+        <div><h3>OVHcloud CLI</h3><p class="network-topic-category">Malicious release</p><p>Official release binaries were replaced during a limited download window. Source-code review alone cannot verify the safety of downloaded release assets.</p><p class="network-topic-action"><strong>Action:</strong> Check artifact hashes and download timing, contain affected hosts and replace accessible secrets.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://github.com/ovh/ovhcloud-cli/security/advisories/GHSA-862f-55f5-vmvw">OVHcloud advisory ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-20" value="20">
+        <span class="network-topic-number" aria-hidden="true">20</span>
+        <div><h3>Rank Math PRO</h3><p class="network-topic-category">Malicious release</p><p>Malware reached a subset of official PRO 3.0.123 downloads. Updating the plugin alone does not remove persistence from an affected site.</p><p class="network-topic-action"><strong>Action:</strong> Recover affected sites from verified inputs, investigate persistence and replace compromised credentials.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://rankmath.com/kb/pro-3-0-123-security-incident/">Rank Math recovery guidance ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-21" value="21">
+        <span class="network-topic-number" aria-hidden="true">21</span>
+        <div><h3>TeamUpdraft</h3><p class="network-topic-category">Incident</p><p>The vendor believes customer data was accessed and confirms abuse of connected-site access. This does not establish compromise of the UpdraftPlus distribution itself.</p><p class="network-topic-action"><strong>Action:</strong> Reset access, enable MFA and inspect connected and Premium sites using the vendor’s current instructions.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://teamupdraft.com/blog/security-incident-october-2026/">TeamUpdraft incident and customer actions ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-22" value="22">
+        <span class="network-topic-number" aria-hidden="true">22</span>
+        <div><h3>ConnectWise</h3><p class="network-topic-category">Incident</p><p>Cloud Backup application identities were compromised. Backup archive compromise was not confirmed; delegated access to live Microsoft 365 tenants requires investigation.</p><p class="network-topic-action"><strong>Action:</strong> Review tenant activity and keep affected connections disabled until service-specific restoration instructions permit reconnection.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://www.connectwise.com/company/trust/advisories">ConnectWise Trust Center and remediation guide ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-23" value="23">
+        <span class="network-topic-number" aria-hidden="true">23</span>
+        <div><h3>Tensorlake</h3><p class="network-topic-category">Malicious release</p><p>Malicious npm 0.5.144 packages could steal credentials. The advisory includes a token-monitor service that makes containment order important.</p><p class="network-topic-action"><strong>Action:</strong> Isolate hosts and remove the token monitor before GitHub-token revocation; follow the advisory and rebuild from verified inputs.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://github.com/tensorlakeai/tensorlake/security/advisories/GHSA-8g63-53c9-65j2">Tensorlake advisory and recovery sequence ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-24" value="24">
+        <span class="network-topic-number" aria-hidden="true">24</span>
+        <div><h3>SubQuery</h3><p class="network-topic-category">Malicious release</p><p>@subql/common 5.8.3 contained a credential stealer and backdoor. Both installation and import can trigger execution, including through transitive dependencies.</p><p class="network-topic-action"><strong>Action:</strong> Check resolved dependencies, isolate affected hosts and rotate exposed credentials from a clean environment.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical</p><a class="network-topic-source" href="https://www.stepsecurity.io/blog/subql-ecosystem-compromised">StepSecurity investigation ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-25" value="25">
+        <span class="network-topic-number" aria-hidden="true">25</span>
+        <div><h3>GhostAction</h3><p class="network-topic-category">Campaign</p><p>Compromised GitHub accounts injected secret-stealing workflows into repositories. Campaign activity does not establish a common actor across every topic here.</p><p class="network-topic-action"><strong>Action:</strong> Remove malicious workflows and revoke both the entry credential and exposed CI secrets.</p><p class="network-topic-priority"><strong>Priority:</strong> Critical (conditional)</p><a class="network-topic-source" href="https://blog.gitguardian.com/ghostaction-github-actions-supply-chain-attack-returns/">GitGuardian campaign tracking ↗</a></div>
+      </li>
+      <li class="list-row network-topic" id="topic-26" value="26">
+        <span class="network-topic-number" aria-hidden="true">26</span>
+        <div><h3>Tailscale</h3><p class="network-topic-category">Related remediation</p><p>The eMudhra response concerns TLS certificate trust. Standard WireGuard mesh traffic is unaffected; this is not a separate confirmed Tailscale breach.</p><p class="network-topic-action"><strong>Action:</strong> Update to 1.104.2 or later and follow the relevant security bulletin. This response is grouped with item 06.</p><p class="network-topic-priority"><strong>Priority:</strong> High</p><a class="network-topic-source" href="https://tailscale.com/security-bulletins">Tailscale security bulletin TS 2026 013 ↗</a></div>
+      </li>
+    </ol>
+  </div>
+  <p class="network-register-note">Most incidents have no established unique affected-user count. The full register includes impact, affected populations, evidence status and owner-specific actions.</p>
+  <div class="network-resources"><a href="/assets/downloads/Cybersecurity-Polycrisis-Issue-Register-2026-10-22.pdf">Download the 26-topic register (PDF)</a><a href="/assets/downloads/Cybersecurity-Polycrisis-Issue-Register-2026-10-22.docx">Download the editable register (Word)</a></div>
+</div></section>
 
 <section class="crisis-section wrap" id="network" aria-labelledby="network-title">
   <div class="section-lead"><p class="eyebrow">01 / THE NETWORK</p><h2 id="network-title">Credentials sit at the intersection.</h2><p>The strongest overlap is between AI tooling and credentials or permissions. Ten of the core themes involve both. Software delivery connects that cluster to the systems used to build, deploy and operate the business.</p></div>

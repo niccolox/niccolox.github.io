@@ -5,10 +5,10 @@
     "title": "Cyberpolycrisis network map",
     "subtitle": "Where separate risks meet shared systems.",
     "category": "CYBERSECURITY & SYSTEMS",
-    "description": "A network analysis of 26 cybersecurity topics: supplier secrets, malicious packages, cloud backup identities and certificate trust, with evidence and response actions.",
+    "description": "A two-column infographic and sourced list of 26 cybersecurity topics, mapping shared credentials, AI tools, software delivery, certificate trust and recovery risks.",
     "source": "https://niccolox.github.io/writing/cyberpolycrisis-network-map/",
     "layout": "feature",
-    "stylesheet": "/assets/network-map.css?v=1",
+    "stylesheet": "/assets/network-map.css?v=2",
     "date_published": "2026-10-21T11:21:42-07:00",
     "image": "/assets/images/writing/cyberpolycrisis-network-map-26-topics.png",
     "image_source": "Original diagram of the strongest overlap in the article network model",
@@ -16,8 +16,8 @@
     "image_width": 1200,
     "image_height": 800,
     "caption": "",
-    "word_count": 2792,
-    "body_text_sha256": "ee9895fcaf7a30f4b85f6fe515f535413024d0cdf8fcadf11e041a73cbcca461"
+    "word_count": 3646,
+    "body_text_sha256": "9a9ff49c7127ea3d7e3038dcdc9abcae4d05d02eb29b3d8693e69d5d3c70b646"
   },
   {
     "slug": "the-cybersecurity-polycrisis",
