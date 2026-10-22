@@ -40,7 +40,7 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 
 The content and navigation remain available without JavaScript. Native details elements provide project disclosures and article contents. There are no analytics, external fonts, submission forms, trackers, or backend services.
 
-The migration service enquiry opens a draft in the visitor's email application; it does not submit a form or store leads. Its case study identifies Offset Figure as the historical source platform. The service page uses existing portfolio evidence and links to Shopify's migration and redirect guidance. Service pages are included in the generated sitemap.
+The migration service enquiry opens a draft in the visitor's email application; it does not submit a form or store leads. Its case study identifies Offset Figure as the historical source platform. The service page uses the official daisyUI Lemonade theme with a separate Lemonade/Night preference, and a data-migration infographic covering orders, customers, products, images, and metadata. It uses existing portfolio evidence and links to Shopify's migration and redirect guidance. Service pages are included in the generated sitemap.
 
 ## Rebuild styles and writing
 
