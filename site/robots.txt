@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://niccolox.github.io/sitemap.xml
+Sitemap: https://www.niccolox.com/sitemap.xml

@@ -18,7 +18,9 @@ The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. Nord is
 
 Push this directory's contents to the `main` branch of `niccolox/niccolox.github.io`. In the repository's **Settings → Pages**, set **Source** to **GitHub Actions**. The included workflow validates the files and deploys only `site/` on each push to `main` or manual workflow run.
 
-The intended address is `https://niccolox.github.io/`. No custom domain or DNS changes are included. The existing blog at `www.niccolox.com` stays linked from the site.
+The custom address is `https://www.niccolox.com/`, backed by `niccolox/niccolox.github.io`. GitHub Pages uses the custom domain configured through repository settings; this Actions deployment does not require a CNAME file. The `www` DNS record targets `niccolox.github.io`. The existing apex redirect sends `niccolox.com` visitors to `www`.
+
+The writing build preserves the imported blog URLs under `/p/` and the `/posts` index using static redirects. Article canonicals, social metadata and the sitemap use the custom domain. This is not a complete migration of every historical blog post or the old subscription/account system.
 
 GitHub's [custom workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) describes the Pages configuration.
 

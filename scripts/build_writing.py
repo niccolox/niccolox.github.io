@@ -4,12 +4,13 @@ from html import escape
 import json
 import math
 import re
+from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 CONTENT = ROOT / 'content' / 'writing'
 POSTS = json.loads((CONTENT / 'posts.json').read_text())
-ORIGIN = 'https://niccolox.github.io'
+ORIGIN = 'https://www.niccolox.com'
 
 THEME_CONTROL = '''<label class="theme-switch" title="Switch between Nord and Night">
   <span class="theme-label-nord">Nord</span><span class="theme-label-night">Night</span>
@@ -116,18 +117,28 @@ def article(post, position):
     <p class="eyebrow">{escape(post['category'])}</p>
     <h1>{escape(post['title'])}</h1>
     {subtitle}
-    <div class="article-meta"><span>Nicholas (Niccolo) Roberts</span><span>{max(1, math.ceil(post['word_count'] / 220))} min read</span><a href="{post['source']}">Originally on niccolox.com ↗</a></div>
+    <div class="article-meta"><span>Nicholas (Niccolo) Roberts</span><span>{max(1, math.ceil(post['word_count'] / 220))} min read</span><span>From the niccolox.com archive</span></div>
   </header>
   <figure class="article-image wrap"><img src="{post['image']}" alt="{escape(post['image_alt'], quote=True)}" width="{post['image_width']}" height="{post['image_height']}" fetchpriority="high">{caption}</figure>
   <div class="article-reading">
     {toc}
     <div class="article-prose">{content}</div>
-    <div class="article-source"><p>Written by Nicholas Roberts. <a href="{post['source']}">Read the original on niccolox.com ↗</a></p></div>
+    <div class="article-source"><p>Written by Nicholas Roberts. Preserved from the original niccolox.com blog.</p></div>
   </div>
 </article>
 <aside class="article-next wrap" aria-label="More writing"><div><p class="eyebrow">KEEP READING</p><a href="{route(next_post)}">{escape(next_post['title'])} <span aria-hidden="true">→</span></a></div><a class="text-link" href="/writing/">Browse all articles →</a></aside>
 </main>'''
-    return page(post['title'], post['description'], route(post), body, canonical=post['source'], post=post)
+    return page(post['title'], post['description'], route(post), body, post=post)
+
+
+def legacy_redirect(path, destination, title):
+    """Keep existing blog bookmarks reachable on the static Pages host."""
+    body = f'<main id="main" class="writing-index wrap"><h1>{escape(title)}</h1><p>This page is now part of the writing archive.</p><a class="text-link" href="{destination}">Continue to the article →</a></main>'
+    html = page(title, 'Continue to the writing archive.', path, body, canonical=ORIGIN + destination)
+    html = html.replace('<head>', f'<head>\n  <meta http-equiv="refresh" content="0; url={destination}">\n  <meta name="robots" content="noindex">', 1)
+    target = SITE / path.strip('/') / 'index.html'
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text(html)
 
 
 def homepage_row(post):
@@ -139,21 +150,24 @@ def build():
         target = SITE / route(post).strip('/') / 'index.html'
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(article(post, position))
+        source = urlsplit(post['source'])
+        if source.hostname in {'www.niccolox.com', 'niccolox.com'} and source.path.startswith('/p/'):
+            legacy_redirect(source.path, route(post), post['title'])
+    legacy_redirect('/posts', '/writing/', 'Writing by Nicholas Roberts')
     cards = []
     for post in POSTS:
         cards.append(f'''<a class="article-card" href="{route(post)}"><img src="{post['image']}" alt="{escape(post['image_alt'], quote=True)}" width="{post['image_width']}" height="{post['image_height']}" loading="lazy"><div class="article-card-copy"><p class="eyebrow">{post['category']}</p><h2>{escape(post['title'])}</h2><p>{escape(post['description'])}</p><span class="article-card-link">Read article →</span></div></a>''')
-    body = '''<main id="main" class="writing-index wrap"><header class="writing-index-header"><p class="eyebrow">NOTES FROM THE WORK</p><h1>Thinking in public.</h1><p>Field notes on AI, commerce, technology leadership, and getting useful work into the world.</p></header><div class="article-grid">''' + '\n'.join(cards) + '''</div><div class="writing-archive"><p>More notes and experiments on my original blog.</p><a class="text-link" href="https://www.niccolox.com/posts">Visit niccolox.com ↗</a></div></main>'''
+    body = '''<main id="main" class="writing-index wrap"><header class="writing-index-header"><p class="eyebrow">NOTES FROM THE WORK</p><h1>Thinking in public.</h1><p>Field notes on AI, commerce, technology leadership, and getting useful work into the world.</p></header><div class="article-grid">''' + '\n'.join(cards) + '''</div></main>'''
     (SITE / 'writing/index.html').write_text(page('Writing', 'Articles by Nicholas Roberts on AI, ecommerce, modernization, customer success, and product delivery.', '/writing/', body))
     homepage = SITE / 'index.html'
     html = homepage.read_text()
     start = html.index('    <section class="writing-section')
     end = html.index('</section>', start) + len('</section>')
-    extra = '''      <a class="writing-row" href="https://www.niccolox.com/p/352-cursor-codegpt-and-deepseek-r1-ollama-gpu-in-docker-on-ubuntu-24"><span class="writing-category">ENGINEERING</span><div><h3>A local AI development workflow</h3><p>Connecting Cursor, CodeGPT, Ollama, and GPU-enabled Docker containers. On niccolox.com.</p></div><span class="writing-arrow" aria-hidden="true">↗</span></a>'''
-    section = '''    <section class="writing-section section-pad" id="writing" aria-labelledby="writing-heading"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / NOTES FROM THE WORK</p><h2 id="writing-heading">Thinking in public.</h2></div><a class="text-link" href="/writing/">All writing <span aria-hidden="true">→</span></a></div><div class="writing-list">\n''' + '\n'.join(homepage_row(post) for post in POSTS) + '\n' + extra + '\n    </div></div></section>'
+    section = '''    <section class="writing-section section-pad" id="writing" aria-labelledby="writing-heading"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / NOTES FROM THE WORK</p><h2 id="writing-heading">Thinking in public.</h2></div><a class="text-link" href="/writing/">All writing <span aria-hidden="true">→</span></a></div><div class="writing-list">\n''' + '\n'.join(homepage_row(post) for post in POSTS) + '\n    </div></div></section>'
     homepage.write_text(html[:start] + section + html[end:])
     sitemap_urls = [ORIGIN + '/', ORIGIN + '/writing/']
     sitemap_urls += [ORIGIN + '/' + str(path.parent.relative_to(SITE)) + '/' for path in sorted((SITE / 'services').rglob('index.html'))]
-    sitemap_urls += [ORIGIN + route(post) for post in POSTS if post.get('layout') == 'feature']
+    sitemap_urls += [ORIGIN + route(post) for post in POSTS]
     (SITE / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join('<url><loc>' + escape(url) + '</loc></url>' for url in sitemap_urls) + '</urlset>\n')
     print(f'Built {len(POSTS)} complete articles, writing index, and homepage links.')
 
