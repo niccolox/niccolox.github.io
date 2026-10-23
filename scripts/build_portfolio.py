@@ -8,6 +8,7 @@ from build_writing import HEADER, FOOTER, ORIGIN
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 CASES = json.loads((ROOT / 'content/portfolio/cases.json').read_text())
+LISTED_CASES = [case for case in CASES if case.get('listed', True)]
 PDF = '/assets/downloads/Nicholas-Roberts-Portfolio.pdf'
 
 
@@ -45,7 +46,7 @@ def page(title, description, path, body, case=None):
         schema['headline'] = title
         schema['articleSection'] = case['kind']
     else:
-        schema['hasPart'] = [{'@type': 'WebPage', 'name': c['organization'], 'url': ORIGIN + route(c)} for c in CASES]
+        schema['hasPart'] = [{'@type': 'WebPage', 'name': c['organization'], 'url': ORIGIN + route(c)} for c in LISTED_CASES]
     return f'''<!doctype html>
 <html lang="en" data-theme="nord">
 <head>
@@ -92,8 +93,8 @@ def case_page(case, position):
     metrics = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for value, label in case['metrics'])
     tags = ''.join(f'<li class="badge badge-outline">{escape(tag)}</li>' for tag in case['tags'])
     note = f'<p class="portfolio-evidence-note">{escape(case["note"])}</p>' if case.get('note') else ''
-    previous = CASES[position - 1] if position else None
-    following = CASES[position + 1] if position + 1 < len(CASES) else None
+    previous = next((item for item in reversed(CASES[:position]) if item.get('listed', True)), None)
+    following = next((item for item in CASES[position + 1:] if item.get('listed', True)), None)
     prev_url = route(previous) if previous else '/portfolio/'
     prev_title = previous['organization'] if previous else 'All portfolio pages'
     next_url = route(following) if following else '/portfolio/'
@@ -143,7 +144,7 @@ def case_page(case, position):
 
 def index_page():
     cards = []
-    for case in CASES:
+    for case in LISTED_CASES:
         label = 'Read case study' if case['kind'] == 'Case study' else ('Read overview' if case['kind'] == 'Portfolio overview' else 'Get in touch')
         cards.append(f'''<article class="card bg-base-200 border border-base-300 portfolio-card">
   <figure><a href="{route(case)}" tabindex="-1" aria-hidden="true"><img src="{image_path(case)}" alt="{escape(case['image_alt'], quote=True)}" width="1600" height="900" loading="lazy" decoding="async"></a></figure>
@@ -152,15 +153,15 @@ def index_page():
     body = '''<main id="main" class="portfolio-page">
 <header class="portfolio-lead wrap">
   <div class="portfolio-breadcrumb"><a class="link link-hover" href="/">Home</a><span aria-hidden="true">/</span><span>Portfolio</span></div>
-  <p class="eyebrow">SELECTED WORK / THE FULL PORTFOLIO</p>
+  <p class="eyebrow">SELECTED WORK / THE PORTFOLIO</p>
   <h1>From the brief to<br>the operating reality.</h1>
-  <p class="portfolio-deck">Ten project case studies, a career overview, and a way to start a conversation. Explore the people, systems, and delivery work behind every slide in my professional portfolio.</p>
-  <div class="portfolio-index-links"><a class="link text-lg underline-offset-4" href="#all-slides">Explore all 12 slides ↓</a><a class="link text-lg underline-offset-4" href="''' + PDF + '''">Download the portfolio PDF ↗</a></div>
+  <p class="portfolio-deck">Nine project case studies, a career overview, and a way to start a conversation. Explore the people, systems, and delivery work behind selected projects in my professional portfolio.</p>
+  <div class="portfolio-index-links"><a class="link text-lg underline-offset-4" href="#all-slides">Explore the portfolio ↓</a><a class="link text-lg underline-offset-4" href="''' + PDF + '''">Download the portfolio PDF ↗</a></div>
   <p class="portfolio-index-note">Historical work, expanded for the web. Every page includes its original slide and a direct link to the PDF.</p>
 </header>
-<section id="all-slides" class="wrap portfolio-grid-section" aria-labelledby="all-slides-title"><div class="portfolio-index-heading"><h2 id="all-slides-title">The portfolio, slide by slide.</h2><span>01—12</span></div><div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">''' + '\n'.join(cards) + '''</div></section>
+<section id="all-slides" class="wrap portfolio-grid-section" aria-labelledby="all-slides-title"><div class="portfolio-index-heading"><h2 id="all-slides-title">The portfolio, slide by slide.</h2><span>''' + str(len(LISTED_CASES)) + ''' pages</span></div><div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">''' + '\n'.join(cards) + '''</div></section>
 ''' + contact() + '\n</main>'
-    return page('Portfolio case studies', 'Explore every slide of Nicholas Roberts’s professional portfolio: commerce, data platforms, cloud infrastructure, telecommunications, government, hospitality, and news publishing.', '/portfolio/', body)
+    return page('Portfolio case studies', 'Explore Nicholas Roberts’s professional portfolio: commerce, data platforms, cloud infrastructure, telecommunications, government, hospitality, and news publishing.', '/portfolio/', body)
 
 
 def build():

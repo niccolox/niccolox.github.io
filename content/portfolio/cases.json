@@ -97,6 +97,7 @@
   {
     "slide": 3,
     "slug": "citizen-success",
+    "listed": false,
     "kind": "Case study",
     "title": "Public data, built into a working product.",
     "organization": "Citizen Success",
