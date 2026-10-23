@@ -16,8 +16,8 @@
     "image_width": 1024,
     "image_height": 1536,
     "caption": "",
-    "word_count": 1707,
-    "body_text_sha256": "41f591f661a917423f8056abb0652341ead88726273328eaadfffbd7eca95611"
+    "word_count": 1725,
+    "body_text_sha256": "3eb3757cb11e05a16192ca5bad809dd7d7ebc6afd883710f22a0991a9118c88d"
   },
   {
     "slug": "cyberpolycrisis-network-map",
@@ -36,8 +36,8 @@
     "image_width": 1200,
     "image_height": 800,
     "caption": "",
-    "word_count": 3646,
-    "body_text_sha256": "9a9ff49c7127ea3d7e3038dcdc9abcae4d05d02eb29b3d8693e69d5d3c70b646"
+    "word_count": 3664,
+    "body_text_sha256": "3d40f47d22629b0e60afb075a0a94637bba06a0989c2abf1d0b2318a31bbc11e"
   },
   {
     "slug": "the-cybersecurity-polycrisis",
@@ -54,8 +54,8 @@
     "image_width": 1200,
     "image_height": 630,
     "caption": "",
-    "word_count": 3258,
-    "body_text_sha256": "bfbdcbb6a4dec336e3fa4156f0fda8bb1f553689603258255d9ff008a32d8944"
+    "word_count": 3276,
+    "body_text_sha256": "041df604a4fda4e833227be069e91dd4dc01f7fd4dda27a95fddfba9f34343b6"
   },
   {
     "slug": "362-putting-a-price-on-an-endpoint-x402-on-fastapi-in-detail",
