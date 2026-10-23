@@ -21,7 +21,7 @@ HEADER = '''<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner wrap">
   <a href="/" class="wordmark" aria-label="Nicholas Roberts home"><span class="monogram">n<span>r</span>.</span><span>NICHOLAS<br>ROBERTS</span></a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">+</span></button>
-  <nav id="navigation" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#experience">Experience</a><a href="/writing/" aria-current="PAGE_CURRENT">Writing</a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+  <nav id="navigation" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#experience">Experience</a><a href="/writing/" aria-current="PAGE_CURRENT">Writing</a><a class="link cyber-wordmark" href="https://cyberpolycrisis.com/" aria-label="cyberpolycrisis.com"><span class="cyber-brand-cyber" aria-hidden="true">cyber</span><span class="cyber-brand-poly" aria-hidden="true">poly</span><span class="cyber-brand-crisis" aria-hidden="true">crisis</span><span class="cyber-brand-dot" aria-hidden="true">.</span><span class="cyber-brand-com" aria-hidden="true">com</span></a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
   THEME_CONTROL
 </div></header>'''.replace('THEME_CONTROL', THEME_CONTROL)
 
@@ -79,10 +79,10 @@ def page(title, description, path, body, canonical=None, post=None):
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="/assets/theme.js?v=2"></script>
   <link rel="stylesheet" href="/assets/daisyui.css?v=4">
-  <link rel="stylesheet" href="/assets/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/styles.css?v=6">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
 {feature_css}
-  <script src="/assets/site.js?v=2" defer></script>
+  <script src="/assets/site.js?v=3" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
 <body id="top">

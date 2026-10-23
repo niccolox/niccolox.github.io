@@ -1,4 +1,4 @@
-"""Build one accessible page per portfolio slide from reviewed local copy."""
+"""Build portfolio slide pages and current project case studies from reviewed copy."""
 from html import escape
 from pathlib import Path
 import json
@@ -17,6 +17,8 @@ def route(case):
 
 
 def image_path(case):
+    if case.get('image'):
+        return case['image']
     return f'/assets/images/portfolio/slide-{case["slide"]:02}.jpg'
 
 
@@ -40,9 +42,11 @@ def page(title, description, path, body, case=None):
         'url': url,
         'image': image,
         'author': {'@type': 'Person', 'name': 'Nicholas Roberts', 'url': ORIGIN + '/'},
-        'isBasedOn': {'@type': 'DigitalDocument', 'name': 'Nicholas Roberts professional portfolio', 'url': ORIGIN + PDF + (f'#page={case["slide"]}' if case else '')},
+        'isBasedOn': {'@type': 'DigitalDocument', 'name': 'Nicholas Roberts professional portfolio', 'url': ORIGIN + PDF + (f'#page={case["slide"]}' if case and case.get('slide') else '')},
     }
     if case:
+        if case.get('website'):
+            schema['isBasedOn'] = {'@type': 'WebSite', 'name': case['organization'], 'url': case['website']}
         schema['headline'] = title
         schema['articleSection'] = case['kind']
     else:
@@ -65,10 +69,10 @@ def page(title, description, path, body, case=None):
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="/assets/theme.js?v=2"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=12">
-  <link rel="stylesheet" href="/assets/styles.css?v=5">
+  <link rel="stylesheet" href="/assets/daisyui.css?v=13">
+  <link rel="stylesheet" href="/assets/styles.css?v=6">
   <link rel="stylesheet" href="/assets/portfolio.css?v=1">
-  <script src="/assets/site.js?v=2" defer></script>
+  <script src="/assets/site.js?v=3" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
 <body id="top">
@@ -88,7 +92,14 @@ def contact():
 
 
 def case_page(case, position):
-    number = f'{case["slide"]:02}'
+    number = f'{case["slide"]:02}' if case.get('slide') else None
+    breadcrumb = f'Slide {number}' if number else case['organization']
+    edition = f'{number} OF 12' if number else 'CURRENT PROJECT'
+    source_id = 'source-slide' if number else 'live-project'
+    source_label = 'Original slide' if number else 'Explore the product'
+    source_link = (f'<a class="link underline-offset-4" href="{PDF}#page={case["slide"]}">Open slide {number} in the PDF <span aria-hidden="true">↗</span></a>' if number else
+                   f'<a class="link underline-offset-4" href="{escape(case["website"], quote=True)}">Visit {escape(case["organization"])} <span aria-hidden="true">↗</span></a>')
+    project_links = '' if number else '<div class="portfolio-index-links">' + ''.join(f'<a class="link text-lg underline-offset-4" href="{escape(link["url"], quote=True)}">{escape(link["label"])} <span aria-hidden="true">↗</span></a>' for link in case['resources'][:2]) + '</div>'
     kind = case['kind']
     metrics = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for value, label in case['metrics'])
     tags = ''.join(f'<li class="badge badge-outline">{escape(tag)}</li>' for tag in case['tags'])
@@ -105,19 +116,20 @@ def case_page(case, position):
     body = f'''<main id="main" class="portfolio-page">
 <article>
   <header class="portfolio-lead wrap">
-    <div class="portfolio-breadcrumb"><a class="link link-hover" href="/">Home</a><span aria-hidden="true">/</span><a class="link link-hover" href="/portfolio/">Portfolio</a><span aria-hidden="true">/</span><span>Slide {number}</span></div>
-    <p class="eyebrow">{escape(kind.upper())} <span aria-hidden="true">/</span> {number} OF 12</p>
+    <div class="portfolio-breadcrumb"><a class="link link-hover" href="/">Home</a><span aria-hidden="true">/</span><a class="link link-hover" href="/portfolio/">Portfolio</a><span aria-hidden="true">/</span><span>{escape(breadcrumb)}</span></div>
+    <p class="eyebrow">{escape(kind.upper())} <span aria-hidden="true">/</span> {edition}</p>
     <p class="portfolio-organization">{escape(case['organization'])}</p>
     <h1>{escape(case['title'])}</h1>
     <p class="portfolio-deck">{escape(case['summary'])}</p>
     <div class="portfolio-role"><span>{escape(case['role'])}</span><span>{escape(case['sector'])}</span></div>
+{project_links}
     <dl class="portfolio-metrics grid grid-cols-1 gap-5 sm:grid-cols-3">{metrics}</dl>
   </header>
   <div class="portfolio-body wrap">
     <aside class="portfolio-sidebar" aria-label="Case study guide">
       <p class="eyebrow">ON THIS PAGE</p>
-      <ol><li><a href="#brief">{first_title}</a></li><li><a href="#ownership">What I owned</a></li><li><a href="#delivery">{method_title}</a></li><li><a href="#evidence">{evidence_title}</a></li><li><a href="#source-slide">Original slide</a></li></ol>
-      <a class="link underline-offset-4" href="{PDF}#page={case['slide']}">Open slide {number} in the PDF <span aria-hidden="true">↗</span></a>
+      <ol><li><a href="#brief">{first_title}</a></li><li><a href="#ownership">What I owned</a></li><li><a href="#delivery">{method_title}</a></li><li><a href="#evidence">{evidence_title}</a></li><li><a href="#{source_id}">{source_label}</a></li></ol>
+      {source_link}
     </aside>
     <div class="portfolio-story">
       <section id="brief"><p class="portfolio-section-number">01 / CONTEXT</p><h2>{first_title}</h2><p>{escape(case['brief'])}</p></section>
@@ -128,44 +140,57 @@ def case_page(case, position):
       <section class="portfolio-toolbox" aria-labelledby="toolbox-title"><h2 id="toolbox-title">Tools &amp; disciplines</h2><ul class="flex flex-wrap gap-2">{tags}</ul></section>
     </div>
   </div>
-  <section id="source-slide" class="portfolio-source wrap" aria-labelledby="source-title">
-    <div class="portfolio-source-heading"><div><p class="eyebrow">FROM THE ORIGINAL PORTFOLIO</p><h2 id="source-title">Slide {number}. The source material.</h2></div><a class="link underline-offset-4" href="{PDF}#page={case['slide']}">Open the PDF <span aria-hidden="true">↗</span></a></div>
-    <figure><a href="{image_path(case)}" aria-label="Enlarge original portfolio slide {number}"><img src="{image_path(case)}" alt="{escape(case['image_alt'], quote=True)}" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption>Original slide {case['slide']} of 12. Select the image to enlarge. The historical slide is preserved; the text above expands its project description for the web.</figcaption></figure>
-  </section>
+  {source_section(case)}
 </article>
 <div class="portfolio-pagination wrap" role="navigation" aria-label="Portfolio pages">
-  <a href="{prev_url}"><span>← {'Previous slide' if previous else 'Portfolio index'}</span><strong>{escape(prev_title)}</strong></a>
-  <a href="{next_url}"><span>{'Next slide' if following else 'Portfolio index'} →</span><strong>{escape(next_title)}</strong></a>
+  <a href="{prev_url}"><span>← {'Previous page' if previous else 'Portfolio index'}</span><strong>{escape(prev_title)}</strong></a>
+  <a href="{next_url}"><span>{'Next page' if following else 'Portfolio index'} →</span><strong>{escape(next_title)}</strong></a>
 </div>
 {contact()}
 </main>'''
     return page(case['organization'] + ' · ' + case['title'], case['summary'], route(case), body, case)
 
 
+def source_section(case):
+    if case.get('slide'):
+        number = f'{case["slide"]:02}'
+        return f'''<section id="source-slide" class="portfolio-source wrap" aria-labelledby="source-title">
+    <div class="portfolio-source-heading"><div><p class="eyebrow">FROM THE ORIGINAL PORTFOLIO</p><h2 id="source-title">Slide {number}. The source material.</h2></div><a class="link underline-offset-4" href="{PDF}#page={case['slide']}">Open the PDF <span aria-hidden="true">↗</span></a></div>
+    <figure><a href="{image_path(case)}" aria-label="Enlarge original portfolio slide {number}"><img src="{image_path(case)}" alt="{escape(case['image_alt'], quote=True)}" width="1600" height="900" loading="lazy" decoding="async"></a><figcaption>Original slide {case['slide']} of 12. Select the image to enlarge. The historical slide is preserved; the text above expands its project description for the web.</figcaption></figure>
+  </section>'''
+    links = ''.join(f'<a class="link text-lg underline-offset-4" href="{escape(link["url"], quote=True)}">{escape(link["label"])} <span aria-hidden="true">↗</span></a>' for link in case['resources'])
+    return f'''<section id="live-project" class="portfolio-source wrap" aria-labelledby="source-title">
+    <div class="portfolio-source-heading"><div><p class="eyebrow">EXPLORE THE LIVE PRODUCT</p><h2 id="source-title">Research. Conversation. Action.</h2></div><a class="link underline-offset-4" href="{escape(case['website'], quote=True)}">Visit {escape(case['organization'])} <span aria-hidden="true">↗</span></a></div>
+    <figure><a href="{escape(case['website'], quote=True)}"><img src="{image_path(case)}" alt="{escape(case['image_alt'], quote=True)}" width="{case['image_width']}" height="{case['image_height']}" loading="lazy" decoding="async"></a><figcaption>The Digital Younger Dryas artwork gives Cyberpolycrisis a visual language for adaptation and recovery. Explore the working product, its research, and the guided review below.</figcaption></figure>
+    <div class="portfolio-index-links">{links}</div>
+  </section>'''
+
+
 def index_page():
     cards = []
     for case in LISTED_CASES:
+        label_number = f'{case["slide"]:02}' if case.get('slide') else 'CURRENT'
         label = 'Read case study' if case['kind'] == 'Case study' else ('Read overview' if case['kind'] == 'Portfolio overview' else 'Get in touch')
         cards.append(f'''<article class="card bg-base-200 border border-base-300 portfolio-card">
-  <figure><a href="{route(case)}" tabindex="-1" aria-hidden="true"><img src="{image_path(case)}" alt="{escape(case['image_alt'], quote=True)}" width="1600" height="900" loading="lazy" decoding="async"></a></figure>
-  <div class="card-body"><p class="eyebrow">{case['slide']:02} / {escape(case['kind'].upper())}</p><h2 class="card-title"><a href="{route(case)}">{escape(case['organization'])}</a></h2><p class="portfolio-card-headline">{escape(case['title'])}</p><p>{escape(case['summary'])}</p><div class="card-actions"><a class="link underline-offset-4" href="{route(case)}" aria-label="{escape(label + ': ' + case['organization'], quote=True)}">{label} <span aria-hidden="true">→</span></a></div></div>
+  <figure><a href="{route(case)}" tabindex="-1" aria-hidden="true"><img src="{image_path(case)}" alt="{escape(case['image_alt'], quote=True)}" width="{case.get('image_width', 1600)}" height="{case.get('image_height', 900)}" loading="lazy" decoding="async"></a></figure>
+  <div class="card-body"><p class="eyebrow">{label_number} / {escape(case['kind'].upper())}</p><h2 class="card-title"><a href="{route(case)}">{escape(case['organization'])}</a></h2><p class="portfolio-card-headline">{escape(case['title'])}</p><p>{escape(case['summary'])}</p><div class="card-actions"><a class="link underline-offset-4" href="{route(case)}" aria-label="{escape(label + ': ' + case['organization'], quote=True)}">{label} <span aria-hidden="true">→</span></a></div></div>
 </article>''')
     body = '''<main id="main" class="portfolio-page">
 <header class="portfolio-lead wrap">
   <div class="portfolio-breadcrumb"><a class="link link-hover" href="/">Home</a><span aria-hidden="true">/</span><span>Portfolio</span></div>
   <p class="eyebrow">SELECTED WORK / THE PORTFOLIO</p>
   <h1>From the brief to<br>the operating reality.</h1>
-  <p class="portfolio-deck">Nine project case studies, a career overview, and a way to start a conversation. Explore the people, systems, and delivery work behind selected projects in my professional portfolio.</p>
+  <p class="portfolio-deck">Ten project case studies, a career overview, and a way to start a conversation. Explore the people, systems, and delivery work behind selected projects in my professional portfolio.</p>
   <div class="portfolio-index-links"><a class="link text-lg underline-offset-4" href="#all-slides">Explore the portfolio ↓</a><a class="link text-lg underline-offset-4" href="''' + PDF + '''">Download the portfolio PDF ↗</a></div>
-  <p class="portfolio-index-note">Historical work, expanded for the web. Every page includes its original slide and a direct link to the PDF.</p>
+  <p class="portfolio-index-note">Current projects alongside historical work, expanded for the web. Case studies from the original portfolio include their slide and a direct link to the PDF.</p>
 </header>
-<section id="all-slides" class="wrap portfolio-grid-section" aria-labelledby="all-slides-title"><div class="portfolio-index-heading"><h2 id="all-slides-title">The portfolio, slide by slide.</h2><span>''' + str(len(LISTED_CASES)) + ''' pages</span></div><div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">''' + '\n'.join(cards) + '''</div></section>
+<section id="all-slides" class="wrap portfolio-grid-section" aria-labelledby="all-slides-title"><div class="portfolio-index-heading"><h2 id="all-slides-title">The work, project by project.</h2><span>''' + str(len(LISTED_CASES)) + ''' pages</span></div><div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">''' + '\n'.join(cards) + '''</div></section>
 ''' + contact() + '\n</main>'
     return page('Portfolio case studies', 'Explore Nicholas Roberts’s professional portfolio: commerce, data platforms, cloud infrastructure, telecommunications, government, hospitality, and news publishing.', '/portfolio/', body)
 
 
 def build():
-    if [case['slide'] for case in CASES] != list(range(1, 13)):
+    if [case['slide'] for case in CASES if case.get('slide')] != list(range(1, 13)):
         raise ValueError('The portfolio requires exactly one entry for each of its 12 source slides.')
     if len({case['slug'] for case in CASES}) != len(CASES):
         raise ValueError('Duplicate portfolio route')
@@ -174,7 +199,7 @@ def build():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(case_page(case, position))
     (SITE / 'portfolio/index.html').write_text(index_page())
-    print(f'Built {len(CASES)} portfolio slide pages and their index.')
+    print(f'Built {len(CASES)} portfolio pages and their index.')
 
 
 if __name__ == '__main__':

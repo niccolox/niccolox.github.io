@@ -95,6 +95,85 @@
     "image_alt": "Digital Beverage Group portfolio slide describing the Shopify and Linnworks migration with wine storefront screenshots"
   },
   {
+    "slug": "cyberpolycrisis",
+    "kind": "Case study",
+    "title": "From connected risks to a practical next step.",
+    "organization": "Cyberpolycrisis",
+    "role": "Founder · Product strategy & full-stack engineering",
+    "sector": "AI-assisted cyber resilience & business continuity",
+    "website": "https://cyberpolycrisis.com/",
+    "image": "/assets/images/cyberpolycrisis-hero.jpg",
+    "image_width": 1280,
+    "image_height": 714,
+    "image_alt": "Digital Younger Dryas artwork for Cyberpolycrisis: a man and woolly mammoth crossing a snowy landscape toward sunrise",
+    "summary": "Built a Cloudflare-hosted product that connects cyber research, public website checks, an AI assistant, and a guided health review to help businesses decide what to investigate and improve next.",
+    "metrics": [
+      [
+        "12",
+        "controls in the guided review"
+      ],
+      [
+        "6",
+        "connected risk domains"
+      ],
+      [
+        "260",
+        "detailed web reports"
+      ]
+    ],
+    "brief": "A business owner can read about a breach or supplier outage without knowing what it means for tomorrow’s orders, staff, or customer commitments. Cyberpolycrisis turns that information gap into a product journey: understand the relevant dependencies, ask questions in context, and leave with an action plan. I developed the research, product experience, application, and Cloudflare deployment as one connected service.",
+    "ownership": [
+      "Define the journey from a public website check or research article into a conversation, a structured review, and practical next steps.",
+      "Develop the report library, role-specific guidance, visual identity, and Digital Younger Dryas storytelling.",
+      "Build the frontend, Workers APIs, AI retrieval, questionnaire model, optional follow-up storage, and deployment workflow.",
+      "Design request limits, verification, privacy choices, and mobile behavior as part of the product experience."
+    ],
+    "delivery": [
+      "The entry point asks visitors to add their website. After Cloudflare Turnstile verification, bounded checks examine public DNS screening, the HTTPS homepage response, selected security headers, and visible platform signals. Signed observations then open a conversation with Ask Cyberpolycrisis. These observations provide context; they do not establish compromise, installed software versions, or a complete vulnerability assessment.",
+      "The assistant runs on Cloudflare Workers AI with a curated, locally bundled retrieval index. It retrieves relevant research by topic and audience, and provides links back to the underlying material. The library expands the original 26 topics into ten detailed reports each, with guidance for business owners, business managers, technology managers, software engineers, customer-service staff, and customers. A downloadable 31-page report and a dated 28-topic register provide additional entry points.",
+      "The Cyber Health Review covers twelve controls across identity, software, AI, data, network trust, and recovery. A deterministic model turns self-reported answers into a readiness view, an overlapping-risk map, and prioritized actions. Platform options—including Shopify, Palantir, Cloudflare, and Databricks—are matched to business requirements and retained responsibilities, rather than presented as guarantees of safety.",
+      "The chat-to-review handoff minimizes the conversation without discarding its in-memory session. Mobile work addressed iPhone viewport height, keyboard space, verification delays, readable response scrolling, and reopening chat. The Digital Younger Dryas identity uses eight rotating scenes, swipe controls, and reduced-motion behavior to connect the research with a recognizable visual story.",
+      "The backend separates model advice from application authority. The assistant cannot execute tools or fetch arbitrary sites; the dedicated website-check endpoint validates public destinations and bounds redirects, response sizes, and time. Server-side verification, rate limits, and a Durable Object inference budget constrain abuse. Questionnaire answers remain local unless explicitly shared with chat, while optional follow-up requests store only consent and contact details in D1 for a manual response."
+    ],
+    "outcomes": [
+      "Published a working product on cyberpolycrisis.com, connecting research, website onboarding, AI conversation, and the Cyber Health Review.",
+      "Delivered 260 detailed reports across the original 26 topics, with six audience perspectives and a shared retrieval corpus for the assistant.",
+      "Implemented an action-plan workflow with a connected-risk visualization, platform evaluation, local exports, and an explicit path to human follow-up.",
+      "Verified the live website-check-to-chat handoff and conversation-preserving review navigation, alongside automated checks for request boundaries and interaction state."
+    ],
+    "note": "The research is a dated snapshot, with an evidence cutoff of 22 October 2026. The review is a planning tool and the public website checks are a starting point, not a security audit. These results describe delivered capabilities; no customer adoption, revenue impact, or reduction in security incidents is claimed.",
+    "lesson": "An AI product becomes useful when it connects a person’s question to evidence, a bounded workflow, and an accountable next action. The conversation, controls, and operating model need to be designed together.",
+    "tags": [
+      "Cloudflare Workers",
+      "Workers AI",
+      "Turnstile",
+      "Durable Objects",
+      "D1",
+      "JavaScript",
+      "daisyUI",
+      "Research retrieval",
+      "Product strategy"
+    ],
+    "resources": [
+      {
+        "label": "Visit Cyberpolycrisis",
+        "url": "https://cyberpolycrisis.com/"
+      },
+      {
+        "label": "Open the Cyber Health Review",
+        "url": "https://cyberpolycrisis.com/#review"
+      },
+      {
+        "label": "Browse the research library",
+        "url": "https://cyberpolycrisis.com/library/"
+      },
+      {
+        "label": "Download the free report",
+        "url": "https://cyberpolycrisis.com/report"
+      }
+    ]
+  },
+  {
     "slide": 3,
     "slug": "citizen-success",
     "listed": false,
