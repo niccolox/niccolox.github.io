@@ -15,13 +15,14 @@
   <link rel="icon" href="assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="assets/theme.js?v=1"></script>
   <link rel="stylesheet" href="assets/daisyui.css?v=13">
-  <link rel="stylesheet" href="assets/styles.css?v=6">
-  <script src="assets/site.js?v=3" defer></script>
+  <link rel="stylesheet" href="assets/styles.css?v=7">
+  <link rel="stylesheet" href="assets/resume.css?v=1">
+  <script src="assets/site.js?v=4" defer></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Nicholas Roberts","url":"https://www.niccolox.com/","email":"mailto:niccolox@devekko.com","description":"Technology director and founder working across AI transformation, ecommerce, data, and technology operations.","sameAs":["https://www.linkedin.com/in/niccolo/","https://github.com/niccolox","https://www.niccolox.com/"],"knowsAbout":["AI adoption","Technology operations","Ecommerce","Data integration","Product management","Cloud infrastructure"]}
   </script>
 </head>
-<body>
+<body class="resume-home">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="header-inner wrap">
@@ -38,12 +39,13 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero wrap" id="top" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> AI TRANSFORMATION & TECHNOLOGY OPERATIONS</p>
         <p class="hero-name">Nicholas (Niccolo) Roberts</p>
         <h1 id="hero-title">I build products <br>that customers buy <br><em>and people love</em></h1>
+      </div>
+      <div class="hero-details">
         <p class="hero-intro">I’m Nicholas Roberts. I connect AI, commerce, and data with the people who run the business.</p>
         <p class="hero-detail">Hands-on technology leadership for growing midsize companies. From the roadmap to the code, the rollout, and the operating reality.</p>
         <div class="actions"><a class="button primary" href="#work">Explore my work <span aria-hidden="true">↓</span></a><a class="text-link" href="assets/downloads/Nicholas-Roberts-Resume.pdf?v=4">Download resume <span aria-hidden="true">↗</span><span class="file-type">PDF</span></a><a class="btn cyber-hero-link" href="https://cyberpolycrisis.com/">Digital Younger Dryas <span aria-hidden="true">↗</span></a></div>
@@ -86,15 +88,20 @@
               <li><strong>Product and vendor ownership.</strong> Own 4 e-commerce storefronts and 2 React Native mobile apps: roadmap, prioritization, contracts, and vendor performance across the full commerce surface.</li>
               <li><strong>A growing mobile channel.</strong> Delivered the mobile apps on Shopify, now a major and fast-growing sales channel for the business.</li>
               <li><strong>Six models, one catalog.</strong> Supported flash sales, full-price shop, private sales, auction, wine club, and conversational/chat commerce from a single merchandising and catalog data model.</li>
+            </ul>
+            <details class="case-operations">
+              <summary>IT, data and operating platforms <span aria-hidden="true">+</span></summary>
+              <ul class="case-points">
               <li><strong>Corporate IT and AI adoption.</strong> Run Google Workspace, Microsoft 365, Palantir, and Claude Enterprise end-to-end, including help desk, AI rollout, governance, and organization-wide adoption.</li>
               <li><strong>Internal services and data pipelines.</strong> Build in Python, FastAPI, Supabase, Pandas, and SQL, including order, customer, and product migration workflows.</li>
               <li><strong>Operations and analytics.</strong> Use Retool &amp; HTMX for operations interfaces, AfterShip for post-purchase, and Microsoft Fabric + Palantir Foundry for analytics.</li>
               <li><strong>Finance and infrastructure.</strong> Integrate NetSuite for finance and operate on Cloudflare with Datadog observability.</li>
-            </ul>
+              </ul>
+            </details>
             <a class="text-link" href="/portfolio/digital-beverage-group/">Read the case study <span aria-hidden="true">→</span></a>
           </div>
           <div class="case-showcase">
-            <figure class="case-image"><div class="image-chrome"><span></span><span></span><span></span><span class="chrome-label">FIRST BOTTLE / COMMERCE</span></div><img src="assets/images/first-bottle-storefront.jpg" alt="First Bottle wine storefront, showing a searchable catalog and product filters" width="1882" height="1718" loading="lazy"><figcaption>First Bottle storefront · image from my professional portfolio</figcaption></figure>
+            <figure class="case-image"><div class="image-chrome"><span></span><span></span><span></span><span class="chrome-label">FIRST BOTTLE / COMMERCE</span></div><img src="assets/images/resume/first-bottle-storefront-640.webp" srcset="assets/images/resume/first-bottle-storefront-640.webp 640w, assets/images/resume/first-bottle-storefront-1280.webp 1280w" sizes="(max-width: 800px) calc(100vw - 40px), (max-width: 1300px) 45vw, 580px" alt="First Bottle wine storefront, showing a searchable catalog and product filters" width="1882" height="1718" loading="lazy" decoding="async"><figcaption>First Bottle storefront · image from my professional portfolio</figcaption></figure>
             <div class="brand-list">
               <h4>Explore the commerce portfolio.</h4>
               <ul>
@@ -109,7 +116,7 @@
         </article>
 
         <div class="project-heading" id="engineering"><h3>Engineering in the open.</h3><p>Source-linked engineering behind commerce and connected operations.</p></div>
-        <article class="card rounded-none border border-base-300 bg-base-100 p-5 sm:p-8" aria-labelledby="sovereign-heading">
+        <article class="engineering-case border-y border-base-300 py-5 sm:py-8" aria-labelledby="sovereign-heading">
           <div class="project-topline"><span class="project-number">01 / SAASX2X</span><span class="badge badge-outline rounded-none text-xs">LOCAL PILOT</span></div>
           <div class="grid gap-6 md:grid-cols-2 md:gap-12">
             <div>
@@ -121,15 +128,15 @@
           </div>
           <div class="grid grid-cols-1 gap-5 mt-8 mb-5 md:grid-cols-3" aria-label="SaaSx2x module screenshots">
             <figure class="card rounded-none border border-base-300 bg-base-200 block!">
-              <a href="assets/images/saasx2x/manufacturing.jpg" aria-label="Open the manufacturing screenshot at full size"><img src="assets/images/saasx2x/manufacturing.jpg" alt="SaaSx2x manufacturing pilot showing the plant overview, production activity, and review queues" width="1440" height="1000" loading="lazy" class="w-full"></a>
+              <a href="assets/images/saasx2x/manufacturing.jpg" aria-label="Open the manufacturing screenshot at full size"><img src="assets/images/saasx2x/manufacturing.jpg" alt="SaaSx2x manufacturing pilot showing the plant overview, production activity, and review queues" width="1440" height="1000" loading="lazy" decoding="async" class="w-full"></a>
               <figcaption class="card-body p-4"><h5 class="card-title m-0 text-lg">Manufacturing</h5><p class="text-base leading-relaxed text-base-content/80">Production activity, review queues, and plant notifications.</p></figcaption>
             </figure>
             <figure class="card rounded-none border border-base-300 bg-base-200 block!">
-              <a href="assets/images/saasx2x/warehouse.jpg" aria-label="Open the warehouse screenshot at full size"><img src="assets/images/saasx2x/warehouse.jpg" alt="SaaSx2x warehouse pilot showing inventory, picking, and fulfillment operations with demo data" width="1440" height="1000" loading="lazy" class="w-full"></a>
+              <a href="assets/images/saasx2x/warehouse.jpg" aria-label="Open the warehouse screenshot at full size"><img src="assets/images/saasx2x/warehouse.jpg" alt="SaaSx2x warehouse pilot showing inventory, picking, and fulfillment operations with demo data" width="1440" height="1000" loading="lazy" decoding="async" class="w-full"></a>
               <figcaption class="card-body p-4"><h5 class="card-title m-0 text-lg">Warehouse</h5><p class="text-base leading-relaxed text-base-content/80">Inventory, picking, and fulfillment in one operations workspace.</p></figcaption>
             </figure>
             <figure class="card rounded-none border border-base-300 bg-base-200 block!">
-              <a href="assets/images/saasx2x/storefront.jpg" aria-label="Open the customer storefront screenshot at full size"><img src="assets/images/saasx2x/storefront.jpg" alt="Fieldwork demo storefront with a tote bag hero image, product collections, and featured products" width="1440" height="1000" loading="lazy" class="w-full"></a>
+              <a href="assets/images/saasx2x/storefront.jpg" aria-label="Open the customer storefront screenshot at full size"><img src="assets/images/saasx2x/storefront.jpg" alt="Fieldwork demo storefront with a tote bag hero image, product collections, and featured products" width="1440" height="1000" loading="lazy" decoding="async" class="w-full"></a>
               <figcaption class="card-body p-4"><h5 class="card-title m-0 text-lg">Customer storefront</h5><p class="text-base leading-relaxed text-base-content/80">Collections and featured products in the Fieldwork demo store.</p></figcaption>
             </figure>
           </div>
@@ -154,7 +161,7 @@
             <h3>Connected risks.<br>Practical next steps.</h3>
             <p>Built an AI-assisted cyber health platform on Cloudflare Workers, combining website checks, a guided Cyber Health Review, an interactive research library, and a conversational assistant to help businesses prioritize action.</p>
             <div class="flex flex-wrap gap-6"><a class="text-link" href="/portfolio/cyberpolycrisis/">Read the case study <span aria-hidden="true">→</span></a><a class="text-link" href="https://cyberpolycrisis.com/">Visit Cyberpolycrisis <span aria-hidden="true">↗</span></a></div>
-            <img class="mt-6 h-auto w-full border border-base-300" src="assets/images/cyberpolycrisis-hero.jpg" alt="Cyberpolycrisis Digital Younger Dryas artwork: a man and woolly mammoth crossing a snowy landscape toward sunrise" width="1280" height="714" loading="lazy" decoding="async">
+            <img class="mt-6 h-auto w-full border border-base-300" src="assets/images/resume/cyberpolycrisis-hero-640.webp" srcset="assets/images/resume/cyberpolycrisis-hero-640.webp 640w, assets/images/resume/cyberpolycrisis-hero-1280.webp 1280w" sizes="(max-width: 800px) calc(100vw - 40px), (max-width: 1300px) 45vw, 580px" alt="Cyberpolycrisis Digital Younger Dryas artwork: a man and woolly mammoth crossing a snowy landscape toward sunrise" width="1280" height="714" loading="lazy" decoding="async">
           </article>
         </div>
       </div>
@@ -165,9 +172,9 @@
     <section class="experience-section section-pad wrap" id="experience" aria-labelledby="experience-heading">
       <div class="section-heading"><div><p class="eyebrow">02 / EXPERIENCE</p><h2 id="experience-heading">Leading teams. Building products. Delivering growth.</h2></div><a class="text-link" href="assets/downloads/Nicholas-Roberts-Resume.pdf?v=4">Full resume <span aria-hidden="true">↗</span></a></div>
       <div class="experience-gallery" aria-label="Career portfolio thumbnails">
-        <a href="/portfolio/digital-beverage-group/" aria-label="Read Digital Beverage Group case study"><figure><img src="assets/images/first-bottle-storefront.jpg" alt="First Bottle wine e-commerce storefront" width="1882" height="1718" loading="lazy"><figcaption><strong>Wine commerce</strong><span>Digital Beverage Group</span></figcaption></figure></a>
-        <a href="/portfolio/datava-customer-success/" aria-label="Read Datava case study"><figure><img src="assets/images/datava-experience.jpg" alt="Datava platform and financial institution clients from my portfolio" width="2048" height="1113" loading="lazy"><figcaption><strong>Data platforms</strong><span>Datava</span></figcaption></figure></a>
-        <a href="/portfolio/news-corp-nationwide-news/" aria-label="Read News Corp case study"><figure><img src="assets/images/news-corp-experience.jpg" alt="The Daily Telegraph website shown in my News Corp portfolio case" width="2048" height="1035" loading="lazy"><figcaption><strong>News publishing</strong><span>News Corp</span></figcaption></figure></a>
+        <a href="/portfolio/digital-beverage-group/" aria-label="Read Digital Beverage Group case study"><figure><img src="assets/images/resume/first-bottle-storefront-640.webp" srcset="assets/images/resume/first-bottle-storefront-640.webp 640w, assets/images/resume/first-bottle-storefront-1280.webp 1280w" sizes="(max-width: 800px) 30vw, 400px" alt="First Bottle wine e-commerce storefront" width="1882" height="1718" loading="lazy" decoding="async"><figcaption><strong>Wine commerce</strong><span>Digital Beverage Group</span></figcaption></figure></a>
+        <a href="/portfolio/datava-customer-success/" aria-label="Read Datava case study"><figure><img src="assets/images/resume/datava-experience-640.webp" srcset="assets/images/resume/datava-experience-640.webp 640w, assets/images/resume/datava-experience-1280.webp 1280w" sizes="(max-width: 800px) 30vw, 400px" alt="Datava platform and financial institution clients from my portfolio" width="2048" height="1113" loading="lazy" decoding="async"><figcaption><strong>Data platforms</strong><span>Datava</span></figcaption></figure></a>
+        <a href="/portfolio/news-corp-nationwide-news/" aria-label="Read News Corp case study"><figure><img src="assets/images/resume/news-corp-experience-640.webp" srcset="assets/images/resume/news-corp-experience-640.webp 640w, assets/images/resume/news-corp-experience-1280.webp 1280w" sizes="(max-width: 800px) 30vw, 400px" alt="The Daily Telegraph website shown in my News Corp portfolio case" width="2048" height="1035" loading="lazy" decoding="async"><figcaption><strong>News publishing</strong><span>News Corp</span></figcaption></figure></a>
       </div>
       <div class="timeline">
         <article class="career-row"><p class="career-date">2025–2026</p><div><h3><a class="link link-hover" href="/portfolio/digital-beverage-group/">Director of Technology & Operations</a></h3><p class="career-company"><a class="link link-hover" href="/portfolio/digital-beverage-group/">Digital Beverage Group / Last Bottle, Inc.</a></p><p class="career-description"><a class="link link-hover" href="/portfolio/digital-beverage-group/">Commerce modernization, enterprise AI adoption, product and vendor delivery, and corporate IT. Promoted from Ecommerce Systems Administrator in August 2025.<br><span class="text-link">Read case study <span aria-hidden="true">→</span></span></a></p></div><span class="career-field">COMMERCE</span></article>

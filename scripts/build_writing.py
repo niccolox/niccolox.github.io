@@ -90,10 +90,10 @@ def page(title, description, path, body, canonical=None, post=None):
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
   <script src="/assets/theme.js?v=2"></script>
   <link rel="stylesheet" href="/assets/daisyui.css?v=4">
-  <link rel="stylesheet" href="/assets/styles.css?v=6">
+  <link rel="stylesheet" href="/assets/styles.css?v=7">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
 {feature_css}
-  <script src="/assets/site.js?v=3" defer></script>
+  <script src="/assets/site.js?v=4" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
 <body id="top">

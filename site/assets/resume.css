@@ -1,0 +1,218 @@
+/* Editorial resume refinements. Nord / Night supply all surface colors. */
+.resume-home {
+  --label-size: .8125rem;
+}
+.resume-home h1,
+.resume-home h2,
+.resume-home h3 { text-wrap: balance; }
+.resume-home .hero {
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-areas: "copy portrait" "details portrait";
+  gap: 0 clamp(32px, 4vw, 64px);
+  padding-block: clamp(40px, 5vw, 72px);
+}
+.resume-home .hero-copy { grid-area: copy; min-width: 0; }
+.resume-home .hero-details { grid-area: details; min-width: 0; }
+.resume-home .hero-name { font-size: clamp(20px, 1.7vw, 24px); margin-bottom: 18px; }
+.resume-home .hero h1 {
+  font-size: clamp(44px, 4.8vw, 70px);
+  line-height: 1.09;
+  letter-spacing: -.035em;
+  white-space: normal;
+  margin-bottom: 26px;
+}
+.resume-home .hero-portrait { grid-area: portrait; align-self: start; margin-top: 4px; }
+.resume-home .hero-portrait figcaption > span:last-child { font: 12px/1.5 var(--sans); letter-spacing: 0; }
+.resume-home .hero-intro { font-size: clamp(19px, 1.5vw, 22px); max-width: 36rem; }
+.resume-home .hero-detail { font-size: 16px; line-height: 1.7; max-width: 36rem; }
+.resume-home .hero-location { font: 14px/1.6 var(--sans); gap: 8px 12px; }
+.resume-home .hero-contact { font-size: 14px; gap: 6px 20px; }
+.resume-home .hero-contact a { min-height: 44px; display: inline-flex; align-items: center; gap: 5px; }
+.resume-home .actions { gap: 12px 22px; margin-top: 24px; }
+.resume-home .actions .button,
+.resume-home .actions .text-link { min-height: 48px; font-size: 15px; }
+.resume-home .actions .text-link { padding-block: 10px; }
+.resume-home #services { gap: 2px; }
+.resume-home #services a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; }
+@media (max-width: 800px) {
+  .resume-home .hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "portrait" "details"; gap: 24px; }
+  .resume-home .hero h1 { font-size: clamp(36px, 8.4vw, 60px); margin-bottom: 0; }
+  .resume-home .hero-portrait { display: flex; align-items: center; gap: 20px; width: 100%; max-width: none; padding: 0; border: 0; background: transparent; margin: 0; }
+  .resume-home .hero-portrait img { width: 132px; height: 132px; border: 1px solid var(--line); }
+  .resume-home .hero-portrait figcaption { display: block; padding: 0; border: 0; }
+  .resume-home .hero-portrait figcaption > span { display: block; }
+  .resume-home .hero-portrait figcaption > span:last-child { text-align: left; max-width: 160px; margin-top: 8px; }
+  .resume-home .hero-name { font-size: 21px; }
+  .resume-home .hero-intro { font-size: 19px; }
+}
+@media (max-width: 380px) {
+  .resume-home .hero-portrait img { width: 108px; height: 108px; }
+  .resume-home .hero-portrait { gap: 16px; }
+  .resume-home .hero h1 { font-size: 34px; }
+}
+
+/* a readable type scale for supporting evidence. */
+.resume-home .section-pad { padding-block: clamp(56px, 6vw, 92px); }
+.resume-home .section-heading h2 { max-width: 24ch; font-size: clamp(32px, 3.6vw, 50px); letter-spacing: -.03em; }
+.resume-home .section-heading > p { font-size: 16px; max-width: 30ch; }
+.resume-home .eyebrow,
+.resume-home .case-kicker,
+.resume-home .career-date,
+.resume-home .career-field,
+.resume-home .stat-source,
+.resume-home .writing-category { font-family: var(--sans); font-size: var(--label-size); letter-spacing: .035em; }
+.resume-home .case-kicker { line-height: 1.6; }
+.resume-home .stat { min-width: 0; }
+.resume-home .stat p { font-size: 16px; min-height: 0; max-width: 27ch; }
+.resume-home .stat-source { display: block; font-size: 12px; line-height: 1.5; letter-spacing: .02em; }
+.resume-home .stat > strong { font-size: clamp(44px, 4.8vw, 64px); letter-spacing: -.035em; font-variant-numeric: lining-nums tabular-nums; }
+.resume-home .stat > strong span { font-size: .65em; }
+.resume-home .case-copy > p:not(.case-kicker),
+.resume-home .case-points,
+.resume-home .compact-case p:not(.case-kicker),
+.resume-home .approach-intro,
+.resume-home .approach-list p,
+.resume-home .contact-top p:not(.eyebrow) { font-size: 16px; line-height: 1.75; }
+.resume-home .case-copy > .case-role { font-size: 15px; }
+.resume-home .case-figures span { font: 13px/1.6 var(--sans); display: block; margin-top: 8px; }
+.resume-home .case-figures strong { font-size: 32px; font-variant-numeric: lining-nums tabular-nums; }
+.resume-home .case-image figcaption { font: 13px/1.6 var(--sans); }
+.resume-home .image-chrome .chrome-label { font: 12px/1.4 var(--sans); }
+.resume-home .brand-domain { font: 13px/1.6 var(--sans); }
+.resume-home .brand-list p { font-size: 16px; }
+.resume-home .project-heading p { font-size: 16px; max-width: 36ch; }
+.resume-home .approach-list h3 { font-size: 21px; line-height: 1.3; }
+.resume-home .approach-list li > span { font: 14px/1.5 var(--sans); }
+.resume-home .text-link { min-height: 44px; font-size: 15px; line-height: 1.5; padding-block: 10px; }
+.resume-home .capabilities > p:last-child { font-size: 16px; line-height: 1.9; }
+@media (max-width: 540px) {
+  .resume-home .impact { column-gap: 0; row-gap: 24px; }
+  .resume-home .stat { padding-right: 14px; }
+  .resume-home .stat + .stat { padding-left: 16px; }
+  .resume-home .stat:nth-child(3) { padding-left: 0; }
+  .resume-home .stat p { font-size: 15px; }
+  .resume-home .stat-source { font-size: 11px; }
+  .resume-home .section-heading > p { max-width: 38ch; }
+}
+
+/* separate outcomes, operating detail, and source evidence. */
+.resume-home .featured-case { gap: clamp(32px, 4vw, 64px); }
+.resume-home .case-points li { padding: 18px 0; }
+.resume-home .case-points li::before { content: none; }
+.resume-home .case-points strong { display: block; margin-bottom: 5px; color: var(--ink); }
+.resume-home .case-operations { border-block: 1px solid var(--line); }
+.resume-home summary { min-height: 48px; font-size: 16px; line-height: 1.5; padding-block: 12px; }
+.resume-home .case-operations .case-points { margin: 0; }
+.resume-home .case-operations .case-points li:first-child { border-top: 0; }
+.resume-home .case-operations[open] summary { border-bottom: 1px solid var(--line); }
+.resume-home .brand-list a { padding-block: 20px; }
+.resume-home .brand-list h4 { font-size: 28px; }
+.resume-home .engineering-case { border-inline: 0; padding-inline: 0; background: transparent; }
+.resume-home .architecture { font: 13px/1.5 var(--sans); letter-spacing: 0; padding-inline: 0; }
+.resume-home .arch-contracts { font: 12px/1.6 var(--sans); }
+.resume-home .arch-modules { max-width: 340px; }
+.resume-home .arch-modules > span { padding: 10px; }
+.resume-home .project-topline { margin-bottom: 28px; }
+.resume-home .project-number { font: 13px/1.5 var(--sans); }
+.resume-home .project-status { border-left: 0; padding: 16px 0 0; border-top: 1px solid var(--line); }
+.resume-home .additional-work { gap: clamp(28px, 4vw, 64px); }
+@media (min-width: 801px) {
+  .resume-home .case-figures { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+}
+
+/* career entries work as readable, discoverable case-study links. */
+.resume-home .career-row { padding-block: 32px; grid-template-columns: 145px minmax(0, 1fr) 115px; align-items: start; }
+.resume-home .career-date { font-size: 14px; line-height: 1.6; font-variant-numeric: tabular-nums; }
+.resume-home .career-row h3 { font-size: 22px; line-height: 1.35; text-wrap: pretty; }
+.resume-home .career-row h3 a { display: inline-block; min-height: 44px; padding-bottom: 8px; text-decoration: underline; text-decoration-thickness: 1px; text-decoration-color: var(--line); text-underline-offset: 6px; }
+.resume-home .career-row h3 a:hover { color: var(--accent); text-decoration-color: currentColor; }
+.resume-home .career-company { font-size: 16px; line-height: 1.6; margin-top: 2px; }
+.resume-home .career-company a { display: inline-flex; align-items: center; min-height: 44px; }
+.resume-home .career-description { font-size: 16px; line-height: 1.75; max-width: 68ch; margin-top: 10px; }
+.resume-home .career-description > a:hover { text-decoration: none; color: var(--ink); }
+.resume-home .career-description .text-link { margin-top: 8px; }
+.resume-home .career-field { font-size: 12px; line-height: 1.6; padding-top: 6px; }
+.resume-home .experience-gallery { gap: clamp(10px, 2vw, 24px); }
+.resume-home .experience-gallery > a { transition: border-color 150ms ease; }
+.resume-home .experience-gallery figcaption { padding: 16px; }
+.resume-home .experience-gallery figcaption span { font-size: 14px; }
+@media (max-width: 800px) {
+  .resume-home .career-row { grid-template-columns: 100px minmax(0, 1fr); gap: 20px; }
+}
+@media (max-width: 540px) {
+  .resume-home .career-row { grid-template-columns: minmax(0, 1fr); gap: 10px; padding-block: 28px; }
+  .resume-home .career-row h3 { font-size: 21px; }
+  .resume-home .experience-gallery figcaption { padding: 12px 8px; }
+  .resume-home .experience-gallery strong { font-size: 17px; line-height: 1.25; }
+  .resume-home .experience-gallery figcaption span { font-size: 12px; line-height: 1.5; }
+}
+
+/* reading, contact, and keyboard states have the same finish. */
+.resume-home .writing-row { grid-template-columns: 160px minmax(0, 1fr) 28px; gap: 28px; padding-block: 32px; transition: color 150ms ease, background-color 150ms ease; }
+.resume-home .writing-row:hover { padding-left: 0; background: color-mix(in srgb, var(--paper) 40%, transparent); }
+.resume-home .writing-row h3 { font-size: clamp(25px, 2.4vw, 32px); line-height: 1.25; text-wrap: pretty; }
+.resume-home .writing-row p { font-size: 16px; line-height: 1.7; max-width: 68ch; }
+.resume-home .writing-category { font-size: 12px; line-height: 1.6; }
+.resume-home .contact-links { gap: 12px 28px; font-size: 15px; }
+.resume-home .contact-links a,
+.resume-home .contact-links button { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; line-height: 1.5; padding-block: 8px; }
+.resume-home .email-link { font-size: clamp(23px, 3vw, 36px); max-width: 100%; min-height: 48px; gap: 18px; overflow-wrap: anywhere; }
+.resume-home .site-footer { font: 13px/1.6 var(--sans); }
+.resume-home .site-footer > .wrap { font-size: 13px; align-items: center; }
+.resume-home .site-footer a { min-height: 44px; display: inline-flex; align-items: center; }
+.resume-home .contact-section :focus-visible,
+.resume-home .site-footer :focus-visible { outline-color: var(--color-neutral-content); }
+.resume-home :is(a,button,summary,input):focus-visible { outline: 3px solid currentColor; outline-offset: 5px; }
+.resume-home :is(h1,h2,h3,p,a,summary,figcaption) { overflow-wrap: break-word; }
+.resume-home { scrollbar-color: var(--accent) var(--paper); caret-color: var(--accent); }
+@media (max-width: 800px) {
+  .resume-home .writing-row { grid-template-columns: minmax(0, 1fr) 24px; gap: 12px; }
+  .resume-home .writing-category { grid-column: 1 / -1; padding: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resume-home .writing-row,
+  .resume-home .experience-gallery > a { transition: none; }
+}
+
+/* resilient print layout and narrow-screen details. */
+@media (max-width: 540px) {
+  .resume-home .header-inner { gap: 8px; }
+  .resume-home .wordmark { gap: 10px; }
+  .resume-home .theme-switch > span { min-width: 26px; }
+  .resume-home .menu-toggle { min-width: 66px; }
+  .resume-home .section-heading h2 { max-width: 23ch; }
+  .resume-home .case-figures { gap: 22px 16px; }
+  .resume-home .contact-links { gap: 8px 20px; }
+}
+@media print {
+  .resume-home { --color-base-100: #fff; --color-base-200: #fff; --color-base-300: #ccc; --color-base-content: #000; --color-neutral: #fff; --color-neutral-content: #000; }
+  .resume-home .hero { display: block; padding-block: 18px; }
+  .resume-home .hero h1 { font-size: 30pt; }
+  .resume-home .hero-name { font-size: 15pt; }
+  .resume-home .section-pad { padding-block: 20px; }
+  .resume-home .section-heading h2 { font-size: 23pt; }
+  .resume-home .hero-intro { font-size: 12pt; }
+  .resume-home .hero-detail,
+  .resume-home .stat p,
+  .resume-home .career-company,
+  .resume-home .career-description,
+  .resume-home .case-copy > p:not(.case-kicker),
+  .resume-home .case-points,
+  .resume-home .approach-intro,
+  .resume-home .approach-list p,
+  .resume-home .writing-row p { font-size: 10pt; }
+  .resume-home .career-row { grid-template-columns: 90px 1fr; padding-block: 15px; }
+  .resume-home .career-row h3 { font-size: 13pt; }
+  .resume-home .career-date { font-size: 9pt; }
+  .resume-home .hero-contact a,
+  .resume-home .text-link,
+  .resume-home .career-company a,
+  .resume-home .career-row h3 a { min-height: 0; padding-block: 0; }
+  .resume-home .text-link { font-size: 9pt; }
+  .resume-home .writing-row { grid-template-columns: 90px 1fr 20px; padding-block: 15px; }
+  .resume-home .writing-category { grid-column: auto; font-size: 8pt; }
+  .resume-home .writing-row h3 { font-size: 15pt; }
+}
+
+.resume-home .contact-links button { display: none; }
+.js-ready .resume-home .contact-links button { display: inline-flex; }

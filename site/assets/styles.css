@@ -44,3 +44,18 @@
   .js-ready #navigation .nav-contact{padding:11px 13px;justify-content:space-between}
   .js-ready .site-header #navigation .cyber-wordmark{padding:12px 14px;align-self:flex-start;font-size:18px}
 }
+
+/* Keep the shared navigation usable on touch screens and short landscape views. */
+.site-header nav { font-size: 14px; }
+.site-header nav > a { min-height: 44px; display: inline-flex; align-items: center; }
+.site-header .menu-toggle { min-height: 44px; min-width: 72px; }
+.site-header .theme-switch { min-height: 44px; }
+.site-header .wordmark { min-height: 44px; }
+@media (max-width: 1100px) {
+  .js-ready .site-header #navigation { max-height: calc(100svh - 92px); overflow-y: auto; overscroll-behavior: contain; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .site-header:has(nav.is-open) .header-inner { align-items: center; padding-top: 0; }
+  .site-header:has(nav.is-open) .theme-switch { margin-top: 0; }
+  .js-ready .menu-toggle[aria-expanded="true"] > span { transform: rotate(45deg); }
+}
+.site-header .wordmark { font-size: 11px; }
+.site-header .theme-switch { font-size: 12px; }
