@@ -1,0 +1,70 @@
+.breach-essay { font-size: 19px; line-height: 1.85; }
+.breach-header { max-width: 1060px; padding-block: 42px 0; }
+.breach-header .article-back { font-size: 15px; margin-bottom: 30px; }
+.breach-essay .eyebrow { font-size: 12px; line-height: 1.6; margin-bottom: 18px; color: var(--muted); }
+.breach-header h1 { font: clamp(42px, 5.5vw, 76px)/1.08 var(--serif); letter-spacing: -.04em; max-width: 1000px; text-wrap: balance; }
+.breach-essay .breach-deck { font-size: clamp(20px, 2.3vw, 25px); line-height: 1.55; color: var(--muted); margin-top: 26px; max-width: 870px; }
+.breach-meta { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; color: var(--muted); margin-block: 26px 34px; }
+.breach-figure { margin: 0 0 48px; }
+.breach-figure img { width: 100%; border-radius: var(--radius-box); }
+.breach-figure figcaption a { text-decoration: underline; text-underline-offset: 3px; }
+.breach-figure figcaption { font-size: 13px; line-height: 1.6; color: var(--muted); margin-top: 12px; max-width: 790px; }
+.breach-reading { width: min(760px, calc(100% - 48px)); margin-inline: auto; padding-bottom: 76px; }
+.breach-reading p { margin: 0 0 1.25em; }
+.breach-reading a:not(.button) { text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; overflow-wrap: anywhere; }
+.breach-reading .breach-opening { font: 27px/1.55 var(--serif); }
+.breach-reading section { margin-top: 66px; scroll-margin-top: 120px; }
+.breach-reading h2 { font: clamp(31px, 3.5vw, 42px)/1.18 var(--serif); letter-spacing: -.025em; margin-bottom: 24px; text-wrap: balance; }
+.breach-note { margin: 34px 0; border-left: 3px solid var(--accent); border-radius: 0; background: var(--white); box-shadow: none; }
+.breach-note .card-body { padding: 24px 28px; font-size: 18px; }
+.breach-note p { margin: 0; }
+.breach-reading .breach-contents { display: grid; position: static; grid-template-columns: 1fr 1fr; gap: 2px 24px; border: 0; border-block: 1px solid var(--line); padding: 23px 0; margin: 35px 0 0; background: transparent; }
+.breach-contents span { grid-column: 1/-1; font: 12px/1.6 var(--mono); letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
+.breach-contents a { display: flex; align-items: center; min-height: 44px; font-size: 16px; }
+.breach-reading ul, .breach-actions { padding-left: 24px; margin-block: 24px; }
+.breach-reading ul { list-style: disc; }
+.breach-actions { list-style: decimal; }
+.breach-reading li + li { margin-top: 17px; }
+.breach-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius-box); margin-block: 30px; max-width: 100%; }
+.breach-table { min-width: 580px; font-size: 16px; line-height: 1.7; white-space: normal; }
+.breach-table caption { text-align: left; padding: 18px 20px; background: var(--white); font-size: 14px; line-height: 1.5; color: var(--muted); }
+.breach-table :is(th, td) { padding: 20px; vertical-align: top; border-bottom: 1px solid var(--line); }
+.breach-table th { color: var(--ink); }
+.breach-table thead { background: var(--soft); font-size: 14px; }
+.breach-table tbody th { width: 25%; font-weight: 600; }
+.breach-table-wrap:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.breach-cta { background: var(--white); border: 1px solid var(--line); box-shadow: none; margin-top: 42px; }
+.breach-cta .card-body { padding: 32px; font-size: 18px; gap: 0; }
+.breach-cta h2 { font-size: 33px; }
+.breach-cta .card-actions { align-items: center; justify-content: flex-start; gap: 18px 25px; }
+.breach-cta .button { font-size: 16px; min-height: 48px; }
+.breach-essay a.button:hover { color: var(--paper); }
+.breach-cta .card-actions > a:not(.button) { font-size: 16px; padding-block: 9px; }
+.breach-reading .breach-evidence { font-size: 14px; line-height: 1.75; color: var(--muted); margin-top: 28px; }
+.breach-related { border-top: 1px solid var(--line); margin-top: 38px; padding-top: 28px; display: grid; gap: 4px; }
+.breach-related a { min-height: 44px; font-size: 17px; }
+@media (max-width: 600px) {
+  .breach-header { width: calc(100% - 40px); padding-top: 28px; }
+  .breach-header h1 { font-size: 42px; }
+  .breach-meta { font-size: 13px; gap: 6px 14px; }
+  .breach-essay { font-size: 18px; line-height: 1.8; }
+  .breach-reading { width: calc(100% - 40px); }
+  .breach-reading .breach-opening { font-size: 24px; }
+  .breach-figure { margin-bottom: 35px; }
+  .breach-reading section { margin-top: 48px; }
+  .breach-note .card-body, .breach-cta .card-body { padding: 23px; }
+  .breach-cta h2 { font-size: 29px; }
+  .breach-reading .breach-contents { gap: 4px 15px; }
+  .breach-contents a { font-size: 15px; }
+}
+@media print {
+  .breach-essay { font-size: 11pt; line-height: 1.6; }
+  .breach-header h1 { font-size: 32pt; }
+  .breach-header, .breach-reading { width: 100%; }
+  .breach-reading .breach-contents, .breach-related, .breach-cta { display: none; }
+  .breach-reading section { margin-top: 28px; }
+  .breach-reading h2 { font-size: 21pt; break-after: avoid; }
+  .breach-figure img { max-height: 240px; width: auto; }
+  .breach-table { min-width: 0; font-size: 10pt; }
+  .breach-table-wrap { overflow: visible; }
+}
