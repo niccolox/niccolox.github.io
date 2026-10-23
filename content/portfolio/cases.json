@@ -1,0 +1,585 @@
+[
+  {
+    "slide": 1,
+    "slug": "technology-leadership",
+    "kind": "Portfolio overview",
+    "title": "Technology leadership, close to the work.",
+    "organization": "Nicholas Roberts",
+    "role": "Technology leader · Full-stack engineer · Customer success",
+    "sector": "Commerce, data & digital services",
+    "summary": "A career connecting product delivery, engineering, and customer success with the systems a business depends on every day.",
+    "metrics": [
+      [
+        "10",
+        "project case studies"
+      ],
+      [
+        "12",
+        "original portfolio slides"
+      ],
+      [
+        "3",
+        "connected disciplines"
+      ]
+    ],
+    "brief": "The opening slide brings together three perspectives: directing technology, building software, and helping customers succeed. The work that follows spans wine ecommerce, financial-services software, cloud infrastructure, telecommunications, government publishing, hospitality, and news media.",
+    "ownership": [
+      "Connect business requirements with practical engineering and delivery decisions.",
+      "Coordinate developers, operations teams, vendors, and business stakeholders.",
+      "Stay involved through implementation, launch, support, and adoption."
+    ],
+    "delivery": [
+      "The commercial work ranges from large historical order migrations to customer onboarding and public-facing publishing. Across these settings, delivery involves both the software and the people who operate it: clear specifications, coordinated releases, useful documentation, and ownership after launch.",
+      "Independent work adds a founder’s perspective. Citizen Success combines a political geography database, publishing, subscriptions, payments, and self-hosted operations. The introductory slide also lists cultural projects, sustainability studies, and open-source event organizing; these are background interests rather than separate project slides in this PDF."
+    ],
+    "outcomes": [
+      "A portfolio that shows both hands-on implementation and cross-functional leadership.",
+      "Dedicated examples of commerce modernization, technical customer success, operational delivery, and publishing."
+    ],
+    "lesson": "Technology leadership is most useful when strategy, implementation, and operating responsibility stay connected. These case studies show how I work across those boundaries.",
+    "tags": [
+      "Technology strategy",
+      "Full-stack engineering",
+      "Customer success"
+    ],
+    "image_alt": "Portfolio opening slide with Nicholas Roberts’s portrait and an overview of professional roles and independent projects"
+  },
+  {
+    "slide": 2,
+    "slug": "digital-beverage-group",
+    "kind": "Case study",
+    "title": "Modernizing commerce at scale.",
+    "organization": "Digital Beverage Group",
+    "role": "Director of Technology",
+    "sector": "Wine ecommerce",
+    "summary": "Migrated historical commerce data to Shopify and Linnworks while working across platform operations, internal tools, performance, and IT for a growing wine business.",
+    "metrics": [
+      [
+        "2M",
+        "historical orders migrated"
+      ],
+      [
+        "$150M",
+        "historical order value"
+      ],
+      [
+        "20",
+        "brands in the Cloudflare scope"
+      ]
+    ],
+    "brief": "A Napa-based wine ecommerce group was moving from the legacy Offset Figure inventory and commerce platform to Shopify and Linnworks. The modernization sat within a broader growth environment involving organic expansion, private equity, and acquisitions. My role expanded from ecommerce administration to Director of Technology.",
+    "ownership": [
+      "Develop the Python and Pandas workflows used to migrate historical order and customer data.",
+      "Work across strategy, implementation, and daily operations for the commerce platforms.",
+      "Support internal tools, web performance, Cloudflare security, and corporate IT."
+    ],
+    "delivery": [
+      "I authored Python and Pandas notebooks for the order and customer migration, using SQL alongside the new commerce and warehouse systems. The historical transfer covered two million orders representing $150 million in order value. These totals refer to historical orders transferred between platforms.",
+      "The operating environment included Shopify Plus, Linnworks, Klaviyo, and AfterShip. Retool work connected internal-tool development with QA, user acceptance, and deployment. BrowserStack and Datadog supported performance work; Cloudflare WAF, bot controls, and Workers formed part of the web infrastructure. Linux, Docker Compose, and Airbyte were also part of the broader technical environment."
+    ],
+    "outcomes": [
+      "Completed the documented migration of two million historical orders and their associated order value.",
+      "Established production operations across the new commerce, warehouse, marketing, and post-purchase stack.",
+      "Supported a business reporting 40% group-wide growth through technology modernization and operating delivery."
+    ],
+    "lesson": "A commerce migration is also an operations project. Historical data, warehouse workflows, internal tooling, performance, and business ownership all need to move together.",
+    "note": "The 40% figure is group-wide business growth, not an isolated attribution to this migration. The measurement period is not specified here.",
+    "tags": [
+      "Shopify Plus",
+      "Linnworks",
+      "Python & Pandas",
+      "SQL",
+      "Cloudflare",
+      "Retool"
+    ],
+    "image_alt": "Digital Beverage Group portfolio slide describing the Shopify and Linnworks migration with wine storefront screenshots"
+  },
+  {
+    "slide": 3,
+    "slug": "citizen-success",
+    "kind": "Case study",
+    "title": "Public data, built into a working product.",
+    "organization": "Citizen Success",
+    "role": "Founder & Full-stack Engineer",
+    "sector": "Civic data & publishing",
+    "summary": "Built a political geography and publishing platform combining searchable public data, subscriptions, payments, real-time discussion, and self-hosted infrastructure.",
+    "metrics": [
+      [
+        "48k",
+        "politicians in the database"
+      ],
+      [
+        "2",
+        "payment integrations described"
+      ],
+      [
+        "Multi-site",
+        "publishing architecture"
+      ]
+    ],
+    "brief": "Citizen Success brought a political geography database and a subscription publishing product into the same application. The data model covered parties, politicians, states, legislative chambers, and divisions. The product also needed content creation, access permissions, payments, and interactive conversations.",
+    "ownership": [
+      "Build the application and the public-data search experience.",
+      "Connect publishing, subscriptions, permissions, and payment integrations.",
+      "Operate the deployment, database, storage, email, and backup environment."
+    ],
+    "delivery": [
+      "Phoenix LiveView powered reactive filtering and real-time post chat. Channels, posts, custom page layouts, a rich-text editor, and S3 uploads supported the publishing workflow. React and Svelte components were integrated into LiveView where needed, while a theming engine supported multiple sites and domains.",
+      "The implementation connected Stripe through JSON/REST and Authorize.Net through XML. A permission system expressed access in terms of users, powers, actions, and schemas. The self-hosted environment used Debian, Ansible, PostgreSQL, and Docker Compose, with Wasabi S3 storage, Cloudflare CDN, and geographically redundant backup arrangements."
+    ],
+    "outcomes": [
+      "Delivered a searchable political database and publishing application in one product.",
+      "Provided political database queries and lists to campaigns.",
+      "Built the operational foundation for multiple sites, subscriptions, and real-time content interactions."
+    ],
+    "lesson": "Founder-led product engineering includes the less visible work: permissions, backups, publishing operations, and maintainable integrations. Those capabilities make the visible product usable in practice.",
+    "tags": [
+      "Elixir & Phoenix LiveView",
+      "PostgreSQL",
+      "Stripe",
+      "Ansible",
+      "Docker",
+      "Wasabi S3"
+    ],
+    "image_alt": "Citizen Success portfolio slide with political database filters and publishing interface screenshots"
+  },
+  {
+    "slide": 4,
+    "slug": "datava-customer-success",
+    "kind": "Case study",
+    "title": "Turning data platforms into customer adoption.",
+    "organization": "Datava",
+    "role": "Customer Success Manager",
+    "sector": "Financial services & manufacturing SaaS",
+    "summary": "Led engineering delivery and customer engagement across data-driven SaaS projects, connecting onboarding, roadmaps, resourcing, and go-live.",
+    "metrics": [
+      [
+        "10",
+        "engineers managed"
+      ],
+      [
+        "15",
+        "product modules described"
+      ],
+      [
+        "End to end",
+        "client engagement ownership"
+      ]
+    ],
+    "brief": "Datava’s customers needed more than access to a data platform. Credit unions, banks, and manufacturers needed implementations that connected product capabilities with their operating workflows. Projects covered onboarding, CRM, data warehousing, incentives, referrals, loan pipelines, analytics, and reporting.",
+    "ownership": [
+      "Manage ten engineers delivering data-driven SaaS through professional services.",
+      "Own a portfolio of client projects across the engagement lifecycle.",
+      "Coordinate stakeholder communication, project plans, engineering capacity, and customer-success scorecards."
+    ],
+    "delivery": [
+      "I connected customer roadmaps with the engineering work needed to deliver them. That included lean product specifications, documentation, Kanban planning, QA, and go-live coordination. Regular meetings and explicit plans kept clients and delivery teams aligned on scope and progress.",
+      "Engineering leadership included mentoring, running standups, and triaging project resourcing. The customer-success scorecard provided a structured way to review each institution’s engagement alongside its active projects. The work joined delivery management with ongoing customer relationships."
+    ],
+    "outcomes": [
+      "Maintained ownership across onboarding, implementation, and continuing customer engagement.",
+      "Coordinated a ten-engineer professional-services team across a broad set of product modules.",
+      "Connected project delivery, resource allocation, and customer-success reviews within the same operating process."
+    ],
+    "lesson": "Adoption depends on delivery discipline. Roadmaps and product features become useful when customers understand the next step and the team has the capacity and specifications to deliver it.",
+    "tags": [
+      "Professional services",
+      "Data warehousing",
+      "CRM",
+      "BI & analytics",
+      "Roadmaps",
+      "Engineering leadership"
+    ],
+    "image_alt": "Datava portfolio slide showing customer-success responsibilities and financial-services product interfaces"
+  },
+  {
+    "slide": 5,
+    "slug": "section-customer-engineering",
+    "kind": "Case study",
+    "title": "Customer engineering at the edge.",
+    "organization": "Section.io",
+    "role": "Customer Success Engineer",
+    "sector": "Web performance & security",
+    "summary": "Worked across solutions, support, and full-stack engineering on a distributed platform for CDN, web security, and customer-facing infrastructure.",
+    "metrics": [
+      [
+        "3",
+        "connected customer-engineering disciplines"
+      ],
+      [
+        "Multi-cloud",
+        "distributed delivery environment"
+      ],
+      [
+        "Front line",
+        "incident ownership"
+      ]
+    ],
+    "brief": "Section operated a global platform for web performance and security. Customers depended on its delivery and protection layers during normal traffic, major campaigns, outages, and denial-of-service incidents. The role required moving between customer engineering, solutions engineering, support, and development.",
+    "ownership": [
+      "Take difficult customer-facing technical issues through investigation and resolution.",
+      "Support onboarding, CDN configuration, bot management, and integration projects.",
+      "Contribute to dashboards, modules, internal specifications, runbooks, and public documentation."
+    ],
+    "delivery": [
+      "The work combined direct customer communication with hands-on engineering. I handled incidents affecting major websites and helped resolve competing technical requirements across customer and platform teams. The portfolio names Toyota, Lexus, Coles, and BoxyCharm among the customer environments involved.",
+      "The technical stack included Sails.js, React, Grafana, Kibana, Kubernetes, Docker, Varnish, OpenResty, and Lua. Delivery spanned several infrastructure providers and a fully remote team. Zendesk, GitHub, Slack, and shared documentation supported the handoff between incident response, planned projects, and ongoing support."
+    ],
+    "outcomes": [
+      "Delivered customer onboarding, configuration, and solution-engineering work alongside operational support.",
+      "Contributed engineering and documentation to the platform’s customer-facing delivery process.",
+      "Built experience translating high-pressure technical incidents into coordinated customer action."
+    ],
+    "lesson": "Infrastructure customer success requires both technical depth and clear ownership. The customer needs someone who can understand the system, explain the next action, and stay with the problem.",
+    "tags": [
+      "CDN & WAF",
+      "Kubernetes",
+      "Varnish",
+      "OpenResty & Lua",
+      "Observability",
+      "Incident response"
+    ],
+    "image_alt": "Section.io portfolio slide covering customer engineering, cloud infrastructure, and enterprise website delivery"
+  },
+  {
+    "slide": 6,
+    "slug": "toyota-lexus-domain-onboarding",
+    "kind": "Case study",
+    "title": "Twelve domains. One coordinated launch plan.",
+    "organization": "Toyota & Lexus · Section.io",
+    "role": "Solution Engineer",
+    "sector": "Automotive web infrastructure",
+    "summary": "Documented and coordinated the onboarding of twelve Toyota and Lexus bare domains, including redirect logic and tests before and after launch.",
+    "metrics": [
+      [
+        "12",
+        "bare domains onboarded"
+      ],
+      [
+        "2",
+        "test stages: before & after launch"
+      ],
+      [
+        "1",
+        "shared product document"
+      ]
+    ],
+    "brief": "Toyota and Lexus required onboarding for twelve bare domains, including toyota.com, lexus.com, and toyotacertified.com. These addresses were important entry points for customers, including traffic generated by advertising. Redirect behavior needed to be explicit and coordinated across multiple business teams.",
+    "ownership": [
+      "Write the product and support documentation for the domain applications.",
+      "Specify redirect logic, implementation options, and pre-launch and post-launch tests.",
+      "Work directly with Toyota project management and business teams through onboarding."
+    ],
+    "delivery": [
+      "I documented an application for each domain, covering the redirection rules and the relevant technology choices, including Varnish and OpenResty. The Section product document became the shared source of truth for the onboarding work, giving the teams a common reference for implementation and validation.",
+      "Launches were coordinated during off-peak, out-of-hours windows. The work included straightforward bare-domain redirects as well as the more complex routing associated with the wider Toyota and Lexus domain portfolio. Explicit tests on both sides of go-live kept the intended behavior visible throughout the transition."
+    ],
+    "outcomes": [
+      "Onboarded all twelve domains in coordination with Toyota’s teams.",
+      "Created product and support documentation used as the source of truth during onboarding.",
+      "Defined launch and validation steps for public-facing domain behavior."
+    ],
+    "lesson": "A redirect can be a business-critical product surface. Treating domain behavior as a documented, testable release helps connect infrastructure changes with the customer journeys they affect.",
+    "tags": [
+      "Solution engineering",
+      "Domain migration",
+      "Varnish",
+      "OpenResty",
+      "Launch planning",
+      "Technical documentation"
+    ],
+    "image_alt": "Toyota and Lexus portfolio slide describing twelve bare-domain redirectors and showing automotive website examples"
+  },
+  {
+    "slide": 7,
+    "slug": "sonic-product-delivery",
+    "kind": "Case study",
+    "title": "Connecting product launches with systems operations.",
+    "organization": "Sonic",
+    "role": "Programming Project Manager",
+    "sector": "Telecommunications",
+    "summary": "Coordinated software and systems teams across ACH payments, managed Wi-Fi, and broadband product delivery within Sonic’s Systems Operations Center.",
+    "metrics": [
+      [
+        "6",
+        "full-stack developers"
+      ],
+      [
+        "6",
+        "systems administrators"
+      ],
+      [
+        "3",
+        "named product initiatives"
+      ]
+    ],
+    "brief": "Sonic’s Systems Operations Center connected software development with the infrastructure behind customer services. The project portfolio included an ACH payments integration, an eero mesh Wi-Fi service, and the launch of an IP broadband product group. Each involved both product decisions and operational delivery.",
+    "ownership": [
+      "Coordinate six full-stack developers and six systems administrators.",
+      "Manage product work for the ACH payments integration.",
+      "Manage projects for the eero Wi-Fi service and IP broadband product launch."
+    ],
+    "delivery": [
+      "The role brought requirements, service design, and delivery planning into the same conversation. I worked across product and service design, design thinking, and UX/UI to connect customer-facing behavior with the supporting systems.",
+      "Planning used Jira with Scrum and Kanban alongside Waterfall projects. That mix reflected different delivery needs within the program. The central responsibility was coordination: helping software and systems specialists work toward shared product and launch objectives."
+    ],
+    "outcomes": [
+      "Coordinated a twelve-person group spanning development and systems administration.",
+      "Owned product or project responsibilities across payments, Wi-Fi, and broadband initiatives.",
+      "Connected service design with the teams responsible for implementation and operations."
+    ],
+    "lesson": "A service launch reaches beyond the application. Product ownership needs to connect user experience, payment behavior, infrastructure, and the teams that will operate the service.",
+    "tags": [
+      "Product management",
+      "ACH payments",
+      "Service design",
+      "Jira",
+      "Scrum & Kanban",
+      "Systems operations"
+    ],
+    "image_alt": "Sonic portfolio slide with broadband and Wi-Fi service screenshots and Systems Operations Center delivery responsibilities"
+  },
+  {
+    "slide": 8,
+    "slug": "save-competition",
+    "kind": "Case study",
+    "title": "Coordinating a public-comment campaign.",
+    "organization": "Save Competition · Sonic",
+    "role": "Programming Project Manager",
+    "sector": "Public advocacy & digital delivery",
+    "summary": "Managed a digital advocacy project connecting executive direction, creative work, development, communications, and FCC-facing integration.",
+    "metrics": [
+      [
+        "9,000+",
+        "citizen FCC comments curated"
+      ],
+      [
+        "4",
+        "stakeholder groups connected"
+      ],
+      [
+        "FCC API",
+        "integration described in the portfolio"
+      ]
+    ],
+    "brief": "Save Competition was a Sonic initiative involving FCC advocacy and direct email campaigns. The delivery challenge connected a public-facing campaign with internal executive, creative, engineering, and communications work, as well as an external regulatory interface.",
+    "ownership": [
+      "Manage Agile development directly across the CEO, creative, developer, and communications teams.",
+      "Coordinate the digital campaign and its technical delivery.",
+      "Curate more than 9,000 citizen comments associated with the FCC campaign."
+    ],
+    "delivery": [
+      "I worked as the programming project manager within Sonic, linking executive intent with the creative assets and development tasks needed for the campaign. The project combined campaign publishing and communication with a technical integration using Docker, AWS, and the FCC API.",
+      "The portfolio records the curation of more than 9,000 citizen comments. Content handling was therefore a substantial part of the project alongside the campaign experience and its technical integration."
+    ],
+    "outcomes": [
+      "Coordinated a cross-functional public-facing campaign project.",
+      "Curated more than 9,000 citizen FCC comments.",
+      "Connected campaign delivery with a Docker/AWS implementation and FCC API integration."
+    ],
+    "lesson": "Public-facing campaigns need the same delivery discipline as other digital products: explicit ownership, clear handoffs, and a reliable connection between communication and implementation.",
+    "tags": [
+      "Cross-functional delivery",
+      "Campaign operations",
+      "Agile",
+      "Docker",
+      "AWS",
+      "API integration"
+    ],
+    "image_alt": "Save Competition portfolio slide with campaign website screenshots and a summary of FCC comment and integration work"
+  },
+  {
+    "slide": 9,
+    "slug": "cirm-web-platform",
+    "kind": "Case study",
+    "title": "Keeping public science information accessible and maintained.",
+    "organization": "California Institute for Regenerative Medicine",
+    "role": "Drupal & WordPress Webmaster",
+    "sector": "Government & biotechnology",
+    "summary": "Managed a substantial public web estate while coordinating a mobile-first redesign, vendor delivery, content operations, and platform security maintenance.",
+    "metrics": [
+      [
+        "6,000+",
+        "pages managed"
+      ],
+      [
+        "15",
+        "content types"
+      ],
+      [
+        "Mobile first",
+        "redesign approach"
+      ]
+    ],
+    "brief": "The California Institute for Regenerative Medicine needed ongoing stewardship of a large public web estate. The work combined Drupal and WordPress operations with a website refresh and mobile-first redesign. Content structure, vendor coordination, and code maintenance were all part of the role.",
+    "ownership": [
+      "Manage content operations across more than 6,000 pages and fifteen content types.",
+      "Lead the search for a website refresh agency and manage vendor coordination.",
+      "Technically manage the redesign while maintaining code, documentation, and operational support."
+    ],
+    "delivery": [
+      "I worked on landing pages, rich-content page building, and the technical delivery of the mobile-first redesign. The hosting and delivery environment included Acquia, Pantheon, Cloudflare CDN, and self-hosting. Product specifications and runbooks supported both planned changes and day-to-day operations.",
+      "Drupal code maintenance included responding to the vulnerability commonly known as Drupalgeddon. The portfolio records successful defensive maintenance during that period."
+    ],
+    "outcomes": [
+      "Maintained a public content estate of more than 6,000 pages with fifteen content types.",
+      "Coordinated the technical and vendor work behind a mobile-first website redesign.",
+      "Combined publishing support with documented operations and security maintenance."
+    ],
+    "lesson": "A public website is an ongoing service. Redesign work is strongest when content ownership, maintainable publishing patterns, vendor accountability, and security operations are addressed together.",
+    "tags": [
+      "Drupal",
+      "WordPress",
+      "Acquia & Pantheon",
+      "Cloudflare",
+      "Vendor management",
+      "Content operations"
+    ],
+    "image_alt": "California Institute for Regenerative Medicine portfolio slide with mobile and desktop website examples and content-management responsibilities"
+  },
+  {
+    "slide": 10,
+    "slug": "mantra-resorts-ecommerce",
+    "kind": "Case study",
+    "title": "Three hospitality brands, one delivery program.",
+    "organization": "Mantra Resorts",
+    "role": "Technical Project Manager",
+    "sector": "Accommodation ecommerce",
+    "summary": "Led the software delivery lifecycle for a multi-brand accommodation platform with a shared codebase and a substantial destination and room-content estate.",
+    "metrics": [
+      [
+        "10,000",
+        "unique content items"
+      ],
+      [
+        "3",
+        "domains on one codebase"
+      ],
+      [
+        "10",
+        "developers coordinated"
+      ]
+    ],
+    "brief": "Mantra Resorts’ accommodation ecommerce work spanned the Mantra, BreakFree, and Peppers domains. The platform combined a single codebase with three distinct brand destinations and approximately 10,000 unique destination and hotel-room content items.",
+    "ownership": [
+      "Manage the full lifecycle from requirements and specification through acceptance, launch, and documentation.",
+      "Coordinate ten developers across a nine-month program.",
+      "Connect the multisite platform and custom module work with the accommodation ecommerce requirements."
+    ],
+    "delivery": [
+      "The program covered requirements, specifications, task definition, development, testing, and acceptance before launch. The implementation used custom .NET/DotNetNuke modules and a shared codebase supporting the three domains.",
+      "The source slide records a nine-month delivery period, ten developers, and an AUD 500,000 project scale. The delivery sequence connected the shared platform with the destination and room content, testing, acceptance, and launch documentation."
+    ],
+    "outcomes": [
+      "Delivered accommodation ecommerce work across three domains using one codebase.",
+      "Coordinated a substantial destination and hotel-room content estate with custom application development.",
+      "Owned the delivery sequence from requirements to launch and documentation."
+    ],
+    "lesson": "A shared platform can support multiple brands when the common system and the brand-specific requirements are made explicit. Delivery leadership connects that architecture to content, acceptance, and launch.",
+    "tags": [
+      ".NET",
+      "DotNetNuke",
+      "Multisite ecommerce",
+      "Full SDLC",
+      "Content operations",
+      "Technical project management"
+    ],
+    "image_alt": "Mantra Resorts portfolio slide with Mantra, BreakFree, and Peppers website examples and the multisite ecommerce delivery scope"
+  },
+  {
+    "slide": 11,
+    "slug": "news-corp-nationwide-news",
+    "kind": "Case study",
+    "title": "Enabling newsrooms to publish through change.",
+    "organization": "News Corp / Nationwide News",
+    "role": "Webmaster & Project Manager · Sydney",
+    "sector": "News publishing & advertising",
+    "summary": "Empowered publishing and business teams through major newspaper website upgrades, multimedia production, internal knowledge systems, and advertising integrations.",
+    "metrics": [
+      [
+        "4",
+        "major newspaper website upgrades"
+      ],
+      [
+        "2",
+        "mastheads highlighted in the slide"
+      ],
+      [
+        "2000–2003",
+        "role period"
+      ]
+    ],
+    "brief": "Nationwide News combined continuing web publishing operations with major changes to newspaper websites and internal systems. The portfolio highlights four major upgrades across The Australian and The Daily Telegraph, alongside advertising, editorial, knowledge-management, and subscription work.",
+    "ownership": [
+      "Act as an internal web resource across major upgrades, ongoing operations, consulting, and projects.",
+      "Enable editorial and advertising teams through multimedia production, integrations, prototypes, and content operations.",
+      "Coordinate external vendors, including Microsoft Consulting, alongside internal stakeholders."
+    ],
+    "delivery": [
+      "The work included SharePoint intranet and knowledge-management projects, plus OpenVMS mainframe API integrations for business-to-business advertising and news workflows. Product designs, prototypes, and proofs of concept explored the next generation of advertising and editorial tools.",
+      "I also produced web video and multimedia editorial during major breaking-news periods, including 9/11 and the Iraq War. Omnichannel subscription campaigns and everyday content operations ran alongside platform changes. The role connected the pace of publishing with the implementation work needed to keep evolving the web estate."
+    ],
+    "outcomes": [
+      "Contributed as an internal web resource across four major newspaper website upgrades.",
+      "Enabled multimedia publishing during major breaking-news events.",
+      "Connected editorial, advertising, internal knowledge systems, and vendor-led projects through hands-on web delivery."
+    ],
+    "lesson": "Publishing transformation depends on enabling the people who publish. The systems must evolve while editorial and commercial teams continue doing time-sensitive work.",
+    "tags": [
+      "Web publishing",
+      "Multimedia",
+      "SharePoint",
+      "OpenVMS integrations",
+      "Vendor management",
+      "Product prototyping"
+    ],
+    "image_alt": "Nationwide News portfolio slide with The Daily Telegraph and The Australian website examples and webmaster project responsibilities"
+  },
+  {
+    "slide": 12,
+    "slug": "work-with-nicholas-roberts",
+    "kind": "Contact",
+    "title": "Let’s build what comes next.",
+    "organization": "Nicholas (Niccolo) Roberts",
+    "role": "Hands-on VP, CTO & Director roles",
+    "sector": "Technology, product & operations",
+    "summary": "Based in the San Francisco Bay Area, with experience connecting technology delivery, customer success, and business operations across Australia and the United States.",
+    "metrics": [
+      [
+        "Bay Area",
+        "San Francisco base"
+      ],
+      [
+        "Remote / hybrid",
+        "working arrangements"
+      ],
+      [
+        "Australia + USA",
+        "dual nationality"
+      ]
+    ],
+    "brief": "The final portfolio slide brings the work back to a conversation. I’m interested in hands-on technology leadership where product development, engineering, and operations are connected to the needs of a growing business.",
+    "ownership": [
+      "Turn a business objective into a practical delivery plan.",
+      "Lead the cross-functional teams that build, launch, and operate the product.",
+      "Stay close to the implementation, the customer experience, and the people doing the work."
+    ],
+    "delivery": [
+      "The case studies show the kinds of challenges I have worked on: commerce migration, data-platform adoption, customer-facing infrastructure, service launches, and public web publishing. They are starting points for discussing your operating context and the change you need to make.",
+      "Email is the simplest way to begin. Share a short description of the business, the role or project, and the constraint you want to solve. My LinkedIn profile and downloadable resume provide additional professional context."
+    ],
+    "outcomes": [
+      "Review a specific case study together to discuss relevant experience.",
+      "Connect the next business objective with the people, systems, and delivery work it requires."
+    ],
+    "lesson": "I build products that customers buy and people love, and lead the cross-functional teams that do it.",
+    "tags": [
+      "Technology leadership",
+      "Product delivery",
+      "AI transformation",
+      "Commerce",
+      "Customer success"
+    ],
+    "image_alt": "Original closing portfolio slide with Nicholas Roberts’s contact information, Bay Area location, and Australia and USA dual nationality"
+  }
+]

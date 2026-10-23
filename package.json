@@ -4,7 +4,8 @@
   "scripts": {
     "build:theme": "tailwindcss -i styles/daisyui.css -o site/assets/daisyui.css --minify",
     "build:writing": "python3 scripts/build_writing.py",
-    "build": "npm run build:writing && npm run build:theme",
+    "build:portfolio": "python3 scripts/build_portfolio.py",
+    "build": "npm run build:portfolio && npm run build:writing && npm run build:theme",
     "check": "python3 scripts/check_site.py"
   },
   "devDependencies": {

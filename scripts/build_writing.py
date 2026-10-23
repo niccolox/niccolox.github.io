@@ -167,6 +167,7 @@ def build():
     homepage.write_text(html[:start] + section + html[end:])
     sitemap_urls = [ORIGIN + '/', ORIGIN + '/writing/']
     sitemap_urls += [ORIGIN + '/' + str(path.parent.relative_to(SITE)) + '/' for path in sorted((SITE / 'services').rglob('index.html'))]
+    sitemap_urls += [ORIGIN + '/' + str(path.parent.relative_to(SITE)) + '/' for path in sorted((SITE / 'portfolio').rglob('index.html'))]
     sitemap_urls += [ORIGIN + route(post) for post in POSTS]
     (SITE / 'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' + ''.join('<url><loc>' + escape(url) + '</loc></url>' for url in sitemap_urls) + '</urlset>\n')
     print(f'Built {len(POSTS)} complete articles, writing index, and homepage links.')

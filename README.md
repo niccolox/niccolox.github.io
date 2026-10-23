@@ -41,6 +41,10 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `site/assets/downloads/`: resume PDF, resume Word document, and source portfolio PDF.
 - `site/assets/images/`: the provided blue-jacket portrait and original images extracted from the portfolio.
 - `scripts/check_site.py`: local asset, anchor, and metadata checks.
+- `content/portfolio/cases.json`: reviewed case-study copy mapped to all 12 slides in the original portfolio PDF.
+- `scripts/build_portfolio.py`: generates `/portfolio/` and one page per slide, including source images, PDF links, and previous/next navigation.
+- `site/assets/images/portfolio/`: full-slide JPEG renders from the unchanged portfolio PDF.
+- `site/assets/portfolio.css`: responsive case-study reading layout using the existing Nord/Night theme.
 
 The content and navigation remain available without JavaScript. Native details elements provide project disclosures and article contents. There are no analytics, external fonts, submission forms, trackers, or backend services.
 
@@ -54,7 +58,9 @@ npm run build
 npm run check
 ```
 
-Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. `npm run build:theme` rebuilds only the theme, and `npm run build:writing` rebuilds only article pages and writing links. The homepage header uses the same theme control as the article template, so header changes should be kept in sync.
+Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. The full build generates portfolio pages first, then writing and the sitemap, then theme utilities. `npm run build:portfolio` rebuilds the 12 slide pages and portfolio index; `npm run build:writing` refreshes article pages, writing links, and sitemap entries for all existing portfolio pages. `npm run build:theme` rebuilds only the theme. The homepage header uses the same theme control as the article template, so header changes should be kept in sync.
+
+The portfolio contains ten project case studies, an introductory overview, and a contact page, following the PDF's slide order. Each page preserves the original slide as an image and links to its numbered PDF page. Historical screenshots and figures describe the source portfolio; the website does not claim that they represent the organizations' current products. The homepage's selected-work and career links open the corresponding web case studies; the complete PDF remains downloadable.
 
 Eight historical posts were imported with their published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Imported articles retain their source provenance and use their new `www.niccolox.com/writing/` addresses as canonicals. The sitemap includes the homepage, writing index, articles, and service pages. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
 
