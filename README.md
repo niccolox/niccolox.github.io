@@ -18,7 +18,9 @@ The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. Nord is
 
 Push this directory's contents to the `main` branch of `niccolox/niccolox.github.io`. In the repository's **Settings → Pages**, set **Source** to **GitHub Actions**. The included workflow validates the files and deploys only `site/` on each push to `main` or manual workflow run.
 
-The custom address is `https://www.niccolox.com/`, backed by `niccolox/niccolox.github.io`. GitHub Pages uses the custom domain configured through repository settings; this Actions deployment does not require a CNAME file. The `www` DNS record targets `niccolox.github.io`. The existing apex redirect sends `niccolox.com` visitors to `www`.
+The custom address is `https://www.niccolox.com/`, backed by `niccolox/niccolox.github.io`. GitHub Pages uses the custom domain configured through repository settings; this Actions deployment does not require a CNAME file. Cloudflare holds a **proxied** `www` CNAME targeting `niccolox.github.io`; keep proxy protection enabled. The existing apex redirect sends `niccolox.com` visitors to `www`.
+
+Cloudflare's `www portfolio: enforce HTTPS` redirect sends `http://www.niccolox.com/*` to `https://www.niccolox.com/${1}` with status 301 and query preservation. The existing Cloudflare Full TLS mode is unchanged. As of 23 October 2026, browser HTTPS works through Cloudflare, but GitHub has not issued a custom-domain certificate, so its separate `https_enforced` setting is unavailable. Do not enable Full (strict) until GitHub's origin certificate is valid for this domain, and do not disable Cloudflare's proxy to obtain it without the owner's approval.
 
 The writing build preserves the imported blog URLs under `/p/` and the `/posts` index using static redirects. Article canonicals, social metadata and the sitemap use the custom domain. This is not a complete migration of every historical blog post or the old subscription/account system.
 
@@ -54,7 +56,7 @@ npm run check
 
 Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. `npm run build:theme` rebuilds only the theme, and `npm run build:writing` rebuilds only article pages and writing links. The homepage header uses the same theme control as the article template, so header changes should be kept in sync.
 
-The seven posts were imported with their complete published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Each article links to its original publication and uses that URL as its canonical address; the sitemap lists the homepage, local writing index, and original feature articles. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
+Eight historical posts were imported with their published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Imported articles retain their source provenance and use their new `www.niccolox.com/writing/` addresses as canonicals. The sitemap includes the homepage, writing index, articles, and service pages. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
 
 ## Content sources
 
