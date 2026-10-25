@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#eceff4">
   <title>A world of pain: PowerSchool and the cyberpolycrisis — Nicholas Roberts</title>
-  <meta name="description" content="What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AI Detection and Response teach growing businesses about owning cyber risk.">
+  <meta name="description" content="What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AIDR—AI didn’t read—teach growing businesses about owning cyber risk.">
   <link rel="canonical" href="https://www.niccolox.com/writing/powerschool-bain-capital-cyberpolycrisis/">
   <meta property="og:type" content="article">
   <meta property="og:title" content="A world of pain: PowerSchool and the cyberpolycrisis">
-  <meta property="og:description" content="What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AI Detection and Response teach growing businesses about owning cyber risk.">
+  <meta property="og:description" content="What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AIDR—AI didn’t read—teach growing businesses about owning cyber risk.">
   <meta property="og:url" content="https://www.niccolox.com/writing/powerschool-bain-capital-cyberpolycrisis/">
   <meta property="og:image" content="https://www.niccolox.com/assets/images/writing/powerschool-accountability.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="/assets/polycrisis.css?v=2">
   <link rel="stylesheet" href="/assets/breach-essay.css?v=1">
   <script src="/assets/site.js?v=4" defer></script>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "A world of pain: PowerSchool and the cyberpolycrisis", "description": "What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AI Detection and Response teach growing businesses about owning cyber risk.", "url": "https://www.niccolox.com/writing/powerschool-bain-capital-cyberpolycrisis/", "author": {"@type": "Person", "name": "Nicholas Roberts", "url": "https://www.niccolox.com/"}, "image": "https://www.niccolox.com/assets/images/writing/powerschool-accountability.png", "wordCount": 2372, "datePublished": "2026-10-23", "dateModified": "2026-10-23"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "A world of pain: PowerSchool and the cyberpolycrisis", "description": "What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AIDR—AI didn’t read—teach growing businesses about owning cyber risk.", "url": "https://www.niccolox.com/writing/powerschool-bain-capital-cyberpolycrisis/", "author": {"@type": "Person", "name": "Nicholas Roberts", "url": "https://www.niccolox.com/"}, "image": "https://www.niccolox.com/assets/images/writing/powerschool-accountability.png", "wordCount": 2473, "datePublished": "2026-10-23", "dateModified": "2026-10-25"}</script>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -40,8 +40,8 @@
   <p class="eyebrow">GOVERNANCE, SECURITY &amp; #CYBERPOLYCRISIS</p>
   <h1>A world of pain: PowerSchool and the cyberpolycrisis</h1>
   <p class="breach-deck">Data breach laws, offshore access, acquisitions, SOC 2 compliance theater, and the next wave of AI risk.</p>
-  <div class="breach-meta"><span>By Nicholas (Niccolo) Roberts</span><time datetime="2026-10-23">23 October 2026</time><span>Analysis · 11 min read</span></div>
-  <figure class="breach-figure"><img src="/assets/images/writing/powerschool-accountability.png" alt="A conceptual chain connects business decisions to privileged access, then to customer harm, legal exposure and recovery costs." width="1200" height="630" fetchpriority="high"><figcaption>A model of how risks compound. This diagram does not establish causation in the PowerSchool litigation. <a href="/assets/images/writing/powerschool-accountability.png">Open diagram full size ↗</a></figcaption></figure>
+  <div class="breach-meta"><span>By Nicholas (Niccolo) Roberts</span><time datetime="2026-10-23">23 October 2026</time><span>Updated <time datetime="2026-10-25">25 October 2026</time></span><span>Analysis · 12 min read</span></div>
+  <figure class="breach-figure"><img src="/assets/images/writing/powerschool-accountability.png" alt="A conceptual chain connects business decisions to privileged access, then to customer harm, legal exposure and recovery costs." width="1200" height="630" fetchpriority="high"><figcaption>A model of how risks compound. AIDR in the diagram means “AI didn’t read.” This diagram does not establish causation in the PowerSchool litigation. <a href="/assets/images/writing/powerschool-accountability.png">Open diagram full size ↗</a></figcaption></figure>
 </header>
 
 <div class="breach-reading">
@@ -122,13 +122,19 @@
   </section>
 
   <section id="aidr" aria-labelledby="aidr-title">
-    <p class="eyebrow">07 / AI DETECTION &amp; RESPONSE</p>
-    <h2 id="aidr-title">AIDR needs its own acceptance test.</h2>
-    <p>Here, <strong>AIDR means AI Detection and Response</strong>: monitoring AI activity, identifying threats, and applying response or policy controls. For example, CrowdStrike’s documentation describes sending AI traffic to AIDR APIs for policy evaluation and logging events for investigation. That describes a capability and integration model, not a guarantee that every deployment will prevent every attack. <a href="https://aidr-docs.crowdstrike.com/docs/aidr/get-started">CrowdStrike AIDR documentation</a>.</p>
-    <p>Evaluate coverage in the actual workflow. Does the control see browser use, direct API calls, background agents, and tool execution? Can it interrupt a dangerous action before the downstream system commits it? Who receives the alert, and what happens when the inspection service is unavailable?</p>
-    <p>Inspection introduces another data-handling decision. The same documentation distinguishes roles that see metadata from roles that can see full prompt content and sensitive values. Review the collection, redaction, retention, residency, and access arrangements for that telemetry. Security tooling can itself become a repository of sensitive business information. <a href="https://aidr-docs.crowdstrike.com/docs/aidr/get-started">AIDR role and data-access documentation</a>.</p>
-    <p>Require a controlled demonstration: a hostile instruction enters a document; an agent attempts an unauthorized export; the destination system refuses it; the monitoring layer records enough evidence for investigation. Include a legitimate task to check that normal work still succeeds.</p>
-    <p>Otherwise, AIDR risks becoming the next reassurance badge in the procurement form. Buying a tool should start an operating practice, with ownership, coverage checks, and response exercises.</p>
+    <p class="eyebrow">07 / AIDR — AI DIDN’T READ</p>
+    <h2 id="aidr-title">Did anyone read the evidence?</h2>
+    <p>Here, <strong>AIDR means “AI didn’t read”</strong>: a confident answer that has not engaged with the documents, exceptions, or evidence on which the decision depends. It is my shorthand for a failure of review. The problem compounds when a person accepts that answer without checking the source.</p>
+    <p>Imagine an acquisition team asking an assistant whether a supplier is secure. The assistant receives a marketing page mentioning SOC 2, but never receives the report. It produces a reassuring summary. Someone copies that summary into the diligence pack, and the board treats it as a completed security review. The missing evidence has become harder to see because the prose looks authoritative.</p>
+    <p>The same failure can occur when an AI-generated policy is approved without checking whether the controls exist, or when generated code reaches production without anyone understanding its permissions. This is how AI vibe enterprise slop can enter governance: documents accumulate while understanding and accountability remain thin. These are hypothetical examples, not findings about PowerSchool’s or Bain’s use of AI.</p>
+    <p>Make review visible in the decision record:</p>
+    <ul>
+      <li><strong>Identify the source:</strong> name the document, version, date, and relevant passage. State what the assistant could actually access and what was missing.</li>
+      <li><strong>Check the exception:</strong> read the scope exclusions, qualifications, failed controls, and customer responsibilities. A summary should preserve uncertainty and unresolved questions.</li>
+      <li><strong>Assign a reviewer:</strong> require a named person to check the consequential claims against the originals and record the basis for approval.</li>
+      <li><strong>Test the implementation:</strong> connect a policy or code change to evidence that the intended control works in the real workflow.</li>
+    </ul>
+    <p>Use AI to help organize evidence, compare documents, and surface questions. Keep responsibility for the decision with someone who has read enough to explain it. A polished answer is useful only when the evidence and the judgment behind it can withstand scrutiny.</p>
   </section>
 
   <section id="action" aria-labelledby="action-title">
@@ -148,7 +154,7 @@
   </section>
 
   <aside class="card breach-cta" aria-labelledby="review-title"><div class="card-body"><p class="eyebrow">TURN THE ANALYSIS INTO A REVIEW</p><h2 class="card-title" id="review-title">Where does your business carry the same exposure?</h2><p>Use the Cyber Health Review to examine suppliers, privileged access, AI workflows, and recovery dependencies. Start with the systems that carry your customer commitments.</p><div class="card-actions"><a class="button primary" href="https://cyberpolycrisis.com/#review">Start the Cyber Health Review <span aria-hidden="true">↗</span></a><a href="mailto:help@cyberpolycrisis.com">help@cyberpolycrisis.com</a></div></div></aside>
-  <p class="breach-evidence">Evidence reviewed on 23 October 2026. Links distinguish company statements, regulatory investigations, legislation, and court rulings. Litigation allegations are attributed; the management recommendations, hypothetical AI example, and “compliance theater” framing are the author’s analysis. This article does not report a final liability judgment against Bain.</p>
+  <p class="breach-evidence">Evidence reviewed on 23 October 2026. Terminology corrected on 25 October 2026: AIDR here means “AI didn’t read.” Links distinguish company statements, regulatory investigations, legislation, and court rulings. Litigation allegations are attributed; the management recommendations, hypothetical AI examples, and “compliance theater” framing are the author’s analysis. This article does not report a final liability judgment against Bain.</p>
   <div class="breach-related"><p class="eyebrow">CONTINUE READING</p><a href="/writing/cyberpolycrisis-network-map/">Cyberpolycrisis network map →</a><a href="/writing/the-digital-younger-dryas/">The Digital Younger Dryas →</a><a href="https://cyberpolycrisis.com/">Explore cyberpolycrisis.com ↗</a></div>
 </div>
 </div>

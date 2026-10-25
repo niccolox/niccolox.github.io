@@ -4,7 +4,7 @@
     "title": "A world of pain: PowerSchool and the cyberpolycrisis",
     "subtitle": "Data breach laws, offshore access, acquisitions, SOC 2 compliance theater, and the next wave of AI risk.",
     "category": "SECURITY & ACCOUNTABILITY",
-    "description": "What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AI Detection and Response teach growing businesses about owning cyber risk.",
+    "description": "What PowerSchool, Bain Capital, offshore access, SOC 2 assurance gaps, and AIDR—AI didn’t read—teach growing businesses about owning cyber risk.",
     "source": "https://www.niccolox.com/writing/powerschool-bain-capital-cyberpolycrisis/",
     "layout": "feature",
     "stylesheet": "/assets/breach-essay.css?v=1",
@@ -15,8 +15,9 @@
     "image_width": 1200,
     "image_height": 630,
     "caption": "",
-    "word_count": 2372,
-    "body_text_sha256": "9aea50af366f4a7ea3e4b474fbba927bec6d8cf61e45bd6edd6790a8a29b0db4"
+    "word_count": 2473,
+    "body_text_sha256": "1bc5bdeebe42c2f704f08237139aaf0e342ecd9aa2e23773b5ddb1c4ba0c467e",
+    "date_modified": "2026-10-25"
   },
   {
     "slug": "the-digital-younger-dryas",

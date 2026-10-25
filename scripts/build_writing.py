@@ -65,7 +65,7 @@ def page(title, description, path, body, canonical=None, post=None):
             schema['isBasedOn'] = post['source']
         if post.get('date_published'):
             schema['datePublished'] = post['date_published']
-            schema['dateModified'] = post['date_published']
+            schema['dateModified'] = post.get('date_modified', post['date_published'])
     feature_css = '<link rel="stylesheet" href="/assets/polycrisis.css?v=2">' if post and post.get('layout') == 'feature' else ''
     if post and post.get('stylesheet'):
         feature_css += '\n  <link rel="stylesheet" href="' + escape(post['stylesheet'], quote=True) + '">'
