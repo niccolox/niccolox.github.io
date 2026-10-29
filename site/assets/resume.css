@@ -216,3 +216,8 @@
 
 .resume-home .contact-links button { display: none; }
 .js-ready .resume-home .contact-links button { display: inline-flex; }
+
+/* AI builder sprint: keep project links readable within the career timeline. */
+.resume-home .sprint-projects { padding-left: 1.25rem; list-style: disc; }
+.resume-home .sprint-projects li + li { margin-top: .6rem; }
+.resume-home .sprint-projects a { overflow-wrap: anywhere; }
