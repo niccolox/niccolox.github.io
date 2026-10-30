@@ -12,7 +12,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory site
 
 Open `http://127.0.0.1:4173`. No package installation or build is needed.
 
-The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. Nord is the default; the theme-controller toggle selects Night and remembers the choice in local storage. Both themes work without JavaScript, but persistence requires it. Styles, scripts, and article images are served locally.
+The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. The homepage uses daisyUI Corporate, with Business as its dark toggle; other pages default to Nord with a Night toggle. Each family remembers its choice in local storage. Both themes work without JavaScript, but persistence requires it. Styles, scripts, and article images are served locally.
 
 ## Publish on GitHub Pages
 

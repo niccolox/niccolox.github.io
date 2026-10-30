@@ -3,9 +3,9 @@
 // Apply the page's default or saved theme before styles render.
 (() => {
   const root = document.documentElement;
-  const defaultTheme = ['synthwave', 'lemonade'].includes(root.dataset.defaultTheme) ? root.dataset.defaultTheme : 'nord';
-  const lightTheme = defaultTheme === 'lemonade' ? 'lemonade' : 'nord';
-  const darkTheme = defaultTheme === 'synthwave' ? 'synthwave' : 'night';
+  const defaultTheme = ['synthwave', 'lemonade', 'corporate'].includes(root.dataset.defaultTheme) ? root.dataset.defaultTheme : 'nord';
+  const lightTheme = ['lemonade', 'corporate'].includes(defaultTheme) ? defaultTheme : 'nord';
+  const darkTheme = { synthwave: 'synthwave', corporate: 'business' }[defaultTheme] || 'night';
   const key = 'nicholas-roberts-theme' + (defaultTheme === 'nord' ? '' : ':' + defaultTheme);
   let theme = defaultTheme;
   try {
@@ -16,7 +16,7 @@
 
   function updateChrome(value) {
     const meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.content = value === 'synthwave' ? '#09002f' : value === 'night' ? '#0f1729' : value === 'lemonade' ? '#f8ffed' : '#eceff4';
+    if (meta) meta.content = { synthwave: '#09002f', night: '#0f1729', lemonade: '#f8ffed', corporate: '#ffffff', business: '#202020' }[value] || '#eceff4';
   }
   updateChrome(theme);
   document.addEventListener('DOMContentLoaded', () => {

@@ -1,4 +1,4 @@
-/* Editorial resume refinements. Nord / Night supply all surface colors. */
+/* Editorial resume refinements. daisyUI Corporate / Business supply surface colors. */
 .resume-home {
   --label-size: .8125rem;
 }
@@ -221,3 +221,135 @@
 .resume-home .sprint-projects { padding-left: 1.25rem; list-style: disc; }
 .resume-home .sprint-projects li + li { margin-top: .6rem; }
 .resume-home .sprint-projects a { overflow-wrap: anywhere; }
+
+/* Corporate legibility pass: one role scale, larger supporting text, AA bands. */
+.resume-home {
+  --text-body: 18px;
+  --text-small: 16px;
+  --text-label: 14px;
+  --text-link: 17px;
+  --band: oklch(26% .045 258);
+  --band-content: oklch(98% .005 258);
+  --band-muted: oklch(87% .02 258);
+  --band-line: oklch(44% .04 258);
+  --band-accent: oklch(82% .09 235);
+  font-size: var(--text-body);
+  line-height: 1.7;
+}
+[data-theme="business"] .resume-home {
+  /* Business primary is too dark for text on its near-black base. */
+  --accent: oklch(78% .1 240);
+  --band: oklch(30% .02 255);
+  --band-content: oklch(95% 0 0);
+  --band-muted: oklch(84% .01 255);
+  --band-line: oklch(42% .02 255);
+  --band-accent: oklch(80% .08 235);
+}
+/* Corporate's primary blue is 4.1:1 against white text; deepen it for AA buttons and links. */
+[data-theme="corporate"] .resume-home {
+  --color-primary: oklch(50% .15 245);
+  --accent: color-mix(in srgb, var(--color-primary) 72%, var(--color-base-content));
+}
+
+/* Body copy */
+.resume-home main p:not([class]),
+.resume-home .hero-detail,
+.resume-home .section-heading > p,
+.resume-home .stat p,
+.resume-home .case-copy p,
+.resume-home .case-points li,
+.resume-home .case-operations summary,
+.resume-home .compact-case p:not(.case-kicker),
+.resume-home .open-project-card > p:not(.case-kicker):not(.open-project-status),
+.resume-home .approach-intro,
+.resume-home .approach-list p,
+.resume-home .contact-top p:not(.eyebrow),
+.resume-home .career-company,
+.resume-home .career-description,
+.resume-home .capabilities p { font-size: var(--text-body); line-height: 1.7; }
+.resume-home .open-project-card > p:not(.case-kicker):not(.open-project-status),
+.resume-home .compact-case p:not(.case-kicker) { max-width: 62ch; }
+
+/* Supporting text */
+.resume-home nav a:not(.cyber-wordmark),
+.resume-home .hero-location,
+.resume-home .hero-location span,
+.resume-home .hero-contact,
+.resume-home .hero-contact a,
+.resume-home .career-date,
+.resume-home figcaption,
+.resume-home figcaption span,
+.resume-home .brand-domain,
+.resume-home .contact-links,
+.resume-home .contact-links a,
+.resume-home .contact-links button,
+.resume-home .site-footer,
+.resume-home .site-footer > .wrap { font-size: var(--text-small); }
+.resume-home .hero-portrait figcaption > span:last-child { font-size: 15px; }
+
+/* Labels: sans, not typewriter; tracked caps stay short. */
+.resume-home .eyebrow,
+.resume-home .case-kicker,
+.resume-home .stat-source,
+.resume-home .career-field,
+.resume-home .writing-category,
+.resume-home .chrome-label,
+.resume-home .approach-list li > span {
+  font: 600 var(--text-label)/1.5 var(--sans);
+  letter-spacing: .06em;
+}
+.resume-home .open-project-status { font: var(--text-label)/1.6 var(--sans); letter-spacing: .01em; }
+.resume-home .file-type { font: 600 12px/1 var(--sans); letter-spacing: .04em; }
+.resume-home .theme-switch { font: 600 var(--text-label)/1 var(--sans); }
+
+/* Actions */
+.resume-home .text-link,
+.resume-home .button,
+.resume-home .actions .button,
+.resume-home .actions .text-link { font-size: var(--text-link); }
+.resume-home .btn.cyber-hero-link,
+.resume-home .nav-contact { font-size: var(--text-small); }
+
+/* Headings one step larger where they sat close to body size. */
+.resume-home .writing-row h3,
+.resume-home .approach-list h3 { font-size: clamp(22px, 2vw, 26px); line-height: 1.3; }
+
+/* Dark bands: a deep corporate navy in light mode, a lifted slate in dark mode. */
+.resume-home .approach-section,
+.resume-home .contact-section,
+.resume-home .site-footer { background: var(--band); color: var(--band-content); }
+.resume-home .approach-intro,
+.resume-home .approach-list p,
+.resume-home .contact-top p:not(.eyebrow),
+.resume-home .site-footer { color: var(--band-muted); }
+.resume-home .approach-list li,
+.resume-home .contact-links,
+.resume-home .site-footer,
+.resume-home .email-link { border-color: var(--band-line); }
+.resume-home .approach-list li > span,
+.resume-home .contact-mark { color: var(--band-accent); }
+.resume-home .email-link:hover,
+.resume-home .contact-links a:hover,
+.resume-home .contact-links button:hover { color: var(--band-accent); border-color: currentColor; }
+.resume-home .contact-section :focus-visible,
+.resume-home .site-footer :focus-visible,
+.resume-home .approach-section :focus-visible { outline-color: var(--band-accent); }
+
+@media (max-width: 640px) {
+  .resume-home { --text-body: 17px; --text-link: 16px; }
+}
+
+/* Match the specificity of the earlier homepage rules these replace. */
+.resume-home .case-copy > p:not(.case-kicker) { font-size: var(--text-body); line-height: 1.7; color: var(--muted); }
+.resume-home .case-copy > .case-role { font-size: var(--text-small); }
+.resume-home .case-figures span { font: 15px/1.5 var(--sans); color: var(--muted); }
+.resume-home .case-image figcaption { font: 15px/1.6 var(--sans); }
+.resume-home .image-chrome .chrome-label { font: 600 13px/1.4 var(--sans); letter-spacing: .04em; }
+.resume-home .capabilities > p:last-child { font-size: var(--text-body); line-height: 1.9; }
+.resume-home .hero a.link.text-base { font-size: var(--text-link); }
+
+/* Section tints: a cool near-white instead of flat grey panels. */
+[data-theme="corporate"] .resume-home .work-section,
+[data-theme="corporate"] .resume-home .writing-section { background: oklch(97.6% .006 250); }
+[data-theme="corporate"] .resume-home .open-project-card { background: var(--color-base-100); }
+.resume-home .site-header .wordmark { font-size: 13px; }
