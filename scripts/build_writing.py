@@ -151,7 +151,7 @@ def build():
     html = homepage.read_text()
     start = html.index('    <section class="writing-section')
     end = html.index('</section>', start) + len('</section>')
-    section = '''    <section class="writing-section section-pad" id="writing" aria-labelledby="writing-heading"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">03 / NOTES FROM THE WORK</p><h2 id="writing-heading">Thinking in public.</h2></div><a class="text-link" href="/writing/">All writing <span aria-hidden="true">→</span></a></div><div class="writing-list">\n''' + '\n'.join(homepage_row(post) for post in POSTS) + '\n    </div></div></section>'
+    section = '''    <section class="writing-section section-pad" id="writing" aria-labelledby="writing-heading"><div class="wrap"><div class="section-heading"><div><p class="eyebrow">04 / NOTES FROM THE WORK</p><h2 id="writing-heading">Thinking in public.</h2></div><a class="text-link" href="/writing/">All writing <span aria-hidden="true">→</span></a></div><div class="writing-list">\n''' + '\n'.join(homepage_row(post) for post in POSTS) + '\n    </div></div></section>'
     homepage.write_text(html[:start] + section + html[end:])
     sitemap_urls = [ORIGIN + '/', ORIGIN + '/writing/']
     sitemap_urls += [ORIGIN + '/' + str(path.parent.relative_to(SITE)) + '/' for path in sorted((SITE / 'services').rglob('index.html'))]

@@ -29,6 +29,7 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 ## Edit
 
 - `site/index.html`: copy, projects, experience, links, and Person structured data.
+- `site/index.html` › Engineering in the open: project cards below Experience, following the devekko.dev/projects card format. The four sprint cards use the summaries, statuses and infographic alt text from `www.devekko.dev/docs/projects/`; their infographics are copied into `site/assets/images/projects/`. Update both when a project changes.
 - `site/services/magento-to-shopify/index.html`: migration services landing page, scope, case study, FAQs, and email enquiry.
 - `site/assets/migration.css`: service-page typography and component refinements.
 - `site/assets/styles.css`: layout, responsive behavior, color, and print styles.
