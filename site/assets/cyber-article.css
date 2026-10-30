@@ -1,7 +1,0 @@
-/* The article series uses the product's five-color wordmark as its home link. */
-.site-header .cyber-site-logo{display:inline-flex;align-items:center;gap:0;flex-shrink:0;white-space:nowrap;min-height:52px;padding:10px 14px;background:#080d20;border:1px solid #354259;border-radius:8px;font:700 26px/1.2 var(--sans);letter-spacing:-.035em;text-decoration:none}
-.site-header .cyber-site-logo:hover{border-color:oklch(76% .105 240)}
-@media(max-width:540px){
-  .site-header .cyber-site-logo{font-size:clamp(16px,4.7vw,22px);padding:10px;min-height:44px}
-  .site-header:has(.cyber-site-logo) .theme-switch>span{display:none}
-}

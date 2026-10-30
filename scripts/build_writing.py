@@ -9,7 +9,10 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 CONTENT = ROOT / 'content' / 'writing'
-POSTS = json.loads((CONTENT / 'posts.json').read_text())
+ENTRIES = json.loads((CONTENT / 'posts.json').read_text())
+POSTS = [post for post in ENTRIES if 'moved_to' not in post]
+# Articles now published elsewhere keep a redirect at their old address.
+MOVED = [post for post in ENTRIES if 'moved_to' in post]
 ORIGIN = 'https://www.niccolox.com'
 
 THEME_CONTROL = '''<label class="theme-switch" title="Switch between Nord and Night">
@@ -27,8 +30,6 @@ HEADER = '''<a class="skip-link" href="#main">Skip to content</a>
 
 FOOTER = '''<footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>'''
 
-CYBER_ARTICLES = {'the-digital-younger-dryas', 'cyberpolycrisis-network-map', 'the-cybersecurity-polycrisis'}
-
 
 def route(post):
     return '/writing/' + post['slug'] + '/'
@@ -36,21 +37,7 @@ def route(post):
 
 def page(title, description, path, body, canonical=None, post=None):
     url = ORIGIN + path
-    theme = 'synthwave' if post and post.get('theme') == 'synthwave' else 'nord'
-    theme_attributes = ' data-default-theme="synthwave"' if theme == 'synthwave' else ''
-    theme_color = '#09002f' if theme == 'synthwave' else '#eceff4'
     header = HEADER.replace('PAGE_CURRENT', 'location' if post else 'page')
-    is_cyber_article = bool(post and post['slug'] in CYBER_ARTICLES)
-    title_brand = 'Cyberpolycrisis' if is_cyber_article else 'Nicholas Roberts'
-    if is_cyber_article:
-        brand = re.search(r'<a class="link cyber-wordmark".*?</a>', header).group(0)
-        logo = brand.replace('class="link cyber-wordmark"', 'class="link cyber-wordmark cyber-site-logo"').replace('aria-label="cyberpolycrisis.com"', 'aria-label="Cyberpolycrisis home"')
-        header = header.replace(brand, '')
-        header = re.sub(r'<a href="/" class="wordmark".*?</a>', lambda match: logo, header, count=1)
-    if theme == 'synthwave':
-        control = THEME_CONTROL.replace('Night', 'Synthwave').replace('value="night"', 'value="synthwave"')
-        control = control.replace('type="checkbox"', 'type="checkbox" checked')
-        header = header.replace(THEME_CONTROL, control)
     schema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting' if post else 'CollectionPage',
@@ -61,24 +48,15 @@ def page(title, description, path, body, canonical=None, post=None):
     }
     if post:
         schema.update({'image': ORIGIN + post['image'], 'wordCount': post['word_count']})
-        if post.get('layout') != 'feature':
-            schema['isBasedOn'] = post['source']
-        if post.get('date_published'):
-            schema['datePublished'] = post['date_published']
-            schema['dateModified'] = post.get('date_modified', post['date_published'])
-    feature_css = '<link rel="stylesheet" href="/assets/polycrisis.css?v=2">' if post and post.get('layout') == 'feature' else ''
-    if post and post.get('stylesheet'):
-        feature_css += '\n  <link rel="stylesheet" href="' + escape(post['stylesheet'], quote=True) + '">'
-    if is_cyber_article:
-        feature_css += '\n  <link rel="stylesheet" href="/assets/cyber-article.css?v=1">'
+        schema['isBasedOn'] = post['source']
     image = f'<meta property="og:image" content="{ORIGIN + post["image"]}">' if post else ''
     return f'''<!doctype html>
-<html lang="en" data-theme="{theme}"{theme_attributes}>
+<html lang="en" data-theme="nord">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="{theme_color}">
-  <title>{escape(title)} — {title_brand}</title>
+  <meta name="theme-color" content="#eceff4">
+  <title>{escape(title)} — Nicholas Roberts</title>
   <meta name="description" content="{escape(description, quote=True)}">
   <link rel="canonical" href="{escape(canonical or url, quote=True)}">
   <meta property="og:type" content="{'article' if post else 'website'}">
@@ -92,7 +70,6 @@ def page(title, description, path, body, canonical=None, post=None):
   <link rel="stylesheet" href="/assets/daisyui.css?v=4">
   <link rel="stylesheet" href="/assets/styles.css?v=7">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
-{feature_css}
   <script src="/assets/site.js?v=4" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
@@ -107,9 +84,6 @@ def page(title, description, path, body, canonical=None, post=None):
 
 def article(post, position):
     content = (CONTENT / (post['slug'] + '.html')).read_text()
-    if post.get('layout') == 'feature':
-        body = '<main id="main" class="polycrisis"><article><div class="feature-content">' + content + '</div></article></main>'
-        return page(post['title'], post['description'], route(post), body, post=post)
     # Keep links between imported articles inside this site.
     for other in POSTS:
         content = content.replace('href="' + other['source'] + '"', 'href="' + route(other) + '"')
@@ -142,10 +116,11 @@ def article(post, position):
     return page(post['title'], post['description'], route(post), body, post=post)
 
 
-def legacy_redirect(path, destination, title):
+def legacy_redirect(path, destination, title, note='This page is now part of the writing archive.', description='Continue to the writing archive.'):
     """Keep existing blog bookmarks reachable on the static Pages host."""
-    body = f'<main id="main" class="writing-index wrap"><h1>{escape(title)}</h1><p>This page is now part of the writing archive.</p><a class="text-link" href="{destination}">Continue to the article →</a></main>'
-    html = page(title, 'Continue to the writing archive.', path, body, canonical=ORIGIN + destination)
+    body = f'<main id="main" class="writing-index wrap"><h1>{escape(title)}</h1><p>{escape(note)}</p><a class="text-link" href="{escape(destination, quote=True)}">Continue to the article →</a></main>'
+    canonical = destination if destination.startswith('https://') else ORIGIN + destination
+    html = page(title, description, path, body, canonical=canonical)
     html = html.replace('<head>', f'<head>\n  <meta http-equiv="refresh" content="0; url={destination}">\n  <meta name="robots" content="noindex">', 1)
     target = SITE / path.strip('/') / 'index.html'
     target.parent.mkdir(parents=True, exist_ok=True)
@@ -164,6 +139,8 @@ def build():
         source = urlsplit(post['source'])
         if source.hostname in {'www.niccolox.com', 'niccolox.com'} and source.path.startswith('/p/'):
             legacy_redirect(source.path, route(post), post['title'])
+    for post in MOVED:
+        legacy_redirect(route(post), post['moved_to'], post['title'], 'This article now lives on cyberpolycrisis.com.', 'Continue to the article on cyberpolycrisis.com.')
     legacy_redirect('/posts', '/writing/', 'Writing by Nicholas Roberts')
     cards = []
     for post in POSTS:

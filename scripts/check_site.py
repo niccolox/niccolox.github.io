@@ -93,6 +93,10 @@ if posts_file.exists():
     for post in posts:
         path = ROOT / 'writing' / post['slug'] / 'index.html'
         page = pages.get(path)
+        if page and 'moved_to' in post:
+            if f'url={post["moved_to"]}"' not in path.read_text():
+                errors.append('Moved article does not redirect to its new address: ' + post['slug'])
+            continue
         if not page:
             errors.append('Missing imported article: ' + post['slug'])
             continue

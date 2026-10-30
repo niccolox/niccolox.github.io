@@ -81,8 +81,6 @@ python3 scripts/check_site.py
 
 Before publishing substantive changes, also check desktop and mobile layout, menu keyboard behavior, project disclosures, downloads, and browser console errors.
 
-## Original feature articles
+## Moved articles
 
-The cybersecurity polycrisis article is an original, dated research briefing. Its reviewed source is `content/writing/the-cybersecurity-polycrisis.html`; the feature layout uses `site/assets/polycrisis.css`. The source trail distinguishes original notices, research, editorial analysis, and access limitations. Feature posts are self-canonical, dated in structured data, included in the sitemap, and covered by the same text-integrity check as imported posts. Recheck live advisories before updating time-sensitive claims.
-
-`content/writing/cyberpolycrisis-network-map.html` extends that briefing with the 16-topic network analysis. It uses the feature layout plus `site/assets/network-map.css`, an accessible SVG graph on larger screens, and an equivalent large-text list on mobile. The article links to the six-page issue register and the full analytical model in `site/assets/downloads/`. The two PHP topics are merged, and the partly verified iPhone chain remains outside the 14-theme baseline. Its association counts are not severity or victim counts.
+The four Cyberpolycrisis articles (the polycrisis briefing, the network map, the Digital Younger Dryas and the PowerSchool essay) moved to the cyberpolycrisis.com report library at `/library/articles/<slug>/` on 30 October 2026. Their sources and styles now live in that site's repository. Each keeps a `posts.json` entry with `moved_to`, and the writing build replaces the old `/writing/<slug>/` page with a noindex redirect whose canonical is the new address. Moved articles are omitted from the writing index, homepage list and sitemap; `scripts/check_site.py` verifies each redirect. The issue register, network-map JSON and article images remain under `site/assets/` so existing links keep working.
