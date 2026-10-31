@@ -32,8 +32,6 @@
 .resume-home .actions .button,
 .resume-home .actions .text-link { min-height: 48px; font-size: 15px; }
 .resume-home .actions .text-link { padding-block: 10px; }
-.resume-home #services { gap: 2px; }
-.resume-home #services a { min-height: 44px; display: inline-flex; align-items: center; gap: 8px; }
 @media (max-width: 800px) {
   .resume-home .hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "portrait" "details"; gap: 24px; }
   .resume-home .hero h1 { font-size: clamp(36px, 8.4vw, 60px); margin-bottom: 0; }
@@ -237,18 +235,11 @@
   line-height: 1.7;
 }
 [data-theme="business"] .resume-home {
-  /* Business primary is too dark for text on its near-black base. */
-  --accent: oklch(78% .1 240);
   --band: oklch(30% .02 255);
   --band-content: oklch(95% 0 0);
   --band-muted: oklch(84% .01 255);
   --band-line: oklch(42% .02 255);
   --band-accent: oklch(80% .08 235);
-}
-/* Corporate's primary blue is 4.1:1 against white text; deepen it for AA buttons and links. */
-[data-theme="corporate"] .resume-home {
-  --color-primary: oklch(50% .15 245);
-  --accent: color-mix(in srgb, var(--color-primary) 72%, var(--color-base-content));
 }
 
 /* Body copy */
@@ -353,3 +344,53 @@
 [data-theme="corporate"] .resume-home .writing-section { background: oklch(97.6% .006 250); }
 [data-theme="corporate"] .resume-home .open-project-card { background: var(--color-base-100); }
 .resume-home .site-header .wordmark { font-size: 13px; }
+
+/* Hero routing: one primary action, migration buyers get one clear line. */
+.resume-home .hero-route { margin-top: 22px; font-size: var(--text-link); line-height: 1.6; color: var(--muted); }
+.resume-home .hero-route a { color: var(--color-base-content); text-decoration-thickness: 1px; }
+.resume-home .hero-route a:hover { color: var(--color-primary); }
+.resume-home .hero-location { margin-top: 18px; }
+
+/* Two audiences, two paths: a ruled split, not a pair of cards. */
+.resume-home .paths { padding-block: 8px 72px; }
+.resume-home .paths > h2 { font: clamp(30px, 3vw, 40px)/1.15 var(--serif); letter-spacing: -.02em; margin-bottom: 28px; }
+.resume-home .paths-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+.resume-home .path { display: flex; flex-direction: column; gap: 16px; padding: 32px 48px 8px 0; }
+.resume-home .path + .path { padding-left: 48px; padding-right: 0; border-left: 1px solid var(--line); }
+.resume-home .path h3 { font: clamp(24px, 2.2vw, 30px)/1.2 var(--serif); letter-spacing: -.015em; }
+.resume-home .path p { color: var(--muted); max-width: 52ch; }
+.resume-home .path-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: auto; padding-top: 8px; }
+.resume-home .path-actions .button { min-height: 48px; gap: 18px; }
+.resume-home .path-actions .button:not(.primary) { border: 1px solid var(--color-base-content); color: var(--color-base-content); transition: background .2s, color .2s; }
+.resume-home .path-actions .button:not(.primary):hover { background: var(--color-base-content); color: var(--color-base-100); }
+@media (max-width: 800px) {
+  .resume-home .paths { padding-bottom: 48px; }
+  .resume-home .paths-grid { grid-template-columns: minmax(0, 1fr); }
+  .resume-home .path, .resume-home .path + .path { padding: 28px 0; border-left: 0; }
+  .resume-home .path + .path { border-top: 1px solid var(--line); }
+}
+
+/* Contact: two pre-filled routes first, then grouped links. */
+.resume-home .contact-actions { display: flex; flex-wrap: wrap; gap: 14px 18px; margin-top: 40px; }
+.resume-home .contact-actions .button { min-height: 52px; gap: 20px; font-weight: 600; transition: background .2s, color .2s, border-color .2s; }
+.resume-home .contact-primary { background: var(--band-content); color: var(--band); border: 1px solid var(--band-content); }
+.resume-home .contact-primary:hover { background: var(--band-accent); border-color: var(--band-accent); }
+.resume-home .contact-secondary { border: 1px solid var(--band-muted); color: var(--band-content); }
+.resume-home .contact-secondary:hover { border-color: var(--band-accent); color: var(--band-accent); }
+.resume-home .contact-direct { margin-top: 20px; color: var(--band-muted); }
+.resume-home .contact-direct a { color: var(--band-content); text-decoration: underline; text-underline-offset: 4px; }
+.resume-home .contact-direct a:hover { color: var(--band-accent); }
+.resume-home .contact-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; margin-top: 48px; border-top: 1px solid var(--band-line); padding-top: 28px; }
+.resume-home .contact-groups h3 { font: 600 var(--text-label)/1.5 var(--sans); letter-spacing: .06em; text-transform: uppercase; color: var(--band-muted); }
+.resume-home .contact-groups .contact-links { margin-top: 6px; border-top: 0; padding-top: 0; gap: 4px 28px; }
+@media (max-width: 640px) {
+  .resume-home .contact-groups { grid-template-columns: minmax(0, 1fr); }
+  .resume-home .contact-actions .button { width: 100%; justify-content: space-between; }
+}
+
+/* Timeline: descriptions read as text; one short link per row. */
+.resume-home .career-link { margin-top: 8px; }
+@media (max-width: 640px) {
+  .resume-home .path-actions .button { width: 100%; justify-content: space-between; }
+}
+.resume-home .hero-route a { display: inline; min-height: 0; padding: 0; }
