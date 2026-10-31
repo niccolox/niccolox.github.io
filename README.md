@@ -12,7 +12,7 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory site
 
 Open `http://127.0.0.1:4173`. No package installation or build is needed.
 
-The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. The homepage uses daisyUI Corporate, with Business as its dark toggle; other pages default to Nord with a Night toggle. Each family remembers its choice in local storage. Both themes work without JavaScript, but persistence requires it. Styles, scripts, and article images are served locally.
+The checked-in site includes compiled DaisyUI 5 / Tailwind CSS 4 styles. Every page uses daisyUI Corporate, with Business as the dark toggle; the choice is remembered in local storage. `styles.css` deepens Corporate's primary and lightens Business's accent so text meets WCAG AA. Both themes work without JavaScript, but persistence requires it. Styles, scripts, and article images are served locally.
 
 ## Publish on GitHub Pages
 
@@ -33,7 +33,9 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `site/services/magento-to-shopify/index.html`: migration services landing page, scope, case study, FAQs, and email enquiry.
 - `site/assets/migration.css`: service-page typography and component refinements.
 - `site/assets/styles.css`: layout, responsive behavior, color, and print styles.
-- `site/assets/site.js`: mobile navigation, current year, and printing.
+- `scripts/site_nav.py`: the shared header, a daisyUI megamenu (Work, Services, Writing, About) built from `cases.json` and `posts.json`, plus the theme name and shared asset versions. Bump a version in `ASSET_VERSIONS` when its file changes.
+- `scripts/build_chrome.py`: applies that header, the theme and asset versions to the hand-written pages (homepage, service pages, 404). The writing and portfolio builders call `site_header()` directly.
+- `site/assets/site.js`: closes the menu after a link is chosen, current year, and printing.
 - `site/assets/theme.js`: saved Nord/Night preference and theme-controller state.
 - `site/assets/writing.css`: responsive article and writing-index typography.
 - `styles/daisyui.css`: Tailwind entry and official DaisyUI Nord/Night configuration.
@@ -59,7 +61,7 @@ npm run build
 npm run check
 ```
 
-Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. The full build generates portfolio pages first, then writing and the sitemap, then theme utilities. `npm run build:portfolio` rebuilds the 12 slide pages, current project pages, and portfolio index; `npm run build:writing` refreshes article pages, writing links, and sitemap entries for all existing portfolio pages. `npm run build:theme` rebuilds only the theme. The homepage header uses the same theme control and five-color Cyberpolycrisis link as the article template and service pages, so header changes should be kept in sync. The compact menu starts at 1100px to accommodate the branded link.
+Commit the generated files under `site/` along with the sources. GitHub Pages deploys these static files; visitors do not run a CSS compiler. The full build generates portfolio pages first, then writing and the sitemap, then the shared header on hand-written pages, then theme utilities. `npm run build:portfolio` rebuilds the 12 slide pages, current project pages, and portfolio index; `npm run build:writing` refreshes article pages, writing links, and sitemap entries for all existing portfolio pages. `npm run build:theme` rebuilds only the theme. The homepage header uses the same theme control and five-color Cyberpolycrisis link as the article template and service pages, so header changes should be kept in sync. The compact menu starts at 1100px to accommodate the branded link.
 
 The portfolio contains ten project case studies, an introductory overview, and a contact page, following the PDF's slide order. Citizen Success is retained at its existing URL but marked `listed: false`, which omits its card, incoming portfolio navigation links, collection metadata, and sitemap entry. The index presents those eleven pages plus the Cyberpolycrisis case study. PDF-derived pages preserve the original slide as an image and link to its numbered PDF page. Current project records omit `slide` and provide `website`, image dimensions, and `resources`; they link to the working product instead of claiming a PDF source. Historical screenshots and figures describe the source portfolio; the website does not claim that they represent the organizations' current products. The homepage's selected-work and career links open the corresponding web case studies; the complete PDF remains downloadable.
 

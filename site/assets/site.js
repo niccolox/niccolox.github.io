@@ -2,24 +2,16 @@
 
 document.documentElement.classList.add('js-ready');
 
-const menu = document.querySelector('.menu-toggle');
-const navigation = document.querySelector('#navigation');
+const megamenu = document.querySelector('#site-megamenu');
 
-function closeMenu() {
-  menu?.setAttribute('aria-expanded', 'false');
-  navigation?.classList.remove('is-open');
-}
-
-menu?.addEventListener('click', () => {
-  const open = menu.getAttribute('aria-expanded') !== 'true';
-  menu.setAttribute('aria-expanded', String(open));
-  navigation.classList.toggle('is-open', open);
-});
-
-navigation?.addEventListener('click', (event) => {
+// Popovers stay open on same-page links; close the menu once a destination is chosen.
+megamenu?.addEventListener('click', (event) => {
   const link = event.target.closest('a');
   if (!link) return;
-  closeMenu();
+  megamenu.querySelectorAll('[popover]').forEach((panel) => {
+    if (panel.matches(':popover-open')) panel.hidePopover();
+  });
+  if (megamenu.matches(':popover-open')) megamenu.hidePopover();
   const destination = new URL(link.href);
   if (destination.origin === location.origin && destination.pathname === location.pathname && destination.hash) {
     const target = document.getElementById(decodeURIComponent(destination.hash.slice(1)));
@@ -30,22 +22,6 @@ navigation?.addEventListener('click', (event) => {
   }
 });
 
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && menu?.getAttribute('aria-expanded') === 'true') {
-    closeMenu();
-    menu.focus();
-  }
-});
-
-document.addEventListener('click', (event) => {
-  if (!event.target.closest('.site-header')) closeMenu();
-});
-
-document.querySelector('.site-header')?.addEventListener('focusout', (event) => {
-  if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) closeMenu();
-});
-
-window.matchMedia('(min-width: 1101px)').addEventListener('change', closeMenu);
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
 document.querySelector('#print-resume')?.addEventListener('click', () => window.print());

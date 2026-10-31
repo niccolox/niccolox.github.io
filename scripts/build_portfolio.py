@@ -3,7 +3,8 @@ from html import escape
 from pathlib import Path
 import json
 
-from build_writing import HEADER, FOOTER, ORIGIN
+from build_writing import FOOTER, ORIGIN
+from site_nav import HTML_THEME, THEME_COLOR, asset, site_header
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
@@ -32,7 +33,7 @@ def bullets(items):
 
 def page(title, description, path, body, case=None):
     url = ORIGIN + path
-    header = HEADER.replace('<a href="/#work">Selected work</a>', '<a href="/portfolio/" aria-current="' + ('location' if case else 'page') + '">Portfolio</a>').replace(' aria-current="PAGE_CURRENT"', '')
+    header = site_header('work')
     image = ORIGIN + (image_path(case) if case else image_path(CASES[0]))
     schema = {
         '@context': 'https://schema.org',
@@ -52,11 +53,11 @@ def page(title, description, path, body, case=None):
     else:
         schema['hasPart'] = [{'@type': 'WebPage', 'name': c['organization'], 'url': ORIGIN + route(c)} for c in LISTED_CASES]
     return f'''<!doctype html>
-<html lang="en" data-theme="nord">
+<html lang="en" {HTML_THEME}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eceff4">
+  <meta name="theme-color" content="{THEME_COLOR}">
   <title>{escape(title)} — Nicholas Roberts</title>
   <meta name="description" content="{escape(description, quote=True)}">
   <link rel="canonical" href="{url}">
@@ -68,11 +69,11 @@ def page(title, description, path, body, case=None):
   <meta property="og:image:alt" content="{escape(case['image_alt'] if case else CASES[0]['image_alt'], quote=True)}">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
-  <script src="/assets/theme.js?v=2"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=13">
-  <link rel="stylesheet" href="/assets/styles.css?v=7">
+  <script src="{asset('theme.js')}"></script>
+  <link rel="stylesheet" href="{asset('daisyui.css')}">
+  <link rel="stylesheet" href="{asset('styles.css')}">
   <link rel="stylesheet" href="/assets/portfolio.css?v=1">
-  <script src="/assets/site.js?v=4" defer></script>
+  <script src="{asset('site.js')}" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
 <body id="top">

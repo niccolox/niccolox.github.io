@@ -6,6 +6,8 @@ import math
 import re
 from urllib.parse import urlsplit
 
+from site_nav import HTML_THEME, THEME_COLOR, asset, site_header
+
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
 CONTENT = ROOT / 'content' / 'writing'
@@ -15,18 +17,6 @@ POSTS = [post for post in ENTRIES if 'moved_to' not in post]
 MOVED = [post for post in ENTRIES if 'moved_to' in post]
 ORIGIN = 'https://www.niccolox.com'
 
-THEME_CONTROL = '''<label class="theme-switch" title="Switch between Nord and Night">
-  <span class="theme-label-nord">Nord</span><span class="theme-label-night">Night</span>
-  <input type="checkbox" class="toggle theme-controller" value="night" aria-label="Night theme (off uses Nord)">
-</label>'''
-
-HEADER = '''<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="header-inner wrap">
-  <a href="/" class="wordmark" aria-label="Nicholas Roberts home"><span class="monogram">n<span>r</span>.</span><span>NICHOLAS<br>ROBERTS</span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">+</span></button>
-  <nav id="navigation" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#experience">Experience</a><a href="/writing/" aria-current="PAGE_CURRENT">Writing</a><a class="link cyber-wordmark" href="https://cyberpolycrisis.com/" aria-label="cyberpolycrisis.com"><span class="cyber-brand-cyber" aria-hidden="true">cyber</span><span class="cyber-brand-poly" aria-hidden="true">poly</span><span class="cyber-brand-crisis" aria-hidden="true">crisis</span><span class="cyber-brand-dot" aria-hidden="true">.</span><span class="cyber-brand-com" aria-hidden="true">com</span></a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
-  THEME_CONTROL
-</div></header>'''.replace('THEME_CONTROL', THEME_CONTROL)
 
 FOOTER = '''<footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>'''
 
@@ -37,7 +27,7 @@ def route(post):
 
 def page(title, description, path, body, canonical=None, post=None):
     url = ORIGIN + path
-    header = HEADER.replace('PAGE_CURRENT', 'location' if post else 'page')
+    header = site_header('writing')
     schema = {
         '@context': 'https://schema.org',
         '@type': 'BlogPosting' if post else 'CollectionPage',
@@ -51,11 +41,11 @@ def page(title, description, path, body, canonical=None, post=None):
         schema['isBasedOn'] = post['source']
     image = f'<meta property="og:image" content="{ORIGIN + post["image"]}">' if post else ''
     return f'''<!doctype html>
-<html lang="en" data-theme="nord">
+<html lang="en" {HTML_THEME}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eceff4">
+  <meta name="theme-color" content="{THEME_COLOR}">
   <title>{escape(title)} — Nicholas Roberts</title>
   <meta name="description" content="{escape(description, quote=True)}">
   <link rel="canonical" href="{escape(canonical or url, quote=True)}">
@@ -66,11 +56,11 @@ def page(title, description, path, body, canonical=None, post=None):
   {image}
   <meta name="twitter:card" content="{'summary_large_image' if post else 'summary'}">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
-  <script src="/assets/theme.js?v=2"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=4">
-  <link rel="stylesheet" href="/assets/styles.css?v=7">
+  <script src="{asset('theme.js')}"></script>
+  <link rel="stylesheet" href="{asset('daisyui.css')}">
+  <link rel="stylesheet" href="{asset('styles.css')}">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
-  <script src="/assets/site.js?v=4" defer></script>
+  <script src="{asset('site.js')}" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
 <body id="top">

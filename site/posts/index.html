@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="en" data-theme="nord">
+<html lang="en" data-theme="corporate" data-default-theme="corporate">
 <head>
   <meta http-equiv="refresh" content="0; url=/writing/">
   <meta name="robots" content="noindex">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#eceff4">
+  <meta name="theme-color" content="#ffffff">
   <title>Writing by Nicholas Roberts — Nicholas Roberts</title>
   <meta name="description" content="Continue to the writing archive.">
   <link rel="canonical" href="https://www.niccolox.com/writing/">
@@ -16,23 +16,36 @@
   
   <meta name="twitter:card" content="summary">
   <link rel="icon" href="/assets/favicon.svg?v=2" type="image/svg+xml">
-  <script src="/assets/theme.js?v=2"></script>
-  <link rel="stylesheet" href="/assets/daisyui.css?v=4">
-  <link rel="stylesheet" href="/assets/styles.css?v=7">
+  <script src="/assets/theme.js?v=4"></script>
+  <link rel="stylesheet" href="/assets/daisyui.css?v=15">
+  <link rel="stylesheet" href="/assets/styles.css?v=9">
   <link rel="stylesheet" href="/assets/writing.css?v=1">
-  <script src="/assets/site.js?v=4" defer></script>
+  <script src="/assets/site.js?v=5" defer></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "name": "Writing by Nicholas Roberts", "description": "Continue to the writing archive.", "url": "https://www.niccolox.com/posts", "author": {"@type": "Person", "name": "Nicholas Roberts", "url": "https://www.niccolox.com/"}}</script>
 </head>
 <body id="top">
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner wrap">
   <a href="/" class="wordmark" aria-label="Nicholas Roberts home"><span class="monogram">n<span>r</span>.</span><span>NICHOLAS<br>ROBERTS</span></a>
-  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">+</span></button>
-  <nav id="navigation" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#experience">Experience</a><a href="/writing/" aria-current="page">Writing</a><a class="link cyber-wordmark" href="https://cyberpolycrisis.com/" aria-label="cyberpolycrisis.com"><span class="cyber-brand-cyber" aria-hidden="true">cyber</span><span class="cyber-brand-poly" aria-hidden="true">poly</span><span class="cyber-brand-crisis" aria-hidden="true">crisis</span><span class="cyber-brand-dot" aria-hidden="true">.</span><span class="cyber-brand-com" aria-hidden="true">com</span></a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
-  <label class="theme-switch" title="Switch between Nord and Night">
-  <span class="theme-label-nord">Nord</span><span class="theme-label-night">Night</span>
-  <input type="checkbox" class="toggle theme-controller" value="night" aria-label="Night theme (off uses Nord)">
-</label>
+  <nav class="site-nav" aria-label="Main navigation">
+    <button class="menu-toggle" type="button" popovertarget="site-megamenu">Menu <span aria-hidden="true">+</span></button>
+    <div class="megamenu max-[1100px]:megamenu-vertical site-megamenu" id="site-megamenu" popover>
+      <span class="megamenu-active"></span>
+      <button type="button" popovertarget="nav-work">Work</button>
+      <div id="nav-work" class="nav-panel nav-panel-work" popover><div class="nav-panel-grid"><section class="nav-column nav-column-wide"><h2>Case studies</h2><ul><li><a href="/portfolio/digital-beverage-group/"><span>Digital Beverage Group</span><small>Wine ecommerce</small></a></li><li><a href="/portfolio/datava-customer-success/"><span>Datava</span><small>Financial services &amp; manufacturing SaaS</small></a></li><li><a href="/portfolio/section-customer-engineering/"><span>Section.io</span><small>Web performance &amp; security</small></a></li><li><a href="/portfolio/toyota-lexus-domain-onboarding/"><span>Toyota &amp; Lexus · Section.io</span><small>Automotive web infrastructure</small></a></li><li><a href="/portfolio/sonic-product-delivery/"><span>Sonic</span><small>Telecommunications</small></a></li><li><a href="/portfolio/save-competition/"><span>Save Competition · Sonic</span><small>Public advocacy &amp; digital delivery</small></a></li><li><a href="/portfolio/cirm-web-platform/"><span>California Institute for Regenerative Medicine</span><small>Government &amp; biotechnology</small></a></li><li><a href="/portfolio/mantra-resorts-ecommerce/"><span>Mantra Resorts</span><small>Accommodation ecommerce</small></a></li><li><a href="/portfolio/news-corp-nationwide-news/"><span>News Corp / Nationwide News</span><small>News publishing &amp; advertising</small></a></li></ul></section><section class="nav-column"><h2>Projects</h2><ul><li><a href="/#engineering"><span>Engineering in the open</span><small>AI builder sprint demos and SaaSx2x</small></a></li><li><a href="/portfolio/cyberpolycrisis/"><span>Cyberpolycrisis</span><small>AI-assisted cyber resilience</small></a></li><li><a href="https://devekko.dev/projects"><span>Devekko.dev projects <span aria-hidden="true">↗</span></span><small>Specs and research</small></a></li></ul></section><div class="nav-panel-footer"><a href="/portfolio/">Portfolio overview <span aria-hidden="true">→</span></a><a href="/assets/downloads/Nicholas-Roberts-Portfolio.pdf">Portfolio PDF <span aria-hidden="true">↓</span></a></div></div></div>
+      <button type="button" popovertarget="nav-services">Services</button>
+      <div id="nav-services" class="nav-panel nav-panel-services" popover><div class="nav-panel-grid"><section class="nav-column"><h2>Commerce migration</h2><ul><li><a href="/services/magento-to-shopify/"><span>Magento to Shopify</span><small>Orders, customers, catalog and redirects</small></a></li><li><a href="/services/woocommerce-to-shopify/"><span>WooCommerce to Shopify</span><small>Products, subscriptions and SEO continuity</small></a></li></ul></section><section class="nav-column"><h2>Leadership</h2><ul><li><a href="/portfolio/technology-leadership/"><span>Technology leadership</span><small>Commerce, data and digital services</small></a></li><li><a href="/portfolio/work-with-nicholas-roberts/"><span>Work with Nicholas</span><small>VP, CTO and Director roles</small></a></li></ul></section></div></div>
+      <button type="button" popovertarget="nav-writing" class="is-current">Writing</button>
+      <div id="nav-writing" class="nav-panel nav-panel-writing" popover><div class="nav-panel-grid"><section class="nav-column nav-column-wide"><h2>Latest writing</h2><ul><li><a href="/writing/362-putting-a-price-on-an-endpoint-x402-on-fastapi-in-detail/"><span>Putting a Price on an Endpoint: x402 on FastAPI, in Detail</span></a></li><li><a href="/writing/361-status-402-payment-required/"><span>Status 402 Payment Required</span></a></li><li><a href="/writing/355-making-an-ollama-model-release-with-sky-t1-flash-for-cline/"><span>Making an Ollama model release with Sky-T1-Flash for Cline</span></a></li><li><a href="/writing/332-the-spike-and-the-steel-thread/"><span>The Spike and the Steel Thread</span></a></li></ul></section><section class="nav-column"><h2>Cyberpolycrisis research</h2><ul><li><a href="https://cyberpolycrisis.com/library/articles/powerschool-bain-capital-cyberpolycrisis/"><span>A world of pain: PowerSchool and the cyberpolycrisis <span aria-hidden="true">↗</span></span></a></li><li><a href="https://cyberpolycrisis.com/library/articles/the-digital-younger-dryas/"><span>The Digital Younger Dryas <span aria-hidden="true">↗</span></span></a></li><li><a href="https://cyberpolycrisis.com/library/articles/cyberpolycrisis-network-map/"><span>Cyberpolycrisis network map <span aria-hidden="true">↗</span></span></a></li><li><a href="https://cyberpolycrisis.com/library/articles/the-cybersecurity-polycrisis/"><span>The Cybersecurity Polycrisis <span aria-hidden="true">↗</span></span></a></li></ul></section><div class="nav-panel-footer"><a href="/writing/">All writing <span aria-hidden="true">→</span></a></div></div></div>
+      <button type="button" popovertarget="nav-about">About</button>
+      <div id="nav-about" class="nav-panel nav-panel-about" popover><div class="nav-panel-grid"><section class="nav-column"><h2>Background</h2><ul><li><a href="/#experience"><span>Experience</span><small>Twenty-five years of roles</small></a></li><li><a href="/#approach"><span>How I work</span><small>Close to the business and the build</small></a></li><li><a href="/#contact"><span>Contact</span><small>niccolox@devekko.com</small></a></li></ul></section><section class="nav-column"><h2>Resume</h2><ul><li><a href="/assets/downloads/Nicholas-Roberts-Resume.pdf"><span>Resume PDF <span aria-hidden="true">↓</span></span></a></li><li><a href="/assets/downloads/Nicholas-Roberts-Resume.docx"><span>Resume Word <span aria-hidden="true">↓</span></span></a></li><li><a href="https://www.linkedin.com/in/niccolo/"><span>LinkedIn <span aria-hidden="true">↗</span></span></a></li></ul></section></div></div>
+    </div>
+  </nav>
+  <div class="header-actions"><a class="link cyber-wordmark" href="https://cyberpolycrisis.com/" aria-label="cyberpolycrisis.com"><span class="cyber-brand-cyber" aria-hidden="true">cyber</span><span class="cyber-brand-poly" aria-hidden="true">poly</span><span class="cyber-brand-crisis" aria-hidden="true">crisis</span><span class="cyber-brand-dot" aria-hidden="true">.</span><span class="cyber-brand-com" aria-hidden="true">com</span></a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+  <label class="theme-switch" title="Switch between light and dark">
+  <span class="theme-label-nord">Light</span><span class="theme-label-night">Dark</span>
+  <input type="checkbox" class="toggle theme-controller" value="business" aria-label="Dark theme (off uses light)">
+</label></div>
 </div></header>
 <main id="main" class="writing-index wrap"><h1>Writing by Nicholas Roberts</h1><p>This page is now part of the writing archive.</p><a class="text-link" href="/writing/">Continue to the article →</a></main>
 <footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>
