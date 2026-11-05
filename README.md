@@ -41,6 +41,7 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `styles/daisyui.css`: Tailwind entry and official DaisyUI Nord/Night configuration.
 - `content/writing/`: reviewed article bodies and source metadata.
 - `scripts/build_writing.py`: generates article pages, the writing index, and homepage writing links.
+- `content/resume/resume.json`: the resume text. Run `npm run build:resume` to generate the resume PDF and Word document from it (needs LibreOffice). Apply the same changes to the homepage, and increase the `?v=` value on its resume links.
 - `site/assets/downloads/`: resume PDF, resume Word document, and source portfolio PDF.
 - `site/assets/images/`: the provided blue-jacket portrait and original images extracted from the portfolio.
 - `scripts/check_site.py`: local asset, anchor, and metadata checks.

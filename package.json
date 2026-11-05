@@ -7,11 +7,13 @@
     "build:portfolio": "python3 scripts/build_portfolio.py",
     "build": "npm run build:portfolio && npm run build:writing && npm run build:chrome && npm run build:theme",
     "check": "python3 scripts/check_site.py",
-    "build:chrome": "python3 scripts/build_chrome.py"
+    "build:chrome": "python3 scripts/build_chrome.py",
+    "build:resume": "node scripts/build_resume.js"
   },
   "devDependencies": {
     "@tailwindcss/cli": "4.3.0",
     "daisyui": "5.7.50",
+    "docx": "^9.5.1",
     "tailwindcss": "4.3.0"
   }
 }

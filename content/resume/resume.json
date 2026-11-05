@@ -1,0 +1,152 @@
+{
+  "name": "Nicholas Roberts",
+  "title": "Director of Technology & Operations",
+  "focus": "Tech Operations | Products & Programs | Full-Stack Engineer | Customer Success | AI, ML, and Data",
+  "statement": "I lead cross-functional product teams. I build products that customers buy and people love.",
+  "contact": [
+    {"text": "San Francisco Bay Area, CA"},
+    {"text": "510-684-8264"},
+    {"text": "niccolox@devekko.com", "url": "mailto:niccolox@devekko.com"},
+    {"text": "niccolox.com", "url": "https://www.niccolox.com/"},
+    {"text": "LinkedIn", "url": "https://www.linkedin.com/in/niccolo/"},
+    {"text": "GitHub", "url": "https://github.com/niccolox"},
+    {"text": "X", "url": "https://x.com/niccolox"}
+  ],
+  "summary": [
+    "Director of Technology & Operations, Napa, CA: $150M ARR wine ecommerce group. Claude, Shopify, Linnworks, Klaviyo, Python.",
+    "Customer Success Manager, Datava: $2M ARR professional services and 10 engineers for data and AI banking SaaS.",
+    "Customer Success Engineer, Section.io: AI web (CDN) and security (WAF, bot) multi-sided platform for customers such as Toyota, Lexus, BoxyCharm, BigCommerce, and Coles."
+  ],
+  "experience": [
+    {
+      "company": "Devekko.dev",
+      "dates": "Oct 2026 - Nov 2026",
+      "role": "AI Builder | Four-week AI builder sprint",
+      "bullets": [
+        "AI development stack: Codex, Claude, Cloudflare Workers, Containers, and AI. Intelligence layer: PlanetScale Postgres, Pydantic, Pydantic AI, Prefect, Nemotron, Clef, Hono, React, and Brave API.",
+        "Republic.dev: reindustrialization and Physical AI directory and multi-sided marketplace prototype.",
+        "wine.sovsrc.ai: agentic ecommerce from California wine consumers to wineries.",
+        "Cyberpolycrisis.com: automated research and chat resource about cybersecurity threats for small and medium businesses.",
+        "Sovereign Source Super Intelligence: open-source content rewards research for the San Francisco AI and SI economy.",
+        "Citizensuccess.com: USA political economy civic resource with 48,000 politicians."
+      ]
+    },
+    {
+      "company": "Digital Beverage Group / New Last Bottle, Inc.",
+      "dates": "Feb 2025 - Oct 2026",
+      "role": "Director of Technology & Operations, Aug 2025 - Oct 2026 | Previously Ecommerce Systems Administrator, Feb - Aug 2025 | Napa, CA (hybrid)",
+      "bullets": [
+        "Supported 40% group-wide top-line growth with Claude, Jupyter, Fabric, and cross-functional servant leadership across warehouse, growth, data, marketing, and customer teams.",
+        "Modernized a $100M ARR legacy wine ecommerce site to Shopify Plus and Linnworks WMS in a $150M ARR group.",
+        "Migrated 2 million historical orders, with $150 million in order value, and customer and product data.",
+        "Managed product for 2 Shopify Plus launches and 2 React Native ecommerce apps.",
+        "Managed technology for 20 ecommerce brands, 35,000 SKUs, 200 metafields, and 7 business models: flash sale, shoppable, daily drop, private sales, auctions, club subscription boxes, and chat commerce.",
+        "Operated 5 Google Workspaces, Microsoft 365, Claude Enterprise, Palantir, and a 200-user IT help desk.",
+        "Managed 4 vendor teams for web, app, middleware, and customizations in 3 time zones.",
+        "Hired and onboarded managers, administrators, and future executives. Built a team of 5 direct reports.",
+        "Built internal tools for integrations, workflows, dashboards, and operational health with Claude Enterprise.",
+        "Tools: Claude, Jev, FastAPI, Supabase, Python, Jupyter, SQL, Retool, AfterShip, Microsoft Fabric, Azure, Power BI, Palantir Foundry, NetSuite, Datadog, PostHog, Cloudflare."
+      ]
+    },
+    {
+      "company": "Devekko",
+      "dates": "2024 - Present",
+      "role": "CTO and Founder",
+      "bullets": [
+        "Digital and data strategy for development ecosystems. Built Citizen Success with Elixir and Phoenix LiveView: 48,000 politicians across states, divisions, parties, and offices."
+      ]
+    },
+    {
+      "company": "Datava",
+      "dates": "Dec 2022 - Jan 2024",
+      "role": "Customer Success Manager (Technical), Mar 2023 - Jan 2024 | Previously Implementation Engineer, Dec 2022 - Mar 2023 | Remote",
+      "bullets": [
+        "Managed professional services: $2M ARR, 10 engineers, and 15 clients, including billion-dollar institutions.",
+        "Served credit unions and banks: core banking data engineering, data warehouses, data connectors and integrations, CRM, loans, incentives, predictive analytics, AI, ML, BI, workflows, and SaaS modules.",
+        "Managed hands-on, customer-facing product engineering for banks, credit unions, and warehouses.",
+        "Managed the order-to-cash product and project for Purakal, a USA steel company."
+      ]
+    },
+    {
+      "company": "BrowserStack",
+      "dates": "Sep 2022 - Dec 2022",
+      "role": "Senior Software Development Engineer, Customer Engineering",
+      "bullets": [
+        "Gave technical presales and solutions for web and mobile test automation."
+      ]
+    },
+    {
+      "company": "Section.io",
+      "dates": "May 2019 - Aug 2022",
+      "role": "Customer Success Engineer | Remote, USA",
+      "bullets": [
+        "Worked on an AI-driven web, testing, and security multi-cloud platform: reactive support, proactive customer solutions engineering, and platform engineering.",
+        "Took PagerDuty follow-the-sun on-call for Toyota, BoxyCharm, Universal Music Group, Vic.gov.au, and 100+ ecommerce businesses.",
+        "Delivered DDoS, WAF, and bot solutions and incident response for planet-scale platforms.",
+        "Stack: DigitalOcean, AWS, Google Compute, Lumen, Ubuntu, Kubernetes, Docker, Varnish, OpenResty, Optidash, ShieldSquare, ThreatX."
+      ]
+    },
+    {
+      "company": "Sonic.com",
+      "dates": "Aug 2018 - Apr 2019",
+      "role": "Programming Project Manager | Santa Rosa, CA",
+      "bullets": [
+        "Moved from tech support to Sonic's first technical project manager, for the Systems Architect, in the Systems Operations Center of a Bay Area gigabit fiber and telecommunications provider.",
+        "Managed the project portfolio in Jira, product specifications in Confluence, and service design in Miro, with Kanban, Scrum, and Gantt.",
+        "Delivered WiFi mesh as a service, direct-debit ACH bank integration, crowd-sourced FCC lobbying, new connection service, e911, and mobile-first member tools."
+      ]
+    },
+    {
+      "company": "California Institute for Regenerative Medicine",
+      "dates": "2014 - 2016",
+      "role": "Drupal & WordPress Webmaster | San Francisco, CA",
+      "bullets": [
+        "Owned the code and database DevOps lifecycle, site building, and content management for a California government biotechnology agency: 6,000+ pages and 15 content types. Defended the agency against Drupageddon."
+      ]
+    },
+    {
+      "company": "Mantra Resorts (via Guerrilla Marketing)",
+      "dates": "2007",
+      "role": "Technical Project Manager | Queensland, Australia",
+      "bullets": [
+        "Owned the full SDLC for zero-to-one hotel chain accommodation ecommerce: requirements, development, production, and operations for 3 domains and 10,000+ pages."
+      ]
+    },
+    {
+      "company": "This Is Not Art / Culture Hunter",
+      "dates": "2004 - 2005",
+      "role": "Project Manager and Webmaster | Australia",
+      "bullets": [
+        "Project manager, developer, and webmaster for cultural events and an online directory."
+      ]
+    },
+    {
+      "company": "News Corp / Nationwide News",
+      "dates": "2000 - 2003",
+      "role": "Webmaster | Sydney, Australia",
+      "bullets": [
+        "Managed multimedia, website publishing, and ecommerce projects with IT, management, creative, marketing, journalists, editors, advertising, and executives.",
+        "Technical web resource for 30 news properties at News Corp headquarters during 9/11 and the Iraq War."
+      ]
+    },
+    {
+      "company": "IT Consultant",
+      "dates": "1998 - 1999",
+      "role": "IT Manager and Web Developer | London",
+      "bullets": [
+        "Gave IT management, web development, Microsoft Office, and Mac support."
+      ]
+    }
+  ],
+  "other": [
+    {
+      "heading": "Civic activism",
+      "text": "Sustainability and cooperatives research in Australia, England, Scotland, Spain, Basque Country, France, Denmark, Sweden, and the USA.",
+      "link": {"text": "youtube.com/permaculturecoop", "url": "https://www.youtube.com/permaculturecoop"}
+    },
+    {
+      "heading": "Education",
+      "text": "Peralta College, Oakland, CA: sustainability, incomplete."
+    }
+  ]
+}
