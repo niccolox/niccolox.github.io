@@ -1,6 +1,7 @@
 """Build articles from reviewed local content; no network access."""
 from pathlib import Path
 from html import escape
+import datetime
 import json
 import math
 import re
@@ -38,7 +39,10 @@ def page(title, description, path, body, canonical=None, post=None):
     }
     if post:
         schema.update({'image': ORIGIN + post['image'], 'wordCount': post['word_count']})
-        schema['isBasedOn'] = post['source']
+        if 'source' in post:
+            schema['isBasedOn'] = post['source']
+        if 'published' in post:
+            schema['datePublished'] = post['published']
     image = f'<meta property="og:image" content="{ORIGIN + post["image"]}">' if post else ''
     return f'''<!doctype html>
 <html lang="en" {HTML_THEME}>
@@ -59,7 +63,7 @@ def page(title, description, path, body, canonical=None, post=None):
   <script src="{asset('theme.js')}"></script>
   <link rel="stylesheet" href="{asset('daisyui.css')}">
   <link rel="stylesheet" href="{asset('styles.css')}">
-  <link rel="stylesheet" href="/assets/writing.css?v=1">
+  <link rel="stylesheet" href="/assets/writing.css?v=2">
   <script src="{asset('site.js')}" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
@@ -75,7 +79,7 @@ def page(title, description, path, body, canonical=None, post=None):
 def article(post, position):
     content = (CONTENT / (post['slug'] + '.html')).read_text()
     # Keep links between imported articles inside this site.
-    for other in POSTS:
+    for other in (p for p in POSTS if 'source' in p):
         content = content.replace('href="' + other['source'] + '"', 'href="' + route(other) + '"')
     headings = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', content, re.S)
     toc = ''
@@ -85,6 +89,14 @@ def article(post, position):
     next_post = POSTS[(position + 1) % len(POSTS)]
     subtitle = f'<p class="article-subtitle">{escape(post["subtitle"])}</p>' if post['subtitle'] else ''
     caption = f'<figcaption>{escape(post["caption"])}</figcaption>' if post['caption'] else ''
+    # New posts carry a publication date; imported posts come from the old blog.
+    if 'published' in post:
+        date = datetime.date.fromisoformat(post['published'])
+        origin = f'<time datetime="{post["published"]}">{date.day} {date:%B %Y}</time>'
+        source_note = 'Written by Nicholas Roberts.'
+    else:
+        origin = 'From the niccolox.com archive'
+        source_note = 'Written by Nicholas Roberts. Preserved from the original niccolox.com blog.'
     body = f'''<main id="main" class="article-main">
 <article>
   <header class="article-header wrap">
@@ -92,13 +104,13 @@ def article(post, position):
     <p class="eyebrow">{escape(post['category'])}</p>
     <h1>{escape(post['title'])}</h1>
     {subtitle}
-    <div class="article-meta"><span>Nicholas (Niccolo) Roberts</span><span>{max(1, math.ceil(post['word_count'] / 220))} min read</span><span>From the niccolox.com archive</span></div>
+    <div class="article-meta"><span>Nicholas (Niccolo) Roberts</span><span>{max(1, math.ceil(post['word_count'] / 220))} min read</span><span>{origin}</span></div>
   </header>
   <figure class="article-image wrap"><img src="{post['image']}" alt="{escape(post['image_alt'], quote=True)}" width="{post['image_width']}" height="{post['image_height']}" fetchpriority="high">{caption}</figure>
   <div class="article-reading">
     {toc}
     <div class="article-prose">{content}</div>
-    <div class="article-source"><p>Written by Nicholas Roberts. Preserved from the original niccolox.com blog.</p></div>
+    <div class="article-source"><p>{source_note}</p></div>
   </div>
 </article>
 <aside class="article-next wrap" aria-label="More writing"><div><p class="eyebrow">KEEP READING</p><a href="{route(next_post)}">{escape(next_post['title'])} <span aria-hidden="true">→</span></a></div><a class="text-link" href="/writing/">Browse all articles →</a></aside>
@@ -126,7 +138,7 @@ def build():
         target = SITE / route(post).strip('/') / 'index.html'
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(article(post, position))
-        source = urlsplit(post['source'])
+        source = urlsplit(post.get('source', ''))
         if source.hostname in {'www.niccolox.com', 'niccolox.com'} and source.path.startswith('/p/'):
             legacy_redirect(source.path, route(post), post['title'])
     for post in MOVED:

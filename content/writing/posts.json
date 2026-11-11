@@ -20,6 +20,21 @@
     "moved_to": "https://cyberpolycrisis.com/library/articles/the-cybersecurity-polycrisis/"
   },
   {
+    "slug": "pascals-ai-wager",
+    "title": "Pascal's AI Wager",
+    "subtitle": "Why small businesses should skip both AI sermons, and what to bet on instead",
+    "category": "THINKING OUT LOUD",
+    "description": "Pascal's method applied to small business AI: three choices, two outcomes, and six guardrails.",
+    "published": "2026-11-11",
+    "image": "/assets/images/writing/pascals-ai-wager.webp",
+    "image_alt": "Decision matrix: three choices (adopt with guardrails, all-in without guardrails, ignore AI) against two outcomes (AI is useful, AI is hype). Only the guardrails row has no hell outcome.",
+    "image_width": 1536,
+    "image_height": 960,
+    "caption": "",
+    "word_count": 1789,
+    "body_text_sha256": "25cdd4d0e73e8bc9ec4fac344344ab6e0e3ec6d1b973e83f932fa513a1d46bd3"
+  },
+  {
     "slug": "362-putting-a-price-on-an-endpoint-x402-on-fastapi-in-detail",
     "title": "Putting a Price on an Endpoint: x402 on FastAPI, in Detail",
     "subtitle": "",

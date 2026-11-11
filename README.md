@@ -68,6 +68,8 @@ The portfolio contains ten project case studies, an introductory overview, and a
 
 Eight historical posts were imported with their published body text, original images, and external references. Local article copies can be edited at the author’s request; update their word counts and reviewed text hashes when doing so. The ecommerce post’s Cloudflare-protected email is restored as a normal email link. Publication dates are omitted because the source pages expose only relative ages. Imported articles retain their source provenance and use their new `www.niccolox.com/writing/` addresses as canonicals. The sitemap includes the homepage, writing index, articles, and service pages. The source text hashes in `posts.json` let the checker detect accidental truncation or changes during generation.
 
+New posts, for example `pascals-ai-wager`, have a `published` date (YYYY-MM-DD) and no `source`. The article shows that date and gets `datePublished` in its structured data. Put new posts first in `posts.json`, because that order sets the writing index, homepage list and menu. After you change the article text, update `word_count` and `body_text_sha256`.
+
 ## Content sources
 
 The site combines Nicholas Roberts's professional resume and portfolio, [blog](https://www.niccolox.com/), and two public engineering projects:
