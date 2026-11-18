@@ -1,0 +1,50 @@
+{
+  "ai-adoption": {
+    "inline": "Is your company starting to use AI? I led a Claude Enterprise rollout for 200 users, with governance and help desk support.",
+    "inline_link": {"text": "Talk to me about a technology leadership role", "action": "leadership"},
+    "eyebrow": "AI ADOPTION",
+    "heading": "Need someone to run your AI rollout?",
+    "body": "At Digital Beverage Group, I led the Claude Enterprise rollout, governance and adoption for a 200-user IT help desk across 20 brands. I am open to hands-on VP, CTO and Director roles where that work connects to revenue.",
+    "primary": {"text": "Discuss a leadership role", "action": "leadership"},
+    "secondary": {"text": "Check your cyber risk on cyberpolycrisis.com", "href": "https://www.cyberpolycrisis.com/"}
+  },
+  "ai-commerce": {
+    "inline": "Is your company deciding when to sell API access to AI agents?",
+    "inline_link": {"text": "Talk to me about a technology leadership role", "action": "leadership"},
+    "eyebrow": "AI COMMERCE",
+    "heading": "Building the commerce side of AI?",
+    "body": "I connect AI, payments and commerce systems to the revenue plan, from the first proof of concept to operations. I am open to hands-on VP, CTO and Director roles.",
+    "primary": {"text": "Discuss a leadership role", "action": "leadership"},
+    "secondary": {"text": "See my AI builder projects", "href": "/#engineering"}
+  },
+  "local-ai": {
+    "inline": "Is your team comparing local models with hosted AI?",
+    "inline_link": {"text": "Talk to me about a technology leadership role", "action": "leadership"},
+    "eyebrow": "APPLIED AI",
+    "heading": "Choosing between local and hosted AI?",
+    "body": "I test models in real builds, and I led a company-wide Claude Enterprise rollout for 200 users. I am open to hands-on VP, CTO and Director roles where engineering choices meet budget and risk.",
+    "primary": {"text": "Discuss a leadership role", "action": "leadership"},
+    "secondary": {"text": "See my code on GitHub", "href": "https://github.com/niccolox"}
+  },
+  "modernization": {
+    "eyebrow": "MODERNIZATION",
+    "heading": "Starting a modernization project?",
+    "body": "I use a short proof of concept to find integration limits and vendor dependencies before the full roadmap starts. I am open to hands-on VP, CTO and Director roles.",
+    "primary": {"text": "Discuss a leadership role", "action": "leadership"},
+    "secondary": {"text": "Read the case studies", "href": "/portfolio/"}
+  },
+  "customer-success": {
+    "eyebrow": "CUSTOMER SUCCESS",
+    "heading": "Need to keep clients through a hard market?",
+    "body": "At Datava, I led 10 engineers delivering professional services for 15 financial-institution clients with $2M ARR. I am open to hands-on VP, CTO and Director roles.",
+    "primary": {"text": "Discuss a leadership role", "action": "leadership"},
+    "secondary": {"text": "Read the Datava case study", "href": "/portfolio/datava-customer-success/"}
+  },
+  "shopify": {
+    "eyebrow": "SHOPIFY MIGRATION",
+    "heading": "Planning a move to Shopify?",
+    "body": "I migrated 2 million historical orders, with $150M in order value, to Shopify Plus and Linnworks without stopping trade. I move orders, customers, catalogs and redirects from Magento and WooCommerce.",
+    "primary": {"text": "Ask about a Shopify migration", "action": "shopify"},
+    "secondary": {"text": "See the Magento to Shopify service", "href": "/services/magento-to-shopify/"}
+  }
+}

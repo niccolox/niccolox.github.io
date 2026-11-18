@@ -5,7 +5,7 @@ import datetime
 import json
 import math
 import re
-from urllib.parse import urlsplit
+from urllib.parse import quote, urlsplit
 
 from site_nav import HTML_THEME, THEME_COLOR, asset, site_header
 
@@ -17,6 +17,38 @@ POSTS = [post for post in ENTRIES if 'moved_to' not in post]
 # Articles now published elsewhere keep a redirect at their old address.
 MOVED = [post for post in ENTRIES if 'moved_to' in post]
 ORIGIN = 'https://www.niccolox.com'
+CTAS = json.loads((CONTENT / 'ctas.json').read_text())
+EMAIL = 'niccolox@devekko.com'
+# Prefilled emails. The subject names the article so replies show their source.
+MAILTO = {
+    'leadership': ('Leadership role conversation', "Hi Nicholas,\n\nI'd like to talk about a technology leadership role.\n\nCompany: \nRole and level: \nLocation or remote: \nWhat the role needs to change in the first year: \n"),
+    'shopify': ('Shopify migration enquiry', "Hi Nicholas,\n\nI'd like to discuss moving our store to Shopify.\n\nStore URL: \nCurrent platform and version: \nCatalog size and order volume: \nKey integrations: \nTarget launch date: \n"),
+}
+
+
+def cta_href(target, post):
+    if 'href' in target:
+        return target['href']
+    subject, body = MAILTO[target['action']]
+    return f"mailto:{EMAIL}?subject={quote(subject + ' (re: ' + post['title'] + ')')}&body={quote(body)}"
+
+
+def cta_link(target, post, css):
+    external = target.get('href', '').startswith('https://')
+    arrow = '↗' if external or 'action' in target else '→'
+    return f'<a class="{css}" href="{escape(cta_href(target, post), quote=True)}">{escape(target["text"])} <span aria-hidden="true">{arrow}</span></a>'
+
+
+def cta_inline(post):
+    cta = CTAS[post['cta']]
+    if 'inline' not in cta:
+        return ''
+    return f'<aside class="article-cta article-cta-inline" aria-label="Work with Nicholas"><p>{escape(cta["inline"])} {cta_link(cta["inline_link"], post, "article-cta-link")}</p></aside>'
+
+
+def cta_panel(post):
+    cta = CTAS[post['cta']]
+    return f'''<aside class="article-cta article-cta-panel" aria-labelledby="cta-heading"><p class="eyebrow">{escape(cta['eyebrow'])}</p><h2 id="cta-heading">{escape(cta['heading'])}</h2><p>{escape(cta['body'])}</p><div class="article-cta-actions">{cta_link(cta['primary'], post, 'button primary')}{cta_link(cta['secondary'], post, 'text-link')}</div></aside>'''
 
 
 FOOTER = '''<footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>'''
@@ -63,7 +95,7 @@ def page(title, description, path, body, canonical=None, post=None):
   <script src="{asset('theme.js')}"></script>
   <link rel="stylesheet" href="{asset('daisyui.css')}">
   <link rel="stylesheet" href="{asset('styles.css')}">
-  <link rel="stylesheet" href="/assets/writing.css?v=2">
+  <link rel="stylesheet" href="/assets/writing.css?v=3">
   <script src="{asset('site.js')}" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
@@ -82,6 +114,10 @@ def article(post, position):
     for other in (p for p in POSTS if 'source' in p):
         content = content.replace('href="' + other['source'] + '"', 'href="' + route(other) + '"')
     headings = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', content, re.S)
+    # Put a short call to action before the middle section of long articles.
+    if len(headings) >= 4:
+        middle = '<h2 id="' + headings[len(headings) // 2][0] + '">'
+        content = content.replace(middle, cta_inline(post) + middle, 1)
     toc = ''
     if len(headings) > 2:
         items = ''.join(f'<li><a href="#{ident}">{label.strip()}</a></li>' for ident, label in headings)
@@ -110,6 +146,7 @@ def article(post, position):
   <div class="article-reading">
     {toc}
     <div class="article-prose">{content}</div>
+    {cta_panel(post)}
     <div class="article-source"><p>{source_note}</p></div>
   </div>
 </article>

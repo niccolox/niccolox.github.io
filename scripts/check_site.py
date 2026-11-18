@@ -19,6 +19,7 @@ class Page(HTMLParser):
         self.json_blocks = []
         self.body_depth = 0
         self.body_text = []
+        self.in_cta = False
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -36,6 +37,9 @@ class Page(HTMLParser):
         if tag == 'script' and a.get('type') == 'application/ld+json':
             self.capture_json = True
             self.json_blocks.append('')
+        # Calls to action are generated, not part of the reviewed article text.
+        if tag == 'aside' and 'article-cta' in a.get('class', '').split():
+            self.in_cta = True
         if tag == 'div' and (self.body_depth or {'article-prose', 'feature-content'}.intersection(a.get('class', '').split())):
             self.body_depth += 1
         if self.body_depth and (tag in {'script','iframe','form','object','embed'} or any(k.startswith('on') for k in a)):
@@ -44,12 +48,14 @@ class Page(HTMLParser):
     def handle_data(self, data):
         if self.capture_json:
             self.json_blocks[-1] += data
-        if self.body_depth:
+        if self.body_depth and not self.in_cta:
             self.body_text.append(data)
 
     def handle_endtag(self, tag):
         if tag == 'script':
             self.capture_json = False
+        if tag == 'aside':
+            self.in_cta = False
         if tag == 'div' and self.body_depth:
             self.body_depth -= 1
 

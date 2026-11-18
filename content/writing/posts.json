@@ -32,7 +32,8 @@
     "image_height": 960,
     "caption": "",
     "word_count": 1789,
-    "body_text_sha256": "25cdd4d0e73e8bc9ec4fac344344ab6e0e3ec6d1b973e83f932fa513a1d46bd3"
+    "body_text_sha256": "25cdd4d0e73e8bc9ec4fac344344ab6e0e3ec6d1b973e83f932fa513a1d46bd3",
+    "cta": "ai-adoption"
   },
   {
     "slug": "362-putting-a-price-on-an-endpoint-x402-on-fastapi-in-detail",
@@ -48,7 +49,8 @@
     "image_height": 1536,
     "caption": "",
     "word_count": 1991,
-    "body_text_sha256": "73fb8e689609f37f66bf2c64b498608c3b5c6f965ce251264c4b11ee54a2fbb8"
+    "body_text_sha256": "73fb8e689609f37f66bf2c64b498608c3b5c6f965ce251264c4b11ee54a2fbb8",
+    "cta": "ai-commerce"
   },
   {
     "slug": "361-status-402-payment-required",
@@ -64,7 +66,8 @@
     "image_height": 1536,
     "caption": "Agentic Commerce, Stablecoins and Status 402",
     "word_count": 1716,
-    "body_text_sha256": "fd5de3d8202305023aedfe2f42dd60af0d4941f0c99ef15785b1e2c169f4c81b"
+    "body_text_sha256": "fd5de3d8202305023aedfe2f42dd60af0d4941f0c99ef15785b1e2c169f4c81b",
+    "cta": "ai-commerce"
   },
   {
     "slug": "355-making-an-ollama-model-release-with-sky-t1-flash-for-cline",
@@ -80,7 +83,8 @@
     "image_height": 768,
     "caption": "Lots of hype about LLM, lets learn how to actually build them.",
     "word_count": 384,
-    "body_text_sha256": "00c633a544923c73a7ccb19ff78437a2ff8bfe955bbeac88f0258c4cb2a479cd"
+    "body_text_sha256": "00c633a544923c73a7ccb19ff78437a2ff8bfe955bbeac88f0258c4cb2a479cd",
+    "cta": "local-ai"
   },
   {
     "slug": "332-the-spike-and-the-steel-thread",
@@ -96,7 +100,8 @@
     "image_height": 500,
     "caption": "",
     "word_count": 643,
-    "body_text_sha256": "19fdc4c881fc8b808a447fdd521d4f1e109ecc8a4432b769acae110873ee4e65"
+    "body_text_sha256": "19fdc4c881fc8b808a447fdd521d4f1e109ecc8a4432b769acae110873ee4e65",
+    "cta": "modernization"
   },
   {
     "slug": "334-acquiring-growth-with-counter-cyclical-customer-success",
@@ -112,7 +117,8 @@
     "image_height": 500,
     "caption": "",
     "word_count": 410,
-    "body_text_sha256": "6f16209a0d1814a801950330cacfa6c90b271bf4ee138ba865e404cc3f3cbdc4"
+    "body_text_sha256": "6f16209a0d1814a801950330cacfa6c90b271bf4ee138ba865e404cc3f3cbdc4",
+    "cta": "customer-success"
   },
   {
     "slug": "43-successful-ecommerce-projects",
@@ -128,7 +134,8 @@
     "image_height": 500,
     "caption": "",
     "word_count": 501,
-    "body_text_sha256": "f538678d44b1db92a5e6b0af175cf294b26ad7268f0d155bd5fa94a91dd5b527"
+    "body_text_sha256": "f538678d44b1db92a5e6b0af175cf294b26ad7268f0d155bd5fa94a91dd5b527",
+    "cta": "shopify"
   },
   {
     "slug": "44-agile-and-waterfall-myths-and-realities",
@@ -144,7 +151,8 @@
     "image_height": 500,
     "caption": "",
     "word_count": 141,
-    "body_text_sha256": "a4380db99d92e3cb98c0363250610079ed19f3c295f816db4bf77a553cbfd976"
+    "body_text_sha256": "a4380db99d92e3cb98c0363250610079ed19f3c295f816db4bf77a553cbfd976",
+    "cta": "modernization"
   },
   {
     "slug": "352-cursor-codegpt-and-deepseek-r1-ollama-gpu-in-docker-on-ubuntu-24",
@@ -160,6 +168,7 @@
     "image_height": 500,
     "caption": "",
     "word_count": 1259,
-    "body_text_sha256": "6cbb5d3707ced4ef7f93025da19ee497adb4ae88d888abb7bf0eff16d94529fa"
+    "body_text_sha256": "6cbb5d3707ced4ef7f93025da19ee497adb4ae88d888abb7bf0eff16d94529fa",
+    "cta": "local-ai"
   }
 ]

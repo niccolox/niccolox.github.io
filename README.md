@@ -70,6 +70,8 @@ Eight historical posts were imported with their published body text, original im
 
 New posts, for example `pascals-ai-wager`, have a `published` date (YYYY-MM-DD) and no `source`. The article shows that date and gets `datePublished` in its structured data. Put new posts first in `posts.json`, because that order sets the writing index, homepage list and menu. After you change the article text, update `word_count` and `body_text_sha256`.
 
+Each post has a `cta` key that selects one entry in `content/writing/ctas.json`. The writing build adds that entry as a panel after the article. In articles with 4 or more sections, it also adds a short line before the middle section, if the entry has `inline` text. Email links include the article title in the subject. The checker leaves `aside.article-cta` text out of the article text hash, so you can change the call-to-action copy without changing any hashes.
+
 ## Content sources
 
 The site combines Nicholas Roberts's professional resume and portfolio, [blog](https://www.niccolox.com/), and two public engineering projects:
