@@ -4,16 +4,35 @@
   "focus": "Tech Operations | Products & Programs | Full-Stack Engineer | Customer Success | AI, ML, and Data",
   "statement": "I lead cross-functional product teams. I build products that customers buy and people love.",
   "contact": [
-    {"text": "San Francisco Bay Area, CA"},
-    {"text": "510-684-8264"},
-    {"text": "niccolox@devekko.com", "url": "mailto:niccolox@devekko.com"},
-    {"text": "niccolox.com", "url": "https://www.niccolox.com/"},
-    {"text": "LinkedIn", "url": "https://www.linkedin.com/in/niccolo/"},
-    {"text": "GitHub", "url": "https://github.com/niccolox"},
-    {"text": "X", "url": "https://x.com/niccolox"}
+    {
+      "text": "San Francisco Bay Area, CA"
+    },
+    {
+      "text": "510-684-8264"
+    },
+    {
+      "text": "niccolox@devekko.com",
+      "url": "mailto:niccolox@devekko.com"
+    },
+    {
+      "text": "niccolox.com",
+      "url": "https://www.niccolox.com/"
+    },
+    {
+      "text": "LinkedIn",
+      "url": "https://www.linkedin.com/in/niccolo/"
+    },
+    {
+      "text": "GitHub",
+      "url": "https://github.com/niccolox"
+    },
+    {
+      "text": "X",
+      "url": "https://x.com/niccolox"
+    }
   ],
   "summary": [
-    "Director of Technology & Operations, Napa, CA: $150M ARR wine ecommerce group. Claude, Shopify, Linnworks, Klaviyo, Python.",
+    "Director of Technology & Operations, Napa Valley, CA: multi-brand wine ecommerce group. Claude, Shopify, Python.",
     "Customer Success Manager, Datava: $2M ARR professional services and 10 engineers for data and AI banking SaaS.",
     "Customer Success Engineer, Section.io: AI web (CDN) and security (WAF, bot) multi-sided platform for customers such as Toyota, Lexus, BoxyCharm, BigCommerce, and Coles."
   ],
@@ -32,20 +51,20 @@
       ]
     },
     {
-      "company": "Digital Beverage Group / New Last Bottle, Inc.",
+      "company": "Multi-brand wine ecommerce group",
       "dates": "Feb 2025 - Oct 2026",
-      "role": "Director of Technology & Operations, Aug 2025 - Oct 2026 | Previously Ecommerce Systems Administrator, Feb - Aug 2025 | Napa, CA (hybrid)",
+      "role": "Director of Technology & Operations, Aug 2025 - Oct 2026 | Previously Ecommerce Systems Administrator, Feb - Aug 2025 | Napa Valley, CA (hybrid)",
       "bullets": [
-        "Supported 40% group-wide top-line growth with Claude, Jupyter, Fabric, and cross-functional servant leadership across warehouse, growth, data, marketing, and customer teams.",
-        "Modernized a $100M ARR legacy wine ecommerce site to Shopify Plus and Linnworks WMS in a $150M ARR group.",
-        "Migrated 2 million historical orders, with $150 million in order value, and customer and product data.",
-        "Managed product for 2 Shopify Plus launches and 2 React Native ecommerce apps.",
-        "Managed technology for 20 ecommerce brands, 35,000 SKUs, 200 metafields, and 7 business models: flash sale, shoppable, daily drop, private sales, auctions, club subscription boxes, and chat commerce.",
-        "Operated 5 Google Workspaces, Microsoft 365, Claude Enterprise, Palantir, and a 200-user IT help desk.",
-        "Managed 4 vendor teams for web, app, middleware, and customizations in 3 time zones.",
-        "Hired and onboarded managers, administrators, and future executives. Built a team of 5 direct reports.",
+        "Supported strong double-digit group-wide top-line growth with Claude, Jupyter, and cross-functional servant leadership across warehouse, growth, data, marketing, and customer teams.",
+        "Modernized the legacy wine ecommerce platform to Shopify Plus and a cloud warehouse management system, without a pause in trade.",
+        "Migrated millions of historical orders, with customer and product data, in Python and Pandas.",
+        "Managed product for Shopify Plus launches and React Native ecommerce apps.",
+        "Managed technology for a portfolio of ecommerce brands, tens of thousands of SKUs, and several sales models, from flash sales to subscriptions and chat commerce.",
+        "Operated the workplace suites, Claude Enterprise, analytics platforms, and a company-wide IT help desk.",
+        "Managed several vendor teams for web, app, middleware, and customizations across time zones.",
+        "Hired and onboarded managers, administrators, and future executives. Built a team of direct reports.",
         "Built prototype internal tools for integrations, workflows, dashboards, and operational health with Claude Enterprise.",
-        "Tools: Claude, Jev, FastAPI, Supabase, Python, Jupyter, SQL, Retool, AfterShip, Microsoft Fabric, Azure, Power BI, Palantir Foundry, NetSuite, Datadog, PostHog, Cloudflare."
+        "Tools: Claude, FastAPI, Supabase, Python, Jupyter, SQL, Azure, Cloudflare, Datadog, PostHog, and enterprise ERP and analytics platforms."
       ]
     },
     {
@@ -142,7 +161,10 @@
     {
       "heading": "Civic activism",
       "text": "Sustainability and cooperatives research in Australia, England, Scotland, Spain, Basque Country, France, Denmark, Sweden, and the USA.",
-      "link": {"text": "youtube.com/permaculturecoop", "url": "https://www.youtube.com/permaculturecoop"}
+      "link": {
+        "text": "youtube.com/permaculturecoop",
+        "url": "https://www.youtube.com/permaculturecoop"
+      }
     },
     {
       "heading": "Education",

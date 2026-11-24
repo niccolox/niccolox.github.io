@@ -394,3 +394,8 @@
   .resume-home .path-actions .button { width: 100%; justify-content: space-between; }
 }
 .resume-home .hero-route a { display: inline; min-height: 0; padding: 0; }
+
+/* Word values in the impact row, in place of figures. */
+.stat > strong.stat-word { font-size: clamp(30px, 3vw, 42px); line-height: 1.15; overflow-wrap: anywhere; }
+.brand-list li > div { padding-block: 18px; }
+.resume-home .brand-list li > div { padding-block: 20px; }

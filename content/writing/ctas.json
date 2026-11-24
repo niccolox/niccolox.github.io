@@ -1,13 +1,13 @@
 {
   "ai-adoption": {
-    "inline": "Is your company starting to use AI? I led a Claude Enterprise rollout for 200 users, with governance and help desk support.",
+    "inline": "Is your company starting to use AI? I led a company-wide Claude Enterprise rollout, with governance and help desk support.",
     "inline_link": {
       "text": "Talk to me about a technology leadership role",
       "action": "leadership"
     },
     "eyebrow": "AI ADOPTION",
     "heading": "Need someone to run your AI rollout?",
-    "body": "At Digital Beverage Group, I led the Claude Enterprise rollout, governance and adoption for a 200-user IT help desk across 20 brands. I am open to hands-on VP, CTO and Director roles where that work connects to revenue.",
+    "body": "At a multi-brand wine ecommerce group, I led the company-wide Claude Enterprise rollout, with governance and adoption. I am open to hands-on VP, CTO and Director roles where that work connects to revenue.",
     "primary": {
       "text": "Discuss a leadership role",
       "action": "leadership"
@@ -43,7 +43,7 @@
     },
     "eyebrow": "APPLIED AI",
     "heading": "Choosing between local and hosted AI?",
-    "body": "I test models in real builds, and I led a company-wide Claude Enterprise rollout for 200 users. I am open to hands-on VP, CTO and Director roles where engineering choices meet budget and risk.",
+    "body": "I test models in real builds, and I led a company-wide Claude Enterprise rollout. I am open to hands-on VP, CTO and Director roles where engineering choices meet budget and risk.",
     "primary": {
       "text": "Discuss a leadership role",
       "action": "leadership"
@@ -82,7 +82,7 @@
   "shopify": {
     "eyebrow": "SHOPIFY MIGRATION",
     "heading": "Planning a move to Shopify?",
-    "body": "I migrated 2 million historical orders, with $150M in order value, to Shopify Plus and Linnworks without stopping trade. I move orders, customers, catalogs and redirects from Magento and WooCommerce.",
+    "body": "I migrated millions of historical orders to Shopify Plus and a cloud warehouse system without stopping trade. I move orders, customers, catalogs and redirects from Magento and WooCommerce.",
     "primary": {
       "text": "Ask about a Shopify migration",
       "action": "shopify"
@@ -100,14 +100,14 @@
     },
     "eyebrow": "STARTUP TO SCALE-UP",
     "heading": "Is your company in the overlap zone?",
-    "body": "At Digital Beverage Group, I moved the core commerce platform to Shopify Plus and Linnworks without a pause in trade, and built the team, data and vendor structure for a portfolio of brands. I am open to hands-on VP, CTO and Director roles.",
+    "body": "At a multi-brand wine ecommerce group, I moved the core commerce platform to Shopify Plus without a pause in trade, and built the team, data and vendor structure for a portfolio of brands. I am open to hands-on VP, CTO and Director roles.",
     "primary": {
       "text": "Discuss a leadership role",
       "action": "leadership"
     },
     "secondary": {
-      "text": "Read the Digital Beverage Group case study",
-      "href": "/portfolio/digital-beverage-group/"
+      "text": "Read the wine ecommerce case study",
+      "href": "/portfolio/wine-ecommerce-modernization/"
     }
   }
 }

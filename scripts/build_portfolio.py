@@ -3,7 +3,9 @@ from html import escape
 from pathlib import Path
 import json
 
-from build_writing import FOOTER, ORIGIN
+from build_writing import FOOTER, ORIGIN, legacy_redirect
+
+RENAMED = {'digital-beverage-group': 'wine-ecommerce-modernization'}
 from site_nav import HTML_THEME, THEME_COLOR, asset, site_header
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -200,6 +202,9 @@ def build():
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(case_page(case, position))
     (SITE / 'portfolio/index.html').write_text(index_page())
+    # Old addresses that named a company now redirect to the generic case study.
+    for old, new in RENAMED.items():
+        legacy_redirect(f'/portfolio/{old}/', f'/portfolio/{new}/', 'Case study moved', 'This case study has a new address.', 'Continue to the case study.')
     print(f'Built {len(CASES)} portfolio pages and their index.')
 
 
