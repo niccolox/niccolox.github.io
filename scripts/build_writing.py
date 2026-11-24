@@ -7,7 +7,7 @@ import math
 import re
 from urllib.parse import quote, urlsplit
 
-from site_nav import HTML_THEME, THEME_COLOR, asset, site_header
+from site_nav import HTML_THEME, THEME_COLOR, asset, author_box, author_card, site_header
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'site'
@@ -51,7 +51,8 @@ def cta_panel(post):
     return f'''<aside class="article-cta article-cta-panel" aria-labelledby="cta-heading"><p class="eyebrow">{escape(cta['eyebrow'])}</p><h2 id="cta-heading">{escape(cta['heading'])}</h2><p>{escape(cta['body'])}</p><div class="article-cta-actions">{cta_link(cta['primary'], post, 'button primary')}{cta_link(cta['secondary'], post, 'text-link')}</div></aside>'''
 
 
-FOOTER = '''<footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>'''
+FOOTER = author_box() + '''
+<footer class="site-footer"><div class="wrap"><span>© <span id="year">2026</span> Nicholas Roberts</span><span>San Francisco Bay Area · Built with AI</span><a href="#top">Back to top ↑</a></div></footer>'''
 
 
 def route(post):
@@ -95,7 +96,7 @@ def page(title, description, path, body, canonical=None, post=None):
   <script src="{asset('theme.js')}"></script>
   <link rel="stylesheet" href="{asset('daisyui.css')}">
   <link rel="stylesheet" href="{asset('styles.css')}">
-  <link rel="stylesheet" href="/assets/writing.css?v=3">
+  <link rel="stylesheet" href="/assets/writing.css?v=6">
   <script src="{asset('site.js')}" defer></script>
   <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False).replace('<', chr(92) + 'u003c')}</script>
 </head>
@@ -129,25 +130,28 @@ def article(post, position):
     if 'published' in post:
         date = datetime.date.fromisoformat(post['published'])
         origin = f'<time datetime="{post["published"]}">{date.day} {date:%B %Y}</time>'
-        source_note = 'Written by Nicholas Roberts.'
+        source_note = ''
     else:
         origin = 'From the niccolox.com archive'
-        source_note = 'Written by Nicholas Roberts. Preserved from the original niccolox.com blog.'
+        source_note = 'Preserved from the original niccolox.com blog.'
     body = f'''<main id="main" class="article-main">
 <article>
-  <header class="article-header wrap">
+  <header class="article-header article-header-author wrap">
+    <div class="article-header-copy">
     <a class="article-back" href="/writing/">← All writing</a>
     <p class="eyebrow">{escape(post['category'])}</p>
     <h1>{escape(post['title'])}</h1>
     {subtitle}
-    <div class="article-meta"><span>Nicholas (Niccolo) Roberts</span><span>{max(1, math.ceil(post['word_count'] / 220))} min read</span><span>{origin}</span></div>
+    <div class="article-meta"><span>{max(1, math.ceil(post['word_count'] / 220))} min read</span><span>{origin}</span></div>
+    </div>
+    {author_card(escape(cta_href({"action": "leadership"}, post), quote=True))}
   </header>
   <figure class="article-image wrap"><img src="{post['image']}" alt="{escape(post['image_alt'], quote=True)}" width="{post['image_width']}" height="{post['image_height']}" fetchpriority="high">{caption}</figure>
   <div class="article-reading">
     {toc}
     <div class="article-prose">{content}</div>
     {cta_panel(post)}
-    <div class="article-source"><p>{source_note}</p></div>
+    {f'<div class="article-source"><p>{source_note}</p></div>' if source_note else ''}
   </div>
 </article>
 <aside class="article-next wrap" aria-label="More writing"><div><p class="eyebrow">KEEP READING</p><a href="{route(next_post)}">{escape(next_post['title'])} <span aria-hidden="true">→</span></a></div><a class="text-link" href="/writing/">Browse all articles →</a></aside>

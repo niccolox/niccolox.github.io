@@ -132,3 +132,6 @@
    button text; Business's primary is too dark for text on its near-black base. */
 [data-theme="corporate"] { --color-primary: oklch(50% .15 245); }
 [data-theme="business"] { --accent: oklch(78% .1 240); }
+.author-box{border-top:1px solid var(--line)}.author-box-inner{display:flex;gap:28px;align-items:center;padding-block:36px}.author-box img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex-shrink:0;border:1px solid var(--line)}.author-box-name{font:22px/1.3 var(--serif);margin:0 0 6px}.author-box-name a:hover{color:var(--accent)}.author-box-line{font-size:16px;line-height:1.6;color:var(--muted);margin:0 0 12px;max-width:640px}.author-box-links{display:flex;flex-wrap:wrap;gap:8px 24px;list-style:none;margin:0;padding:0;font-size:14px}.author-box-links a{text-decoration:underline;text-underline-offset:4px}.author-box-links a:hover{color:var(--accent)}
+@media(max-width:540px){.author-box-inner{align-items:flex-start;gap:18px;padding-block:28px}.author-box img{width:72px;height:72px}.author-box-name{font-size:20px}.author-box-line{font-size:15px}}
+@media print{.author-box{display:none}}

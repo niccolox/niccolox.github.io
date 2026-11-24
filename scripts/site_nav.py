@@ -86,7 +86,24 @@ def site_header(current=''):
 </div></header>'''
 
 # Bump a version when its shared asset changes; every page reads these.
-ASSET_VERSIONS = {'theme.js': 4, 'daisyui.css': 15, 'styles.css': 9, 'site.js': 5}
+ASSET_VERSIONS = {'theme.js': 4, 'daisyui.css': 15, 'styles.css': 11, 'site.js': 5}
+
+AUTHOR_LINKS = [
+    ('https://devekko.dev', 'devekko.dev'),
+    ('https://republic.dev', 'republic.dev'),
+    ('https://www.linkedin.com/in/niccolo/', 'LinkedIn'),
+]
+
+
+def author_card(action_href):
+    """Return the byline column beside an article title: photo, role and one action."""
+    return f'''<aside class="author-card" aria-label="About the author"><img src="/assets/images/nicholas-roberts-white-jacket.jpg" alt="Nicholas Roberts wearing a cream jacket and a blue shirt" width="800" height="800" fetchpriority="high"><div class="author-card-copy"><p class="author-card-name"><a href="/">Nicholas (Niccolo) Roberts</a></p><p class="author-card-role">Director of Technology &amp; Operations. I build products that customers buy and people love, and lead the teams that ship them.</p><p class="author-card-actions"><a class="author-card-primary" href="{action_href}">Discuss a leadership role{EXTERNAL}</a><a href="https://www.linkedin.com/in/niccolo/">LinkedIn{EXTERNAL}</a></p></div></aside>'''
+
+
+def author_box():
+    """Return the author box that sits above the footer on every page."""
+    links = ''.join(f'<li><a href="{href}">{label}{EXTERNAL}</a></li>' for href, label in AUTHOR_LINKS)
+    return f'''<aside class="author-box" aria-label="About Nicholas Roberts"><div class="wrap author-box-inner"><img src="/assets/images/nicholas-roberts-blue-jacket.jpg" alt="Nicholas Roberts wearing a navy blue jacket" width="400" height="400" loading="lazy" decoding="async"><div><p class="author-box-name"><a href="/">Nicholas (Niccolo) Roberts</a></p><p class="author-box-line">I build products that customers buy and people love, and lead the teams that ship them.</p><ul class="author-box-links">{links}</ul></div></div></aside>'''
 
 
 def asset(name):

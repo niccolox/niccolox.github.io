@@ -20,6 +20,22 @@
     "moved_to": "https://cyberpolycrisis.com/library/articles/the-cybersecurity-polycrisis/"
   },
   {
+    "slug": "startup-to-scale-up",
+    "title": "Startup to Scale-Up: Lessons from Last Bottle Wines",
+    "subtitle": "How to keep startup speed while you build the systems you need to scale",
+    "category": "LEADERSHIP",
+    "description": "The overlap between startup and scale-up, and what it took at a multi-brand wine ecommerce group.",
+    "published": "2026-11-24",
+    "image": "/assets/images/writing/startup-to-scale-up.webp",
+    "image_alt": "Diagram of the overlap between startup mode, which searches for what works, and scale-up mode, which repeats it. Startup keeps speed over process, founder-led selling, and thin builds with fast tests. The overlap needs both: fit found but not yet proven, a first repeatable channel, and systems before headcount. Scale-up adds platforms and data, managers and budgets, and unit economics and SLAs.",
+    "image_width": 1266,
+    "image_height": 754,
+    "caption": "",
+    "word_count": 931,
+    "body_text_sha256": "36fdb1a1c32587c47f3c065497d4639445f43050fb65e99941fc8d892e6c5783",
+    "cta": "scale-up"
+  },
+  {
     "slug": "pascals-ai-wager",
     "title": "Pascal's AI Wager",
     "subtitle": "Why small businesses should skip both AI sermons, and what to bet on instead",

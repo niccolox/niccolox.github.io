@@ -34,6 +34,7 @@ GitHub's [custom workflow documentation](https://docs.github.com/en/pages/gettin
 - `site/assets/migration.css`: service-page typography and component refinements.
 - `site/assets/styles.css`: layout, responsive behavior, color, and print styles.
 - `scripts/site_nav.py`: the shared header, a daisyUI megamenu (Work, Services, Writing, About) built from `cases.json` and `posts.json`, plus the theme name and shared asset versions. Bump a version in `ASSET_VERSIONS` when its file changes.
+- `scripts/site_nav.py` › `author_box()`: the author box above the footer on every page (photo, one-line statement, and links to devekko.dev, republic.dev and LinkedIn). Change it there, then run the portfolio, writing and chrome builds.
 - `scripts/build_chrome.py`: applies that header, the theme and asset versions to the hand-written pages (homepage, service pages, 404). The writing and portfolio builders call `site_header()` directly.
 - `site/assets/site.js`: closes the menu after a link is chosen, current year, and printing.
 - `site/assets/theme.js`: saved Nord/Night preference and theme-controller state.
